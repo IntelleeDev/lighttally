@@ -1,0 +1,8 @@
+{
+  "name": "Lighttally",
+  "app_id": "6393c556",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
