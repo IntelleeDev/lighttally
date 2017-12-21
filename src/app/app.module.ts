@@ -3,17 +3,33 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { RoomPage } from '../pages/room/room';
+import { SignInPage } from '../pages/sign-in/sign-in';
+import { SignUpPage } from '../pages/sign-up/sign-up';
+import { DashboardPage } from '../pages/dashboard/dashboard';
+import { MyProfilePage } from '../pages/my-profile/my-profile';
+import { LocationInfoPage } from '../pages/location-info/location-info';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { ReplacementComponent } from '../components/replacement/replacement';
+import { GeneralInfoComponent } from '../components/general-info/general-info';
+import { ExistingLightComponent } from '../components/existing-light/existing-light';
+import { ComponentsModule } from '../components/components.module';
+
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage
+    RoomPage,
+    SignInPage,
+    SignUpPage,
+    DashboardPage,
+    MyProfilePage,
+    LocationInfoPage,
+    ReplacementComponent,
+    GeneralInfoComponent,
+    ExistingLightComponent
   ],
   imports: [
     BrowserModule,
@@ -22,8 +38,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage
+    RoomPage,
+    SignInPage,
+    SignUpPage,
+    DashboardPage,
+    MyProfilePage,
+    LocationInfoPage,
+    ReplacementComponent,
+    GeneralInfoComponent,
+    ExistingLightComponent
   ],
   providers: [
     StatusBar,
