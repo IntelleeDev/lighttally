@@ -2,11 +2,11 @@
   <div padding>
     <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input type="text" placeholder="Email"></ion-input>
+      <ion-input [(ngModel)]="email" type="text" placeholder="Email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password" placehloder="password"></ion-input>
+      <ion-input [(ngModel)]="password" type="password" placehloder="password"></ion-input>
     </ion-item>
 
     <div>
@@ -14,7 +14,7 @@
     </div>
     <div>
       <span>Don't have an account?</span>
-      <span ion-text color="primary" (click)="toSignUpPage()">SignUp</span>
+      <span ion-text color="primary" (click)="authenticateUser()">SignUp</span>
     </div>
   </div>
 </ion-content>
