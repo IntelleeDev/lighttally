@@ -15,28 +15,42 @@
   <!-- Form -->
   <ion-list>
     <ion-item>
-      <ion-label floating>Business name</ion-label>
+      <ion-label floating>Business Name</ion-label>
       <ion-input type="text" value=""></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Business name</ion-label>
+      <ion-label floating>Full Address with Zipcode</ion-label>
       <ion-input type="text" value=""></ion-input>
     </ion-item>
     <ion-item>
-        <ion-label floating>Business name</ion-label>
-        <ion-input type="text" value=""></ion-input>
+      <ion-label floating>Utility Company</ion-label>
+      <ion-select>
+        <ion-option>PHCN</ion-option>
+      </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label floating>Business name</ion-label>
+      <ion-label floating>Building Type</ion-label>
+      <ion-select>
+        <ion-option>Skycraper</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Working Hours</ion-label>
+      <ion-select>
+        <ion-option></ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Contact Person</ion-label>
       <ion-input type="text" value=""></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Business name</ion-label>
+      <ion-label floating>Contact Person Phone No</ion-label>
       <ion-input type="text" value=""></ion-input>
     </ion-item>
     <ion-item>
-        <ion-label floating>Enter date</ion-label>
-        <ion-input type="date" value=""></ion-input>
+        <ion-label floating>Select Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
     </ion-item>
   </ion-list>
 

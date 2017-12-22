@@ -7,30 +7,11 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-segment [(ngModel)]="icons" color="secondary">
-    <ion-segment-button value="general" (click)="goToSlide(0)">
-      General info
-    </ion-segment-button>
-    <ion-segment-button value="light" (click)="goToSlide(1)">
-      Existing light
-    </ion-segment-button>
-    <ion-segment-button value="replacement" (click)="goToSlide(2)">
-      Replacement
-    </ion-segment-button>
-  </ion-segment>
-
-
-  <ion-slides>
-    <ion-slide>
-      <general-info></general-info>
-    </ion-slide>
-    <ion-slide>
-      <existing-light></existing-light>
-    </ion-slide>
-    <ion-slide>
-      <replacement></replacement>
-    </ion-slide>
-  </ion-slides>
-
+  
+<ion-content>
+  <ion-tabs>
+    <ion-tab [root]="general"></ion-tab>
+    <ion-tab [root]="existingLight"></ion-tab>
+    <ion-tab [root]="replacement"></ion-tab>
+  </ion-tabs>
 </ion-content>
