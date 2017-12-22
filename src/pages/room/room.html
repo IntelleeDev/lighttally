@@ -9,9 +9,26 @@
 
   
 <ion-content>
-  <ion-tabs>
-    <ion-tab [root]="general">General Info</ion-tab>
-    <ion-tab [root]="existingLight">Existing Light</ion-tab>
-    <ion-tab [root]="replacement">Replacement</ion-tab>
-  </ion-tabs>
+  <div padding>
+    <!-- Tab buttons -->
+    <ion-segment>
+      <ion-segment-button (ionSelect)="toToSlide(1)">General Info</ion-segment-button>
+      <ion-segment-button (ionSelect)="toToSlide(1)">Existing Lights</ion-segment-button>
+      <ion-segment-button (ionSelect)="toToSlide(1)">Replacement</ion-segment-button>
+    </ion-segment>
+
+    <!-- View Pager Slides -->
+    <ion-slides>
+      <ion-slide>
+        <general-info></general-info>
+      </ion-slide>
+      <ion-slide>
+        <existing-light></existing-light>
+      </ion-slide>
+      <ion-slide>
+        <replacement></replacement>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
 </ion-content>

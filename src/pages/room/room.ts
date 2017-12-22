@@ -12,10 +12,6 @@ import { GeneralInfoComponent } from '../../components/general-info/general-info
 })
 export class RoomPage {
   @ViewChild (Slides) slides: Slides;
-
-  general = GeneralInfoComponent;
-  existingLight = ExistingLightComponent;
-  replacement = ReplacementComponent;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
