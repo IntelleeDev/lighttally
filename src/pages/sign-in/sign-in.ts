@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the SignInPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { MyApp } from '../../app/app.component';
+import { SignUpPage } from '../sign-up/sign-up';
 
 @IonicPage()
 @Component({
@@ -19,7 +15,14 @@ export class SignInPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SignInPage');
+    
   }
 
+  toHomePage(): void {
+    this.navCtrl.goToRoot({});
+  }
+
+  toSignUpPage(): void {
+    this.navCtrl.push(SignUpPage, {});
+  }
 }

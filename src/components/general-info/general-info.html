@@ -1,4 +1,12 @@
-<!-- Generated template for the GeneralInfoComponent component -->
 <div>
-  GeneralInfo
+  <ion-item>
+    <ion-label>Select Room Type:</ion-label>
+    <ion-select [(ngModel)]="gender">
+      <ion-option *ngFor="let room of rooms">{{room}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-input value="" placeholder="Enter estimated hours of use"></ion-input>
+  </ion-item>
 </div>

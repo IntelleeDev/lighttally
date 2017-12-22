@@ -3,6 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { SignInPage } from '../pages/sign-in/sign-in';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { MyProfilePage } from '../pages/my-profile/my-profile';
 import { LocationInfoPage } from '../pages/location-info/location-info';
@@ -13,18 +14,25 @@ import { LocationInfoPage } from '../pages/location-info/location-info';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+  private isAuthenticated: boolean = false;
+
   rootPage: any = DashboardPage;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(
+    public platform: Platform, 
+    public statusBar: StatusBar, 
+    public splashScreen: SplashScreen) {
+
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Dashboard', component: DashboardPage },
       { title: 'Make Evaluation', component: LocationInfoPage },
-      { title: 'My Profile', component: MyProfilePage}
+      { title: 'My Profile', component: MyProfilePage },
+      { title: 'Logout', component: SignInPage }
     ];
 
   }
@@ -35,12 +43,18 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      if(!this.isAuthenticated) {
+        this.nav.push(SignInPage, {});
+      }
     });
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
+    if (page.title === "logout") {
+      this.nav.push(SignInPage, {});
+      return;
+    }
     this.nav.setRoot(page.component);
   }
 }

@@ -6,11 +6,10 @@ import { Component } from '@angular/core';
 })
 export class GeneralInfoComponent {
 
-  text: string;
+  rooms: Array<String>;
 
   constructor() {
-    console.log('Hello GeneralInfoComponent Component');
-    this.text = 'General infomation component';
+    this.rooms = ["Office", "Hall", "Shop", "Storage" ]
   }
 
 }

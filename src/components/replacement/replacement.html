@@ -1,4 +1,31 @@
-<!-- Generated template for the ReplacementComponent component -->
 <div>
-  Replacement
+  <ion-item>
+    <ion-label>Replace existing feature:</ion-label>
+    <ion-select [(ngModel)]="gender">
+      <ion-option></ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Replacement bulb type:</ion-label>
+    <ion-select [(ngModel)]="gender">
+      <ion-option></ion-option>
+    </ion-select>
+  </ion-item>
+    
+  <ion-item>
+    <ion-input type="number" value="" placeholder="Enter no of replacements needed"></ion-input>
+  </ion-item> 
+    
+  <ion-item>
+    <ion-input value="" placeholder="Enter wattage"></ion-input>
+  </ion-item>
+    
+  <ion-item>
+    <ion-input type="text" value="" placeholder="Enter special instructions"></ion-input>
+  </ion-item>
+  
+  <div>
+    <button ion-button color="secondary">Finish Room</button>
+  </div>
 </div>
