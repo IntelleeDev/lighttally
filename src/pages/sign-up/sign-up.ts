@@ -8,6 +8,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SignUpPage {
 
+  email: string;
+  fullame: string;
+  password: string;
+  phoneNumber: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

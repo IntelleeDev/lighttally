@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Rx';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+
+import { catchError, map, tap } from 'rxjs/operators';
+import { FirestoreDataSourceProvider } from '../firestore-data-source/firestore-data-source';
 import { User } from '../../model/user';
 
 @Injectable()
@@ -9,20 +11,29 @@ export class AuthProvider {
 
   private authenticatedUser: User;
 
-  constructor(private fireStore: AngularFirestore) {
+  constructor(private fireStore: FirestoreDataSourceProvider<User>) {
     
   }
 
-  authenticateUser(email: string, password: string): boolean {
-    console.log(this.getUser(email, password))
-    return true;
+  authenticateUser(email: string, password: string): Observable<boolean> {
+    return this.fireStore
+      .findByFilter('users', ['email', '==', email])
+      .pipe(
+        map(users => {
+          let user = users[0];
+          if (user != null) {
+            if (user.password === password) {
+              this.authenticatedUser = user;
+              return true;
+            }
+            return false;
+          }
+        })
+      )
   }
 
-  private getUser(email: string, password: string) {
-    return this.fireStore
-      .collection('users', ref => 
-        ref.where('email', '==', email)
-           .where('password', '==', password))
+  getAuthenticatedUser() {
+    return this.authenticatedUser;
   }
 
 }

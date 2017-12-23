@@ -23,6 +23,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AuthProvider } from '../providers/auth/auth';
+import { RegistrationProvider } from '../providers/registration/registration';
+import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/firestore-data-source';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { AuthProvider } from '../providers/auth/auth';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    RegistrationProvider,
+    FirestoreDataSourceProvider
   ]
 })
 export class AppModule {}
