@@ -42,11 +42,11 @@
             <img src={{item.avatar_url}}>
           </ion-avatar>
           <div>
-              <h4 ion-text>{{item.name}}</h4>
-              <h6 ion-text>{{item.location}}</h6>
+              <p ion-text>{{item.name}}</p>
+              <p ion-text>{{item.location}}</p>
           </div>
           <div item-end>
-            <strong>{{item.last_evaluation}} months</strong>
+            <strong id="duration">{{item.last_evaluation}} months</strong>
           </div>
         </ion-item>
       </ion-list>

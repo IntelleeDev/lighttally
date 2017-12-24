@@ -29,7 +29,7 @@ page-dashboard {
   #horizontal-rule {
     width: 90%;
     padding: 1px;
-    background: rgb(48, 46, 46);
+    background: #416e57;
     margin: -5px auto auto auto;
   }
 
@@ -53,6 +53,10 @@ page-dashboard {
 
   #list-box {
     padding: 10px;
+  }
+
+  #duration {
+    font-size: 12px;
   }
 
   .evaluation-list {
