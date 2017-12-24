@@ -21,10 +21,7 @@ export class FirestoreDataSourceProvider<T> implements DataSource<T> {
   }
 
   findByFilter(collectionName: string, filter: string[]): Observable<T[]> {
-    return this.fireStore
-        .collection<T>(collectionName, ref => 
-          ref.where(filter[0], filter[1], filter[2]))
-        .valueChanges();       
+    throw new Error("Method not implemented.");     
   }
 
   store(collectionName: string, data: T): void {
