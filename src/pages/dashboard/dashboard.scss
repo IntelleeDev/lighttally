@@ -1,8 +1,4 @@
 page-dashboard {
-  .frame-content {
-    background: #528f7d;
-  }
-
   #profile-name {
     color: #ffffff;
     text-align: center;
@@ -38,21 +34,23 @@ page-dashboard {
     margin: 5px auto 8px auto;
   }
 
-  .c-button {
-    border-radius: 3px;
-    background: #82b35a;
-  }
-
   .heading {
+    height: 25px;
     color: #fff;
     font-size: 12px;
     margin-top: -10px;
     text-align: center;
-    background: #33cc99;
+    border-bottom: 0px solid transparent;
+    background: linear-gradient(90deg, #84b258 13.4%, #80b25b 34%, #47bc85);
   }
 
   #list-box {
+    color: #fff;
     padding: 10px;
+  }
+
+  .text {
+    color: #fff;
   }
 
   #duration {
@@ -63,6 +61,6 @@ page-dashboard {
     color: #fff;
     border-radius: 40px;
     border: 0px solid #fff;
-    background: #82b35a;
+    background: linear-gradient(90deg, #84b258 13.4%, #80b25b 34%, #47bc85);
   }
 }

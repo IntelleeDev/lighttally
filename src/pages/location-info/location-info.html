@@ -1,14 +1,14 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="nav-header">
     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon color="nav-icon" name="menu"></ion-icon>
     </button>
     <ion-title>Evaluation Location Info</ion-title>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding ngClass="frame-content">
   <!-- Label here -->
   <ion-item-divider>Enter Location Information</ion-item-divider>
 
@@ -56,6 +56,6 @@
 
   <!-- Previous Button -->
   <div>
-    <button ion-button full color="secondary" (click)="goToRoomPage()">next</button>
+    <button class="c-button" ion-button full (click)="goToRoomPage()">next</button>
   </div>
 </ion-content>
