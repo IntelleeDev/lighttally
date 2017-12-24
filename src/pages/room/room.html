@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="text-color">
     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon color="nav-icon" name="menu"></ion-icon>
     </button>
     <ion-title>Evaluation - Room</ion-title>
   </ion-navbar>
@@ -11,7 +11,7 @@
 <ion-content ngClass="frame-content">
   <div padding>
     <!-- Tab buttons -->
-    <ion-segment [(ngModel)]="mode" color="primary">
+    <ion-segment [(ngModel)]="mode" color="text-color">
       <ion-segment-button value="0" (click)="goToSlide(0)">General Info</ion-segment-button>
       <ion-segment-button value="1" (click)="goToSlide(1)">Existing Lights</ion-segment-button>
       <ion-segment-button value="2" (click)="goToSlide(2)">Replacement</ion-segment-button>

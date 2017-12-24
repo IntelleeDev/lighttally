@@ -1,30 +1,39 @@
 <div>
-  <ion-item>
-    <ion-label>Existing features:</ion-label>
-    <ion-select [(ngModel)]="gender">
-      <ion-option></ion-option>
-    </ion-select>
-  </ion-item>
+  
+  <div class="box">
+    <ion-item ngClass="blank">
+      <ion-label color="text-color">Existing features:</ion-label>
+      <ion-select ngClass="trans" [(ngModel)]="gender">
+        <ion-option></ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
 
-  <ion-item>
-    <ion-input type="number" value="" placeholder="Enter number of fixtures"></ion-input>
-  </ion-item>
+  <div class="c-item-box">
+    <span ion-text color="text-color">Enter number of fixtures</span>
+    <ion-input ngClass="trans" type="number" value="" placeholder="Enter number of fixtures"></ion-input>
+  </div>
 
-  <ion-item>
-    <ion-input value="" placeholder="Enter estimated hours of use"></ion-input>
-  </ion-item>
+  <div class="c-item-box">
+    <span ion-text color="text-color">Enter estimated hours of use</span>
+    <ion-input ngClass="trans" value="" placeholder="Enter estimated hours of use"></ion-input>
+  </div>
 
-  <ion-item>
+  <div class="c-item-box">
+    <span ion-text color="text-color">Enter estimated hours of use</span>
     <ion-input type="text" value="" placeholder="Enter amount of wattage"></ion-input>
-  </ion-item>
+  </div>
 
-  <ion-item>
-    <ion-input type="number" value="" placeholder="Enter number of existing bulbs"></ion-input>
-  </ion-item>
+  <div class="c-item-box">
+    <span ion-text color="text-color">Enter number of existing bulbs</span>
+    <ion-input ngClass="trans" type="number" value="" placeholder="Enter number of existing bulbs"></ion-input>
+  </div>
 
  <div>
-    <ion-icon name="camera"></ion-icon>
-    <p>Capture image of existing fixture</p>
+    <div class="icon-box">
+      <ion-icon ngClass="large" color="text-color" name="camera"></ion-icon>
+    </div>
+    <p ion-text color="text-color" class="text">Capture image of existing fixture</p>
  </div>
 
 </div>

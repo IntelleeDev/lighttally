@@ -58,3 +58,32 @@
   border-bottom: 0px solid transparent;
   background: linear-gradient(90deg, #84b258 13.4%, #80b25b 34%, #47bc85);
 }
+
+.c-item-box {
+  margin: 5px auto;
+  padding: 10px 7px;
+  border-radius: 4px;    
+  background: #46727d;
+}
+
+.trans {
+  padding: 7px;
+  border-radius: 4px;
+  background: #5a828a;
+  border: 0px solid transparent !important;
+  color: rgba(255, 255, 255, 0.897);
+}
+
+.trans input {
+  margin: 2px 0px;
+}
+
+.trans .select {
+  width: 100% !important;
+}
+
+.blank {
+  width: 100%;
+  padding: 0px;
+  background: transparent;
+}

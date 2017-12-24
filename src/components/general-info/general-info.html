@@ -1,12 +1,17 @@
 <div>
-  <ion-item>
-    <ion-label>Select Room Type:</ion-label>
-    <ion-select [(ngModel)]="gender">
-      <ion-option *ngFor="let room of rooms">{{room}}</ion-option>
-    </ion-select>
-  </ion-item>
+  <div class="box">
+    <ion-item ngClass="blank">
+      <ion-label color="text-color">Select Room Type:</ion-label>
+      <ion-select ngClass="trans" [(ngModel)]="gender">
+        <ion-option *ngFor="let room of rooms">{{room}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
 
-  <ion-item>
-    <ion-input value="" placeholder="Enter estimated hours of use"></ion-input>
-  </ion-item>
+  <div class="box">
+    <div ngClass="c-item-box">
+      <span ion-text color="text-color">Enter estimated hours of use</span>
+      <ion-input ngClass="trans" value="" placeholder="Enter estimated hours of use"></ion-input>
+    </div>
+  </div>
 </div>

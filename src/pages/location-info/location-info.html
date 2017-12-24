@@ -15,50 +15,62 @@
 
   <div padding>
     <!-- Form -->
-    <ion-list>
-      <ion-item>
-        <ion-label floating>Business Name</ion-label>
-        <ion-input type="text" value=""></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Full Address with Zipcode</ion-label>
-        <ion-input type="text" value=""></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Utility Company</ion-label>
-        <ion-select>
-          <ion-option>PHCN</ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Building Type</ion-label>
-        <ion-select>
-          <ion-option>Skycraper</ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Working Hours</ion-label>
-        <ion-select>
-          <ion-option></ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Contact Person</ion-label>
-        <ion-input type="text" value=""></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Contact Person Phone No</ion-label>
-        <ion-input type="text" value=""></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label floating>Select Date</ion-label>
-          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
-      </ion-item>
-    </ion-list>
-  </div>
+    <div class="c-item-box">
+      <span ion-text color="text-color">Business Name</span>
+      <ion-input ngClass="trans" type="text" value="" placeholder="Enter your business name"></ion-input>
+    </div>
 
-  <!-- Previous Button -->
-  <div>
-    <button class="c-button" ion-button full (click)="goToRoomPage()">next</button>
+    <div class="c-item-box">
+      <span ion-text color="text-color">Full address with Zipcode</span>
+      <ion-input ngClass="trans" type="text" value="" placeholder="Enter your address"></ion-input>
+    </div>
+
+    <div class="c-item-box">
+      <span ion-text color="text-color">Utility company</span>
+      <ion-item ngClass="blank">
+        <ion-select ngClass="trans" full placeholder="Select utility company">
+          <ion-option>PHCN</ion-option>
+          <ion-option>LAEDCO</ion-option>
+        </ion-select>
+      </ion-item>
+    </div>    
+
+    <div class="c-item-box">
+      <span ion-text color="text-color">Building Type</span>
+      <ion-item ngClass="blank">
+        <ion-select ngClass="trans" full placeholder="Select building type">
+          <ion-option>PHCN</ion-option>
+          <ion-option>LAEDCO</ion-option>
+        </ion-select>
+      </ion-item>
+    </div>  
+    
+    <div class="c-item-box">
+      <span ion-text color="text-color">Working Hours</span>
+      <ion-input ngClass="trans" type="text" value="" placeholder="Enter your address"></ion-input>
+    </div>
+
+    <div class="c-item-box">
+      <span ion-text color="text-color">Contact Person/Facility Manager</span>
+      <ion-input ngClass="trans" type="text" value="" placeholder="Enter the name of contact person"></ion-input>
+    </div>
+
+    <div class="c-item-box">
+      <span ion-text color="text-color">Contact Person's Phonenumber</span>
+      <ion-input ngClass="trans" type="phone" value="" placeholder="Please enter your land or mobile phone"></ion-input>
+    </div>
+
+    <div class="c-item-box">
+      <span ion-text color="text-color">Date</span>
+      <ion-item ngClass="blank">
+        <ion-datetime ngClass="trans" displayFormat="MM/DD/YYYY" [(ngModel)]="myDate" placeholder="Select date"></ion-datetime>
+      </ion-item>
+    </div>
+
+    <!-- Previous Button -->
+    <div>
+      <button class="c-button" ion-button large>previous</button>
+      <button class="c-button" ion-button large item-end (click)="goToRoomPage()">next</button>
+    </div>
   </div>
 </ion-content>
