@@ -1,5 +1,57 @@
 page-dashboard {
-  .rounded-avatar, .rounded-avatar > img {
-    border-radius: 450px
+  .frame-content {
+    background: #528f7d;
+  }
+
+  #profile-name {
+    color: #ffffff;
+    text-align: center;
+  }
+
+  #profile-name p {
+    margin-top: -10px;
+  }
+
+  #profile-avatar {
+    padding: 0;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 100%;
+    margin: 10px auto 15px auto;
+  }
+
+  .fluid {
+    width: 116%;
+    height: 100%;
+  }
+
+  #horizontal-rule {
+    width: 90%;
+    padding: 1px;
+    background: rgb(48, 46, 46);
+    margin: -5px auto auto auto;
+  }
+
+  #btn-box {
+    text-align: center;
+    margin: 5px auto 8px auto;
+  }
+
+  .c-button {
+    border-radius: 3px;
+    background: #82b35a;
+  }
+
+  .heading {
+    color: #fff;
+    font-size: 12px;
+    margin-top: -10px;
+    text-align: center;
+    background: #33cc99;
+  }
+
+  .evaluation-list {
+    border-radius: 40px;
   }
 }

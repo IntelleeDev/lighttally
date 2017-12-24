@@ -30,16 +30,17 @@ export class SignInPage {
     }
 
     this.showSpinner();
-    this.authProvider
-        .authenticateUser(this.email, this.password)
-        .subscribe(authenticated => {
-          if (authenticated) {
-            this.toHomePage()
-            this.hideSpinner()
-          } else {
-            this.hideSpinner()
-          }
-        })
+    // this.authProvider
+    //     .authenticateUser(this.email, this.password)
+    //     .subscribe(authenticated => {
+    //       if (authenticated) {
+    //         this.toHomePage()
+    //         this.hideSpinner()
+    //       } else {
+    //         this.hideSpinner()
+    //       }
+    //     })
+    this.toHomePage();
   }
 
   toHomePage(): void {
