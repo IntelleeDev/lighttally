@@ -1,5 +1,5 @@
 
-export class Replacement {
+export interface Replacement {
   wattage: number;
   kalvins: number;
   specialNotes: string;

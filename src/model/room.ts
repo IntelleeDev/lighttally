@@ -1,5 +1,5 @@
 
-export class Room {
+export interface Room {
   type: string;
   lift: boolean;
   hoursOfUse: string;

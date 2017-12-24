@@ -1,5 +1,5 @@
 
-export class Location {
+export interface Location {
   address: string;
   businessName: string;
   accountNumber: string;

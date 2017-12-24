@@ -2,27 +2,30 @@
   <div padding>
     <ion-item>
       <ion-label floating>Fullname</ion-label>
-      <ion-input [(ngModel)]="fullname" type="text" placeholder="Fullname"></ion-input>
+      <ion-input [(ngModel)]="fullname" value='' type="text" placeholder="Fullname"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input [(ngModel)]="email" type="text" placeholder="Email"></ion-input>
+      <ion-input [(ngModel)]="email" value='' type="text" placeholder="Email"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Mobile</ion-label>
-      <ion-input [(ngModel)]="phoneNumber" type="tel" placehloder="mobile number"></ion-input>
+      <ion-input [(ngModel)]="phoneNumber" value='' type="tel" placehloder="mobile number"></ion-input>
     </ion-item>
     
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input [(ngModel)]="password" type="password" placehloder="password"></ion-input>
+      <ion-input [(ngModel)]="password" value='' type="password" placehloder="password"></ion-input>
     </ion-item>
     
     <div>
-      <button ion-button full color="seconday">Continue</button>
-      <ion-spinner *ngIf="isWaiting"></ion-spinner>
+      <button ion-button full color="seconday" (click)="registerUser()">
+        Continue
+        <span></span>
+        <ion-spinner *ngIf="isWaiting"></ion-spinner>
+      </button>
     </div>
     <div>
       <span>Already have an account?</span>

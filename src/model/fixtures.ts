@@ -1,5 +1,5 @@
 
-export class Fixtures {
+export interface Fixtures {
   wattage: number;
   image: string;
   wrongBulb: boolean;
