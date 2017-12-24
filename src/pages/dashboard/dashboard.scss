@@ -51,7 +51,14 @@ page-dashboard {
     background: #33cc99;
   }
 
+  #list-box {
+    padding: 10px;
+  }
+
   .evaluation-list {
+    color: #fff;
     border-radius: 40px;
+    border: 0px solid #fff;
+    background: #82b35a;
   }
 }
