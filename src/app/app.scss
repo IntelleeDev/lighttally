@@ -24,11 +24,37 @@
   height: 100%;
 }
 
+.btn-box {
+  margin: 15px auto;
+}
+
+.logo-box {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  margin: 50px auto 5px auto;
+}
+
+.text-box {
+  margin: 15px auto;
+  text-align: center;
+}
+
 .c-item-box {
   background: linear-gradient(180deg, #518e7f, #6a9e5e);
 }
 
 .c-button {
   border-radius: 3px;
+  background: linear-gradient(90deg, #84b258 13.4%, #80b25b 34%, #47bc85);
+}
+
+.heading {
+  height: 30px;
+  color: #fff;
+  font-size: 12px;
+  margin-top: -10px;
+  text-align: center;
+  border-bottom: 0px solid transparent;
   background: linear-gradient(90deg, #84b258 13.4%, #80b25b 34%, #47bc85);
 }

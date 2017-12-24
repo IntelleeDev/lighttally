@@ -14,14 +14,14 @@
     </ion-item>
 
     <div class="btn-box">
-      <button class="c-button" ion-button full (click)="authenticateUser()">
+      <button class="c-button" ion-button large full (click)="authenticateUser()">
         Continue<span>  </span>
         <ion-spinner name="ios-small" *ngIf="isAuthenticating"></ion-spinner>
       </button>
     </div>
     <div class="text-box">
       <span>Don't have an account?</span>
-      <span ion-text color="primary" (click)="toSignUpPage()">SignUp</span>
+      <span ion-text color="link-color" (click)="toSignUpPage()">SignUp</span>
     </div>
   </div>
 </ion-content>

@@ -18,6 +18,12 @@ export class DashboardPage {
       location: 'Lagos',
       last_evaluation: '3',
       avatar_url: '../assets/imgs/bone.jpg'
+    },
+    {
+      name: 'Lucy Lu',
+      location: 'Lagos',
+      last_evaluation: '3',
+      avatar_url: '../assets/imgs/bone.jpg'
     }]
   }
 
@@ -26,7 +32,7 @@ export class DashboardPage {
   }
 
   goToEvaluationPage(): void {
-    this.navCtrl.push(LocationInfoPage, {});
+    this.navCtrl.setRoot(LocationInfoPage);
   }
 
 }

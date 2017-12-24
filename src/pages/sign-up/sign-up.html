@@ -1,5 +1,10 @@
 <ion-content>
   <div padding>
+    
+    <div class="logo-box">
+      <img class="fluid" src="../../assets/imgs/light_tally.png"/>
+    </div>
+    
     <ion-item>
       <ion-label floating>Fullname</ion-label>
       <ion-input [(ngModel)]="fullname" value='' type="text" placeholder="Fullname"></ion-input>
@@ -11,8 +16,8 @@
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Mobile</ion-label>
-      <ion-input [(ngModel)]="phoneNumber" value='' type="tel" placehloder="mobile number"></ion-input>
+      <ion-label floating>Phone Number</ion-label>
+      <ion-input [(ngModel)]="phoneNumber" value='' type="tel" placehloder="Phone number"></ion-input>
     </ion-item>
     
     <ion-item>
@@ -20,16 +25,17 @@
       <ion-input [(ngModel)]="password" value='' type="password" placehloder="password"></ion-input>
     </ion-item>
     
-    <div>
-      <button ion-button full color="seconday" (click)="registerUser()">
+    <div ngClass="text-box">
+      <button class="c-button" ion-button large full (click)="registerUser()">
         Continue
         <span></span>
         <ion-spinner *ngIf="isWaiting"></ion-spinner>
       </button>
     </div>
-    <div>
+
+    <div ngClass="text-box">
       <span>Already have an account?</span>
-      <span ion-text color="primary" (click)="backToSignInPage()">Sign In</span>
+      <span ion-text color="link-color" (click)="backToSignInPage()">Sign In</span>
     </div>
   </div>
 </ion-content>

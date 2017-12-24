@@ -24,7 +24,6 @@
           <button
             class="c-button"
             ion-button
-            color="secondary"
             (click)="goToEvaluationPage()">
             Make evaluation
           </button>
@@ -37,7 +36,7 @@
     <div id="list-box">
       <!-- List of evaluations -->
       <ion-list>
-        <ion-item ngClass='evaluation-list' *ngFor="let item of items">
+        <ion-item ngClass='evaluation-list margin-10' *ngFor="let item of items">
           <ion-avatar item-start>
             <img src={{item.avatar_url}}>
           </ion-avatar>

@@ -23,7 +23,7 @@ page-dashboard {
   }
 
   #horizontal-rule {
-    width: 90%;
+    width: 98%;
     padding: 1px;
     background: #416e57;
     margin: -5px auto auto auto;
@@ -34,14 +34,8 @@ page-dashboard {
     margin: 5px auto 8px auto;
   }
 
-  .heading {
-    height: 25px;
-    color: #fff;
-    font-size: 12px;
-    margin-top: -10px;
-    text-align: center;
-    border-bottom: 0px solid transparent;
-    background: linear-gradient(90deg, #84b258 13.4%, #80b25b 34%, #47bc85);
+  .margin-10 {
+    margin: 10px auto;
   }
 
   #list-box {
