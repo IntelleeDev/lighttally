@@ -45,9 +45,9 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-      if (this.authProvider.getAuthenticatedUser() == null) {
-        this.nav.push(SignInPage, {});
-      }
+      // if (this.authProvider.getAuthenticatedUser() == null) {
+      //   this.nav.push(SignInPage, {});
+      // }
     });
   }
 
