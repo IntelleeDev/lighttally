@@ -1,10 +1,10 @@
 <ion-header>
-  <ion-navbar>
+  <ion-toolbar color="nav-header">
     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon color="nav-icon" name="menu"></ion-icon>
     </button>
     <ion-title>My Profile</ion-title>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 
 
@@ -18,19 +18,30 @@
       <ion-col>
         <div class="p-frame">
           <span class="l-heading">145k</span>
-          <span class="s-heading">Followers</span>
+          <span class="s-heading all-caps">followers</span>
         </div>
       </ion-col>
       <ion-col>
         <div class="p-frame">
           <span class="l-heading">56k</span>
-          <span class="s-heading">Following</span>
+          <span class="s-heading all-caps">following</span>
         </div>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>Col 1</ion-col>
-      <ion-col col-9>Col 2</ion-col>
+      <ion-col>
+        <div class="p-frame relaxed no-borders">
+          <span class="l-heading">1690</span>
+          <span class="s-heading">Evaluations</span>
+        </div>
+      </ion-col>
+      <ion-col col-8>
+        <div class="p-frame relaxed no-borders">
+          <span class="s-heading">
+            Made Paris factory evaluations recently
+          </span>
+        </div>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

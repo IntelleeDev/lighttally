@@ -15,6 +15,10 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+.fw-300 {
+  font-weight: 300;
+}
+
 .frame-content {
   background: linear-gradient(180deg, #518e7f, #6a9e5e);
 }
@@ -49,8 +53,12 @@
   background: linear-gradient(90deg, #84b258 13.4%, #80b25b 34%, #47bc85);
 }
 
+.c-button.no-bg {
+  background: #52bf88;
+}
+
 .heading {
-  height: 30px;
+  padding: -4px 5px;
   color: #fff;
   font-size: 12px;
   margin-top: -10px;
@@ -85,5 +93,10 @@
 .blank {
   width: 100%;
   padding: 0px;
+  background: transparent;
+}
+
+.drawer {
+  color: #fff;
   background: transparent;
 }

@@ -27,7 +27,7 @@
 
     <div class="c-item-box">
       <span ion-text color="text-color">Utility company</span>
-      <ion-item ngClass="blank">
+      <ion-item ngClass="blank" no-lines>
         <ion-select ngClass="trans" full placeholder="Select utility company">
           <ion-option>PHCN</ion-option>
           <ion-option>LAEDCO</ion-option>
@@ -37,7 +37,7 @@
 
     <div class="c-item-box">
       <span ion-text color="text-color">Building Type</span>
-      <ion-item ngClass="blank" no-line>
+      <ion-item ngClass="blank" no-lines>
         <ion-select ngClass="trans" full placeholder="Select building type">
           <ion-option>PHCN</ion-option>
           <ion-option>LAEDCO</ion-option>
@@ -62,15 +62,24 @@
 
     <div class="c-item-box">
       <span ion-text color="text-color">Date</span>
-      <ion-item ngClass="blank">
+      <ion-item ngClass="blank" no-lines>
         <ion-datetime ngClass="trans" displayFormat="MM/DD/YYYY" [(ngModel)]="myDate" placeholder="Select date"></ion-datetime>
       </ion-item>
     </div>
 
     <!-- Previous Button -->
     <div>
-      <button class="c-button" ion-button large>previous</button>
-      <button class="c-button" ion-button large item-end (click)="goToRoomPage()">next</button>
+      <ion-grid no-padding>
+        <ion-row>
+          <ion-col col-4>
+            <button class="c-button no-bg" color="loc-button" ion-button full>previous</button>
+          </ion-col>
+          <ion-col></ion-col>
+          <ion-col col-4>
+            <button class="c-button no-bg" color="loc-button" ion-button full (click)="goToRoomPage()">next</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </div>
   </div>
 </ion-content>

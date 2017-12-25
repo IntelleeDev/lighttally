@@ -12,7 +12,27 @@ page-my-profile {
     border-bottom: 1px solid #fff;
   }
 
-  .p-frame .l-heading {
+  .p-frame .l-heading, .p-frame .s-heading {
     display: block;
+    font-size: 16px;
+    font-weight: 300;
   }
+
+  .p-frame .s-heading {
+    font-size: 13px;
+    padding: 2px 0px;    
+  }
+
+  .p-frame.relaxed {
+    padding: 20px 12px;
+  }
+
+  .all-caps {
+    font-variant: small-caps;
+  }
+
+  .no-borders {
+    border: 0px solid transparent;
+  }
+
 }
