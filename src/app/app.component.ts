@@ -8,13 +8,13 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
 import { MyProfilePage } from '../pages/my-profile/my-profile';
 import { LocationInfoPage } from '../pages/location-info/location-info';
 
+import { AuthProvider } from '../providers/auth/auth';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
-  private isAuthenticated: boolean = false;
 
   rootPage: any = DashboardPage;
 
@@ -23,7 +23,8 @@ export class MyApp {
   constructor(
     public platform: Platform, 
     public statusBar: StatusBar, 
-    public splashScreen: SplashScreen) {
+    public splashScreen: SplashScreen,
+    private authProvider: AuthProvider) {
 
     this.initializeApp();
 
@@ -44,7 +45,7 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-      if(!this.isAuthenticated) {
+      if (this.authProvider.getAuthenticatedUser() == null) {
         this.nav.push(SignInPage, {});
       }
     });

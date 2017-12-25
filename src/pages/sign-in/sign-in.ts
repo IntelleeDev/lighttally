@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Rx';
 import { MyApp } from '../../app/app.component';
 import { SignUpPage } from '../sign-up/sign-up';
 
+import { User } from '../../model/user';
 import { AuthProvider } from '../../providers/auth/auth';
 
 @IonicPage()
@@ -28,19 +29,23 @@ export class SignInPage {
     if (!this.inputsValidated()) {
       return;
     }
-
     this.showSpinner();
-    // this.authProvider
-    //     .authenticateUser(this.email, this.password)
-    //     .subscribe(authenticated => {
-    //       if (authenticated) {
-    //         this.toHomePage()
-    //         this.hideSpinner()
-    //       } else {
-    //         this.hideSpinner()
-    //       }
-    //     })
-    this.toHomePage();
+
+    const user = { 
+      email: this.email, 
+      password: this.password
+    } as User;
+
+    this.authProvider
+        .authenticateUser(user)
+        .subscribe(authenticated => {
+          if (authenticated) {
+            this.hideSpinner()
+            this.toHomePage()            
+          } else {
+            this.hideSpinner()
+          }
+        })
   }
 
   toHomePage(): void {

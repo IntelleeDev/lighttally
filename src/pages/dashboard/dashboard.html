@@ -1,10 +1,10 @@
-<ion-header>
-  <ion-navbar color="nav-header">
+<ion-header no-border>
+  <ion-toolbar color="nav-header">
     <button ion-button menuToggle>
       <ion-icon color="nav-icon" name="menu"></ion-icon>
     </button>
     <ion-title>Dashboard</ion-title>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content ngClass='frame-content'>
@@ -36,7 +36,7 @@
     <div id="list-box">
       <!-- List of evaluations -->
       <ion-list>
-        <ion-item ngClass='evaluation-list margin-10' *ngFor="let item of items">
+        <ion-item no-line ngClass='evaluation-list margin-10' *ngFor="let item of items">
           <ion-avatar item-start>
             <img src={{item.avatar_url}}>
           </ion-avatar>

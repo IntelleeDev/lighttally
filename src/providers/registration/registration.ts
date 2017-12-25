@@ -8,10 +8,18 @@ export class RegistrationProvider {
 
   private collectionName = 'users';
 
-  constructor(public fireStore: FirestoreDataSourceProvider<User>) { }
+  constructor(public fireStore: FirestoreDataSourceProvider<User>) {
+    // This may not be the right way to go providing table names
+    // But it temporary for now. The idea is to provide a unified
+    // Interface that doesn't mirror any particular backing store
+    // Technology.
+    // Will change this to use angular's Injector for specifying
+    // constructor parameters.
+    this.fireStore.setCollectionName(this.collectionName);
+   }
 
   registerUser(user: User): Promise<void> {
-    return Promise.resolve(this.fireStore.store(this.collectionName, user));
+    return Promise.resolve(this.fireStore.store(user));
   }
 
 }

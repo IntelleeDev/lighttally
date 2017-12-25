@@ -8,21 +8,22 @@ import { User } from '../../model/user';
 
 @Injectable()
 export class AuthProvider {
+  private collectionName = 'users';
 
-  private authenticatedUser: User;
+  private authenticatedUser?: User = null;
 
   constructor(private fireStore: FirestoreDataSourceProvider<User>) {
-    
+    this.fireStore.setCollectionName(this.collectionName);
   }
 
-  authenticateUser(email: string, password: string): Observable<boolean> {
+  authenticateUser(userToAuth: User): Observable<boolean> {
     return this.fireStore
-      .findByFilter('users', ['email', '==', email])
+      .findByFilter(['email', userToAuth.email], '==')
       .pipe(
         map(users => {
           let user = users[0];
           if (user != null) {
-            if (user.password === password) {
+            if (user.password === userToAuth.password) {
               this.authenticatedUser = user;
               return true;
             }
