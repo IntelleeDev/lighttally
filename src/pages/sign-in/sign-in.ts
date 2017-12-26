@@ -45,7 +45,7 @@ export class SignInPage {
           } else {
             this.hideSpinner()
           }
-        })
+        });
   }
 
   toHomePage(): void {
@@ -67,5 +67,4 @@ export class SignInPage {
   inputsValidated() {
     return (this.email != null && this.password != null);
   }
-
 }
