@@ -13,7 +13,6 @@ import { LocationInfoPage } from '../location-info/location-info';
 })
 export class HomePage {
   @ViewChild(Nav) nav: Nav;
-
   rootPage: any = DashboardPage;
   pages: Array<{title: string, component: any}>;
 

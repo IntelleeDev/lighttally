@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
+import { HomePage } from '../pages/home/home';
 import { RoomPage } from '../pages/room/room';
 import { SignInPage } from '../pages/sign-in/sign-in';
 import { SignUpPage } from '../pages/sign-up/sign-up';
@@ -29,6 +30,7 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
 @NgModule({
   declarations: [
     MyApp,
+    HomePage,
     RoomPage,
     SignInPage,
     SignUpPage,
@@ -49,6 +51,7 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    HomePage,
     RoomPage,
     SignInPage,
     SignUpPage,
