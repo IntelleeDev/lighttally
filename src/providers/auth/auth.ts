@@ -12,13 +12,11 @@ export class AuthProvider {
 
   private authenticatedUser?: User = null;
 
-  constructor(private fireStore: FirestoreDataSourceProvider<User>) {
-    this.fireStore.setCollectionName(this.collectionName);
-  }
+  constructor(private fireStore: FirestoreDataSourceProvider<User>) { }
 
   authenticateUser(userToAuth: User): Observable<boolean> {
     return this.fireStore
-      .findByFilter(['email', userToAuth.email], '==')
+      .findByFilter(this.collectionName, ['email', userToAuth.email], '==')
       .pipe(
         map(users => {
           let user = users[0];

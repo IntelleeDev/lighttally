@@ -8,14 +8,12 @@ import { AngularFirestore } from 'angularfire2/firestore';
 
 @Injectable()
 export class FirestoreDataSourceProvider<T> implements DataSource<T> {
-  
-  private collectionName: string;
 
   constructor(public fireStore: AngularFirestore) { }
   
-  find(id: string): Observable<T> {
+  find(collectionName, id: string): Observable<T> {
     return this.fireStore
-        .doc<T>(`${this.collectionName}/${id}`)
+        .doc<T>(`${collectionName}/${id}`)
         .valueChanges();
   }
   
@@ -23,20 +21,16 @@ export class FirestoreDataSourceProvider<T> implements DataSource<T> {
     throw new Error("Method not implemented.");
   }
 
-  findByFilter(data: any[], constraint: any): Observable<T[]> {
+  findByFilter(collectionName, data: any[], constraint: any): Observable<T[]> {
     return this.fireStore
-      .collection<T>(this.collectionName, ref =>
+      .collection<T>(collectionName, ref =>
         ref.where(data[0], constraint, data[1]))
         .valueChanges()   
   }
 
-  store(data: T): Promise<any> {
-    let collection = this.fireStore.collection<T>(this.collectionName);
+  store(collectionName, data: T): Promise<any> {
+    let collection = this.fireStore.collection<T>(collectionName);
     return collection.add(data)
               .then(docRef => docRef.id);
-  }
-
-  setCollectionName(name: string) {
-    this.collectionName = name;
   }
 }

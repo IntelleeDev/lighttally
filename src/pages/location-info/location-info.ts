@@ -14,10 +14,6 @@ export class LocationInfoPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LocationInfoPage');
-  }
-
   toDashboardPage() {
     this.navCtrl.setRoot(DashboardPage);
   }

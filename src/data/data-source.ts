@@ -2,11 +2,11 @@
 import { Observable } from 'rxjs/Observable';
 
 export interface DataSource<T> {
-  find(id: string): Observable<T>;
+  find(entityName, id: string): Observable<T>;
   
-  findAll(name: string): Observable<T>;
+  findAll(entityName: string): Observable<T>;
   
-  store(data: T): void;
+  store(entityName, data: T): void;
   
-  findByFilter(data: any[], constraint: any): Observable<T[]>;
+  findByFilter(entityName, data: any[], constraint: any): Observable<T[]>;
 }

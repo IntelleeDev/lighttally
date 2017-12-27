@@ -3,9 +3,8 @@ export interface Location {
   address: string;
   businessName: string;
   accountNumber: string;
-  utilityCompany: string;
+  electricCompany: string;
   kwhFiled: boolean;
-  squareFootage: string;
+  squareFootage: number;
   workingHours: string;  
-  date: Date;
 }

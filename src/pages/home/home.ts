@@ -21,7 +21,6 @@ export class HomePage {
       { title: 'Dashboard', component: DashboardPage },
       { title: 'Make Evaluation', component: LocationInfoPage },
       { title: 'My Profile', component: MyProfilePage },
-      { title: 'Logout', component: SignInPage }
     ];
   }
 
@@ -31,6 +30,10 @@ export class HomePage {
       return;
     }
     this.nav.setRoot(page.component);
+  }
+
+  toLogoutPage() {
+    this.navCtrl.pop();
   }
 
 }

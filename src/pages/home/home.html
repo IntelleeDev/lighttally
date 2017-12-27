@@ -4,6 +4,9 @@
       <button ngClass="drawer" no-lines menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
+      <button ngClass="drawer" no-lines menuClose ion-item (click)="toLogoutPage()">
+        Logout
+      </button>
     </ion-list>
   </ion-content>
 </ion-menu>
