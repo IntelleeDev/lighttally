@@ -16,6 +16,7 @@ import { LocationRepository } from '../../repository/location-repository';
 })
 export class LocationInfoPage {
   
+  // Location collection data
   address: string;
   kwhFiled: boolean;
   businessName: string;
@@ -24,6 +25,7 @@ export class LocationInfoPage {
   squareFootage: number;
   electricCompany: string;
 
+  // Contact collection data
   email: string;
   phoneNumber: string;
   contactPerson: string;
