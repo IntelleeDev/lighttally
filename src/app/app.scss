@@ -96,11 +96,16 @@
   background: transparent;
 }
 
+.c-item {
+  background: transparent;
+}
+
 .drawer {
   color: #fff;
   background: transparent;
 }
 
 .hero-bg {
-  background: url('../assets/imgs/background.png');
+  background-size: cover;
+  background-image: url('../assets/imgs/background.png');
 }
