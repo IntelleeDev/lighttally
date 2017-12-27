@@ -1,17 +1,38 @@
 <div>
   <div class="box">
-    <ion-item ngClass="blank" no-lines>
-      <ion-label color="text-color">Select Room Type:</ion-label>
-      <ion-select ngClass="trans" [(ngModel)]="gender">
-        <ion-option *ngFor="let room of rooms">{{room}}</ion-option>
-      </ion-select>
-    </ion-item>
-  </div>
+    <div class="c-item-box">
+      <span ion-text color="text-color">Room Name</span>
+      <ion-input ngClass="trans" [(ngModel)]="roomName" type="text" value="" placeholder="Enter room name"></ion-input>
+    </div>
 
-  <div class="box">
-    <div ngClass="c-item-box">
-      <span ion-text color="text-color">Enter estimated hours of use</span>
-      <ion-input ngClass="trans" value="" placeholder="Enter estimated hours of use"></ion-input>
+    <div class="c-item-box">
+      <span ion-text color="text-color">Lighting Occupied Hours</span>
+      <ion-item ngClass="blank" no-lines>
+        <ion-select ngClass="trans" [(ngModel)]="lightingHours" full placeholder="Select lighting occupied hours">
+          <ion-option>MON 6-5</ion-option>
+          <ion-option>TUE 6-5</ion-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <div class="c-item-box">
+      <span ion-text color="text-color">Height To Fixtures</span>
+      <ion-input ngClass="trans" [(ngModel)]="heightToFixtures" type="text" value="" placeholder="Enter height to fixtures"></ion-input>
+    </div>
+    
+    <div class="c-item-box">
+      <span ion-text color="text-color">Lift</span>
+      <ion-list radio-group [(ngModel)]="hasLift">
+        <ion-item ngClass="trans" no-lines>
+          <ion-label>Yes</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+        <ion-item ngClass="trans" no-lines>
+          <ion-label>No</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+      </ion-list>
     </div>
   </div>
+
 </div>
