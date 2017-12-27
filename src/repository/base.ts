@@ -4,5 +4,5 @@ import { Observable } from 'rxjs/Observable';
 export interface Repository<T> {
   findByFilter(whereFilter: string): Observable<T>;
 
-  store(data: T): Observable<any>;
+  store(data: T): Promise<any>;
 }

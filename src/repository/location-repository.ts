@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Rx';
+import { of } from 'rxjs/observable/of';
 import { Repository } from './base';
 
 import { Location } from '../model/Location';
-import { DataSource } from '../data/data-source';
+import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/firestore-data-source';
 
 @Injectable()
 export class LocationRepository implements Repository<Location> {
-  private collectionName = 'location';
+  private collectionName = 'locations';
 
-  constructor(private dataSource: DataSource<Location>) {}
+  constructor(private dataSource: FirestoreDataSourceProvider<Location>) {}
 
   findByFilter(whereFilter: string): Observable<Location> {
     throw new Error("Method not implemented.");
   }
 
-  store(data: Location): Observable<any> {
-    this.dataSource.store(data)
+  store(data: Location): Promise<any> {
+    return this.dataSource
+               .store(this.collectionName, data)
+               .then(id => id);
   }
   
 }
