@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Rx';
 
 import { MyApp } from '../../app/app.component';
 import { SignUpPage } from '../sign-up/sign-up';
+import { HomePage } from '../../pages/home/home';
 
 import { User } from '../../model/user';
 import { AuthProvider } from '../../providers/auth/auth';
@@ -49,7 +50,7 @@ export class SignInPage {
   }
 
   toHomePage(): void {
-    this.navCtrl.goToRoot({});
+    this.navCtrl.push(HomePage, {});
   }
 
   toSignUpPage(): void {

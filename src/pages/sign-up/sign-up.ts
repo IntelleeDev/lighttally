@@ -35,11 +35,10 @@ export class SignUpPage {
 
     this.regProvider
       .registerUser(data)
-      .then(() => 
-        setTimeout(() => { 
-          this.hideSpinner()
-          this.backToSignInPage() 
-        }, 900));
+      .then(() => {
+        this.hideSpinner()
+        this.backToSignInPage()
+      });
   }
 
   backToSignInPage() {

@@ -18,8 +18,10 @@ export class RegistrationProvider {
     this.fireStore.setCollectionName(this.collectionName);
    }
 
-  registerUser(user: User): Promise<void> {
-    return Promise.resolve(this.fireStore.store(user));
+  registerUser(user: User): Promise<any> {
+    return this.fireStore
+               .store(user)
+               .then(id => id); // Returns the id of the newly created document
   }
 
 }

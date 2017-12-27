@@ -30,9 +30,10 @@ export class FirestoreDataSourceProvider<T> implements DataSource<T> {
         .valueChanges()   
   }
 
-  store(data: T): void {
+  store(data: T): Promise<any> {
     let collection = this.fireStore.collection<T>(this.collectionName);
-    collection.add(data);
+    return collection.add(data)
+              .then(docRef => docRef.id);
   }
 
   setCollectionName(name: string) {

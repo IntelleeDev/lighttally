@@ -14,7 +14,7 @@ import { SignInPage } from '../pages/sign-in/sign-in';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = SignInPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -30,11 +30,11 @@ export class MyApp {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
 
-      if (this.authProvider.getAuthenticatedUser() == null) {
-        this.nav.push(SignInPage, {});
+      if (this.authProvider.getAuthenticatedUser() != null) {
+        this.nav.push(HomePage, {});
       }
+      this.splashScreen.hide();
     });
   }
 }
