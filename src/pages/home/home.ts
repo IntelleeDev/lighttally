@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, IonicPage, NavParams } from 'ionic-angular';
+import { Nav, NavController, IonicPage, NavParams } from 'ionic-angular';
 
 import { SignInPage } from '../sign-in/sign-in';
 import { DashboardPage } from '../dashboard/dashboard';
@@ -16,7 +16,7 @@ export class HomePage {
   rootPage: any = DashboardPage;
   pages: Array<{title: string, component: any}>;
 
-  constructor(public navParams: NavParams) {
+  constructor(public navParams: NavParams, public navCtrl: NavController) {
     this.pages = [
       { title: 'Dashboard', component: DashboardPage },
       { title: 'Make Evaluation', component: LocationInfoPage },
@@ -27,7 +27,7 @@ export class HomePage {
 
   openPage(page) {
     if (page.title === "logout") {
-      this.nav.push(SignInPage, {});
+      this.navCtrl.popTo(SignInPage);
       return;
     }
     this.nav.setRoot(page.component);

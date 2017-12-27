@@ -42,7 +42,7 @@ export class SignUpPage {
   }
 
   backToSignInPage() {
-    this.navCtrl.pop();
+    this.navCtrl.popTo(SignUpPage);
   }
 
   showSpinner() {
