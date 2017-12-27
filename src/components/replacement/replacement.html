@@ -1,35 +1,51 @@
 <div>
-  <div class="box"></div>
-  <ion-item ngClass="blank" no-lines>
-    <ion-label color="text-color">Replace existing feature:</ion-label>
-    <ion-select ngClass="trans" [(ngModel)]="gender">
-      <ion-option></ion-option>
-    </ion-select>
-  </ion-item>
-    
-  <ion-item ngClass="blank" no-lines>
-    <ion-label color="text-color">Replacement bulb type:</ion-label>
-    <ion-select ngClass="trans" [(ngModel)]="gender">
-      <ion-option></ion-option>
-    </ion-select>
-  </ion-item>
+  <div class="box">
+    <div class="c-item-box">
+      <span ion-text color="text-color">Replacement Bulb</span>
+      <ion-input 
+        value=""
+        ngClass="trans" 
+        [(ngModel)]="replacementBulb" 
+        placeholder="Enter replacementBulb">
+      </ion-input>
+    </div>
+
+    <div class="c-item-box">
+      <span ion-text color="text-color">Wattage</span>
+      <ion-input 
+        ngClass="trans" 
+        [(ngModel)]="wattage" 
+        type="number" value="" 
+        placeholder="Enter wattage">
+      </ion-input>
+    </div>
+
+    <div class="c-item-box">
+      <span ion-text color="text-color">Kalvins</span>
+      <ion-input 
+        ngClass="trans" 
+        [(ngModel)]="kalvins" 
+        type="number" value="" 
+        placeholder="Enter kalvins">
+      </ion-input>
+    </div>
+
+    <div class="c-item-box">
+      <span ion-text color="text-color">Special Notes</span>
+      <ion-textarea 
+        value=""
+        type="number"
+        ngClass="trans" 
+        [(ngModel)]="specialNotes" 
+        placeholder="Enter special notes">
+      </ion-textarea>
+    </div>
+  </div>
   
-  <div class="c-item-box">
-    <span ion-text color="text-color">Enter no of replacements needed</span>
-    <ion-input ngClass="trans" type="number" value="" placeholder="Enter no of replacements needed"></ion-input>
-  </div> 
     
-  <div class="c-item-box">
-    <span ion-text color="text-color">Enter wattage</span>
-    <ion-input ngClass="trans" value="" placeholder="Enter wattage"></ion-input>
-  </div>
-    
-  <div class="c-item-box">
-    <span ion-text color="text-color">Enter special instructions</span>
-    <ion-input ngClass="trans" type="text" value="" placeholder="Enter special instructions"></ion-input>
-  </div>
+  
   
   <div class="box">
-    <button ion-button ngClass="c-button">Finish Room</button>
+    <button ion-button full ngClass="c-button">Finish Room</button>
   </div>
 </div>

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { RoomPage } from '../room/room'
+import { RoomPage } from '../room/room';
+import { DashboardPage } from '../dashboard/dashboard';
 
 @IonicPage()
 @Component({
@@ -17,7 +18,11 @@ export class LocationInfoPage {
     console.log('ionViewDidLoad LocationInfoPage');
   }
 
-  goToRoomPage(): void {
+  toDashboardPage() {
+    this.navCtrl.setRoot(DashboardPage);
+  }
+
+  toRoomPage() {
     this.navCtrl.push(RoomPage, {});
   }
 
