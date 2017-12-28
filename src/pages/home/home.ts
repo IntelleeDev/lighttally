@@ -25,10 +25,6 @@ export class HomePage {
   }
 
   openPage(page) {
-    if (page.title === "logout") {
-      this.navCtrl.popTo(SignInPage);
-      return;
-    }
     this.nav.setRoot(page.component);
   }
 
