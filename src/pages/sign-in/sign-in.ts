@@ -47,7 +47,6 @@ export class SignInPage {
             this.hideSpinner()
           }
         });
-    this.toHomePage();
   }
 
   toHomePage(): void {
