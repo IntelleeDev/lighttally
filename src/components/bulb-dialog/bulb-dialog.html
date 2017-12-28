@@ -11,7 +11,7 @@
           <ion-row>
             <ion-col col-6 *ngFor="let t of bulb.types">
               <div class="c-item bulb-icon-box bulb-bg"
-                (click)="selectBulb('type one')">
+                (click)="selectBulb(bulb.category + ' ' + t.name)">
                 <img src="{{t.src}}" />
                 <span class="bulb-name">{{ t.name }}</span>
               </div>
