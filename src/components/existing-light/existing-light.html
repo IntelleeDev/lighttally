@@ -21,7 +21,7 @@
 
     <div class="c-item-box">
       <span ion-text color="text-color">Existing Bulb</span>
-      <div ngClass="trans" (click)="openBulbDialog()">Select bulb</div>
+      <div ngClass="trans" (click)="openBulbModal()">{{ existingBulb ? existingBulb : 'Select bulb' }}</div>
     </div>
 
     <div class="c-item-box">

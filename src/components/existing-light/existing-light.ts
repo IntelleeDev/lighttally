@@ -10,6 +10,8 @@ import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
 })
 export class ExistingLightComponent {
 
+  existingBulb: string;
+
   readonly options: CameraOptions = {
     quality: 100,
     destinationType: this.camera.DestinationType.DATA_URL,
@@ -23,6 +25,9 @@ constructor(
 
   openBulbModal() {
     const bulbModal = this.modalCtrl.create(BulbDialogComponent);
+    bulbModal.onDidDismiss(data => {
+      this.existingBulb = data;
+    })
     bulbModal.present();
   }
 

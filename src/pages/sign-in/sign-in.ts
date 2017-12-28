@@ -47,6 +47,7 @@ export class SignInPage {
     //         this.hideSpinner()
     //       }
     //     });
+    this.hideSpinner();
     this.toHomePage();
   }
 

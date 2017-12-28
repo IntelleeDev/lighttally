@@ -1,22 +1,16 @@
 import { Component } from '@angular/core';
+import { ViewController } from 'ionic-angular';
 
-/**
- * Generated class for the BulbDialogComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'bulb-dialog',
   templateUrl: 'bulb-dialog.html'
 })
 export class BulbDialogComponent {
 
-  text: string;
+  constructor(public viewCtrl: ViewController) { }
 
-  constructor() {
-    console.log('Hello BulbDialogComponent Component');
-    this.text = 'Hello World';
+  selectBulb(bulbType: any) {
+    this.viewCtrl.dismiss(bulbType);
   }
 
 }
