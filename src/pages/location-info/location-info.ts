@@ -8,11 +8,17 @@ import { Contact } from '../../model/contact';
 import { Location } from '../../model/location';
 
 import { LocationRepository } from '../../repository/location-repository';
+import { FirestoreDataSourceProvider } from '../../providers/firestore-data-source/firestore-data-source';
 
 @IonicPage()
 @Component({
   selector: 'page-location-info',
   templateUrl: 'location-info.html',
+  providers: [ 
+    {
+      provide: LocationRepository, useValue: FirestoreDataSourceProvider
+    }
+  ]
 })
 export class LocationInfoPage {
   
