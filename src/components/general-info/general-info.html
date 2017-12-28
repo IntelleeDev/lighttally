@@ -9,8 +9,7 @@
       <span ion-text color="text-color">Lighting Occupied Hours</span>
       <ion-item ngClass="blank" no-lines>
         <ion-select ngClass="trans" [(ngModel)]="lightingHours" full placeholder="Select lighting occupied hours">
-          <ion-option>MON 6-5</ion-option>
-          <ion-option>TUE 6-5</ion-option>
+          <ion-option *ngFor="let work of workHours">{{ work }}</ion-option>
         </ion-select>
       </ion-item>
     </div>
