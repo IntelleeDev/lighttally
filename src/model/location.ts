@@ -2,9 +2,9 @@
 export interface Location {
   address: string;
   businessName: string;
-  accountNumber: number;
+  accountNumber?: number;
   electricCompany: string;
-  kwhFiled: boolean;
+  kwhFiled?: boolean;
   squareFootage: number;
   workingHours: string;  
 }

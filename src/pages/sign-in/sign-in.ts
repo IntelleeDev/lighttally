@@ -37,16 +37,17 @@ export class SignInPage {
       password: this.password
     } as User;
 
-    this.authProvider
-        .authenticateUser(user)
-        .subscribe(authenticated => {
-          if (authenticated) {
-            this.hideSpinner()
-            this.toHomePage()            
-          } else {
-            this.hideSpinner()
-          }
-        });
+    // this.authProvider
+    //     .authenticateUser(user)
+    //     .subscribe(authenticated => {
+    //       if (authenticated) {
+    //         this.hideSpinner()
+    //         this.toHomePage()            
+    //       } else {
+    //         this.hideSpinner()
+    //       }
+    //     });
+    this.toHomePage();
   }
 
   toHomePage(): void {

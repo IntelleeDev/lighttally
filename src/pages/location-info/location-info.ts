@@ -59,14 +59,15 @@ export class LocationInfoPage {
       phoneNumber: this.phoneNumber
     }
 
-    this.locRepository
-        .store(location as Location)
-        .then(locId => { 
-          contact['locationId'] = locId;
-          this.contactRepository
-              .store(contact as Contact)
-              .then(() => this.toRoomPage());
-        });
+    // this.locRepository
+    //     .store(location as Location)
+    //     .then(locId => { 
+    //       contact['locationId'] = locId;
+    //       this.contactRepository
+    //           .store(contact as Contact)
+    //           .then(() => this.toRoomPage());
+    //     });
+    this.toRoomPage();
   }
 
   toDashboardPage() {

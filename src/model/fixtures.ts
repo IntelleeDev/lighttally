@@ -7,4 +7,5 @@ export interface Fixtures {
   existingBulb: string;
   numberOfBulbs: number;
   numberOfFixtures: number;
+  roomId: string;
 }

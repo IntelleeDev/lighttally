@@ -4,4 +4,5 @@ export interface Replacement {
   kalvins: number;
   specialNotes: string;
   replacementBulb: string;
+  roomId;
 }

@@ -21,7 +21,7 @@
 
     <div class="c-item-box">
       <span ion-text color="text-color">Existing Bulb</span>
-      <ion-input ngClass="trans" [(ngModel)]="existingBulb" value="" placeholder="Select exiting bulb"></ion-input>
+      <div ngClass="trans" (click)="openBulbDialog()">Select bulb</div>
     </div>
 
     <div class="c-item-box">
