@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Repository } from './base';
 
-import { Location } from '../model/Location';
+import { Location } from '../model/location';
 import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/firestore-data-source';
 
 @Injectable()
