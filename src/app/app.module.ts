@@ -19,6 +19,7 @@ import { GeneralInfoComponent } from '../components/general-info/general-info';
 import { ExistingLightComponent } from '../components/existing-light/existing-light';
 
 import { firebaseConfig } from '../config/firebaseConfig';
+import { Camera } from '@ionic-native/camera';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -64,6 +65,7 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     ExistingLightComponent
   ],
   providers: [
+    Camera,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
