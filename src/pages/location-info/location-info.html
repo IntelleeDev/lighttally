@@ -63,8 +63,7 @@
       <span ion-text color="text-color">Working Hours</span>
       <ion-item ngClass="blank" no-lines>
         <ion-select ngClass="trans" [(ngModel)]="workingHours" full placeholder="Select working hours">
-          <ion-option>MON 6-5</ion-option>
-          <ion-option>TUE 6-5</ion-option>
+          <ion-option *ngFor="let hour of hours">{{ hour }}</ion-option>
         </ion-select>
       </ion-item>
     </div>  
@@ -84,7 +83,7 @@
       <ion-input ngClass="trans" [(ngModel)]="phoneNumber" type="tel" value="" placeholder="Please enter your land or mobile phone"></ion-input>
     </div>
 
-    <!-- Nex and Previous Button -->
+    <!-- Next and Previous Button -->
     <div>
       <ion-grid no-padding>
         <ion-row>

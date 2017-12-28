@@ -7,6 +7,8 @@ import { DashboardPage } from '../dashboard/dashboard';
 import { Contact } from '../../model/contact';
 import { Location } from '../../model/location';
 
+import { WORK_HOURS } from '../../data/constants';
+
 import { ContactRepository } from '../../repository/contact-repository';
 import { LocationRepository } from '../../repository/location-repository';
 import { FirestoreDataSourceProvider } from '../../providers/firestore-data-source/firestore-data-source';
@@ -21,6 +23,8 @@ import { FirestoreDataSourceProvider } from '../../providers/firestore-data-sour
   ]
 })
 export class LocationInfoPage {
+
+  hours: Array<string>;
   
   // Location collection data
   address: string;
@@ -40,7 +44,9 @@ export class LocationInfoPage {
     public navParams: NavParams,
     public navCtrl: NavController, 
     private locRepository: LocationRepository,
-    private contactRepository: ContactRepository) { }
+    private contactRepository: ContactRepository) {
+      this.hours = WORK_HOURS;
+    }
 
   submit() {
     const location = {
