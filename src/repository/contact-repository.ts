@@ -3,23 +3,23 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Repository } from './base';
 
-import { Location } from '../model/Location';
+import { Contact } from '../model/contact';
 import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/firestore-data-source';
 
 @Injectable()
-export class LocationRepository implements Repository<Location> {
-  private collectionName = 'locations';
+export class ContactRepository implements Repository<Contact> {
+  private collectionName = 'contacts';
 
-  constructor(private dataSource: FirestoreDataSourceProvider<Location>) {}
+  constructor(private dataSource: FirestoreDataSourceProvider<Contact>) { }
 
-  findByFilter(whereFilter: string): Observable<Location> {
+  findByFilter(whereFilter: string): Observable<Contact> {
     throw new Error("Method not implemented.");
   }
 
-  store(data: Location): Promise<any> {
+  store(data: Contact): Promise<any> {
     return this.dataSource
                .store(this.collectionName, data)
                .then(id => id);
   }
-  
+
 }

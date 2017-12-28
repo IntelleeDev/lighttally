@@ -7,6 +7,7 @@ import { DashboardPage } from '../dashboard/dashboard';
 import { Contact } from '../../model/contact';
 import { Location } from '../../model/location';
 
+import { ContactRepository } from '../../repository/contact-repository';
 import { LocationRepository } from '../../repository/location-repository';
 import { FirestoreDataSourceProvider } from '../../providers/firestore-data-source/firestore-data-source';
 
@@ -15,9 +16,8 @@ import { FirestoreDataSourceProvider } from '../../providers/firestore-data-sour
   selector: 'page-location-info',
   templateUrl: 'location-info.html',
   providers: [ 
-    {
-      provide: LocationRepository, useValue: FirestoreDataSourceProvider
-    }
+      ContactRepository,
+      LocationRepository
   ]
 })
 export class LocationInfoPage {
@@ -37,9 +37,10 @@ export class LocationInfoPage {
   contactPerson: string;
 
   constructor(
-    public navCtrl: NavController, 
     public navParams: NavParams,
-    private locRepository: LocationRepository) { }
+    public navCtrl: NavController, 
+    private locRepository: LocationRepository,
+    private contactRepository: ContactRepository) { }
 
   submit() {
     const location = {
@@ -52,9 +53,20 @@ export class LocationInfoPage {
       electricCompany: this.electricCompany
     } 
 
+    const contact = {
+      email: this.email,
+      name: this.contactPerson,
+      phoneNumber: this.phoneNumber
+    }
+
     this.locRepository
         .store(location as Location)
-        .then(() => this.toRoomPage());
+        .then(locId => { 
+          contact['locationId'] = locId;
+          this.contactRepository
+              .store(contact as Contact)
+              .then(() => this.toRoomPage());
+        });
   }
 
   toDashboardPage() {
