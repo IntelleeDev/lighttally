@@ -11,6 +11,7 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
 import { MyProfilePage } from '../pages/my-profile/my-profile';
 import { LocationInfoPage } from '../pages/location-info/location-info';
 
+import { Camera } from '@ionic-native/camera';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -19,7 +20,6 @@ import { GeneralInfoComponent } from '../components/general-info/general-info';
 import { ExistingLightComponent } from '../components/existing-light/existing-light';
 
 import { firebaseConfig } from '../config/firebaseConfig';
-import { Camera } from '@ionic-native/camera';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
