@@ -2,23 +2,18 @@
   <div>
     <!-- View Pager Slides -->
    <ion-slides>
-    <ion-slide>
+    <ion-slide *ngFor="let bulb of bulbs">
       <br/><br/>
       <!-- Label here -->
-      <ion-item-divider ngClass='heading'>Incandescent</ion-item-divider>
+      <ion-item-divider ngClass='heading'>{{ bulb.category }}</ion-item-divider>
       <div padding>
         <ion-grid>
           <ion-row>
-            <ion-col col-6>
-              <div class="c-item bulb-icon-box bulb-bg" (click)="selectBulb('Type One')">
-                <img src="../../assets/imgs/a15.png" />
-                <span class="bulb-name">Type One</span>
-              </div>
-            </ion-col>
-            <ion-col col-6>
-              <div class="c-item bulb-icon-box bulb-bg" (click)="selectBulb('Type Two')">
-                <img src="../../assets/imgs/a15.png" />
-                <span class="bulb-name">Type One</span>
+            <ion-col col-6 *ngFor="let t of bulb.types">
+              <div class="c-item bulb-icon-box bulb-bg"
+                (click)="selectBulb('type one')">
+                <img src="{{t.src}}" />
+                <span class="bulb-name">{{ t.name }}</span>
               </div>
             </ion-col>
           </ion-row>
