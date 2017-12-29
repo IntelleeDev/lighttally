@@ -12,7 +12,7 @@ export class BulbComponent {
   @Input() public headTitle;
   
   indexCounter = 0;
-  public readonly data: Array<{number, string}> = [];
+  public data: Array<{number, string}> = [];
 
   constructor(private modalCtrl: ModalController) {}
 
@@ -30,5 +30,14 @@ export class BulbComponent {
 
   addItem(value: any) {
     this.data.push(value);
+  }
+
+  public removeItem(id: number) {
+    this.data = this.data.filter((val:any, index) => {
+      if (index == val.id) {
+        return;
+      }
+      return val;
+    })
   }
 }
