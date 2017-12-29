@@ -6,7 +6,7 @@
     <div class="trans" *ngFor="let d of data">
       <div class="actions-box">
         <span>{{ d.name }}</span>
-        <span (click)="removeItem(d.id)">
+        <span ion-button color="link-color" (click)="removeItem(d.id)">
           <ion-icon name="close"></ion-icon>
         </span>
       </div>

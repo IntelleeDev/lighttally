@@ -32,9 +32,9 @@ export class BulbComponent {
     this.data.push(value);
   }
 
-  public removeItem(id: number) {
+  public removeItem(id: any) {
     this.data = this.data.filter((val:any, index) => {
-      if (index == val.id) {
+      if (parseInt(id) == parseInt(val.id)) {
         return;
       }
       return val;
