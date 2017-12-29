@@ -7,7 +7,6 @@ import { HomePage } from '../pages/home/home';
 import { RoomPage } from '../pages/room/room';
 import { SignInPage } from '../pages/sign-in/sign-in';
 import { SignUpPage } from '../pages/sign-up/sign-up';
-import { FinalizePage } from '../pages/finalize/finalize';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { MyProfilePage } from '../pages/my-profile/my-profile';
 import { LocationInfoPage } from '../pages/location-info/location-info';
@@ -16,6 +15,7 @@ import { Camera } from '@ionic-native/camera';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { FinalizeComponent } from '../components/finalize/finalize';
 import { BulbDialogComponent } from '../components/bulb-dialog/bulb-dialog';
 import { ReplacementComponent } from '../components/replacement/replacement';
 import { GeneralInfoComponent } from '../components/general-info/general-info';
