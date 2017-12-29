@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
+import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
+
 @Component({
   selector: 'existing-light',
   templateUrl: 'existing-light.html'
@@ -20,6 +22,14 @@ export class ExistingLightComponent {
 constructor(
   private camera: Camera,
   private modalCtrl: ModalController) { }
+
+  openBulbModal() {
+    const bulbModal = this.modalCtrl.create(BulbDialogComponent);
+    bulbModal.onDidDismiss(data => {
+      this.existingBulb = data;
+    })
+    bulbModal.present();
+  }
 
   takeSnapShot() {
     this.camera.getPicture(this.options).then((imageData) => {

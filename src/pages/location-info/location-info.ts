@@ -45,7 +45,7 @@ export class LocationInfoPage {
     public navCtrl: NavController, 
     private locRepository: LocationRepository,
     private contactRepository: ContactRepository) {
-      this.hours = WORK_HOURS;
+      this.hours = ['Mon-Fri 6-5'];
     }
 
   submit() {

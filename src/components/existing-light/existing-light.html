@@ -19,7 +19,10 @@
       <ion-input ngClass="trans" [(ngModel)]="numOfBulbs" type="number" value="" placeholder="Enter number of bulbs"></ion-input>
     </div>
 
-    <bulb></bulb>
+    <div class="c-item-box">
+      <span ion-text color="text-color">Existing Bulb</span>
+      <div ngClass="trans" (click)="openBulbModal()">{{ existingBulb ? existingBulb?.name : 'Select bulb' }}</div>
+    </div>
 
     <div class="c-item-box">
       <span ion-text color="text-color">Wattage</span>
