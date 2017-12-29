@@ -10,7 +10,7 @@ import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
 })
 export class ExistingLightComponent {
 
-  existingBulb: string;
+  // existingBulb: string;
 
   readonly options: CameraOptions = {
     quality: 100,
@@ -23,13 +23,14 @@ constructor(
   private camera: Camera,
   private modalCtrl: ModalController) { }
 
-  openBulbModal() {
-    const bulbModal = this.modalCtrl.create(BulbDialogComponent);
-    bulbModal.onDidDismiss(data => {
-      this.existingBulb = data;
-    })
-    bulbModal.present();
-  }
+  // openBulbModal() {
+  //   const bulbModal = this.modalCtrl.create(BulbDialogComponent);
+  //   bulbModal.onDidDismiss(data => {
+  //     this.existingBulb = data;
+  //     alert(data);
+  //   })
+  //   bulbModal.present();
+  // }
 
   takeSnapShot() {
     this.camera.getPicture(this.options).then((imageData) => {

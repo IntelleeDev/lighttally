@@ -1,5 +1,5 @@
 <div class="c-item-box">
-  <span ion-text color="text-color">Existing Bulb</span>
+  <span ion-text color="text-color">{{ title }}</span>
   <div ngClass="trans" (click)="openModal()">Select bulb</div>
 
   <div *ngIf="data.length > 0">

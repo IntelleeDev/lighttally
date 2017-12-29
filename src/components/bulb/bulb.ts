@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 
 import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
@@ -8,7 +8,9 @@ import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
   templateUrl: 'bulb.html'
 })
 export class BulbComponent {
-
+  
+  @Input() title: string = '';
+  
   indexCounter = 0;
   public readonly data: Array<{number, string}> = [];
 
