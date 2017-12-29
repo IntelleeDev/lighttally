@@ -9,14 +9,15 @@ import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
 })
 export class BulbComponent {
 
-  public readonly data: Array<string> = [];
+  indexCounter = 0;
+  public readonly data: Array<{number, string}> = [];
 
   constructor(private modalCtrl: ModalController) {}
 
   public openModal() {
     let modal = this.modalCtrl.create(BulbDialogComponent);
     modal.onDidDismiss(data => {
-      this.addItem(data);
+      this.addItem({ id: ++this.indexCounter, name: data });
     })
     modal.present();
   }
@@ -25,7 +26,7 @@ export class BulbComponent {
     return new Array();
   }
 
-  addItem(value: string) {
+  addItem(value: any) {
     this.data.push(value);
   }
 }

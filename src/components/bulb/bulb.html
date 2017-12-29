@@ -3,6 +3,6 @@
   <div ngClass="trans" (click)="openModal()">Select bulb</div>
 
   <div *ngIf="data.length > 0">
-    <div ngClass="trans" *ngFor="let d of data">{{ d }}</div>
+    <div *ngFor="let d of data">{{ d.name d.id }}</div>
   </div>
 </div>
