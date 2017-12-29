@@ -6,11 +6,8 @@ import { Component } from '@angular/core';
 })
 export class ReplacementComponent {
 
-  text: string;
-
   constructor() {
-    console.log('Hello ReplacementComponent Component');
-    this.text = 'Replacement component';
+    
   }
 
 }
