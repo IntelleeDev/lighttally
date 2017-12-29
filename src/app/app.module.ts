@@ -15,6 +15,7 @@ import { Camera } from '@ionic-native/camera';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { BulbComponent } from '../components/bulb/bulb';
 import { FinalizeComponent } from '../components/finalize/finalize';
 import { BulbDialogComponent } from '../components/bulb-dialog/bulb-dialog';
 import { ReplacementComponent } from '../components/replacement/replacement';
@@ -41,6 +42,7 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     DashboardPage,
     MyProfilePage,
     LocationInfoPage,
+    BulbComponent,
     FinalizeComponent,
     BulbDialogComponent,
     ReplacementComponent,
@@ -64,6 +66,7 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     DashboardPage,
     MyProfilePage,
     LocationInfoPage,
+    BulbComponent,
     FinalizeComponent,
     BulbDialogComponent,
     ReplacementComponent,

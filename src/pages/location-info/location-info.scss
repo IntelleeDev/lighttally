@@ -1,3 +1,10 @@
 page-location-info {
-  
+  .time-box {
+    display: flex;
+    padding: 5px 0px;
+  }
+
+  .time-box > div {
+    margin-right: 20px;
+  }
 }

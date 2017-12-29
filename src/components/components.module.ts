@@ -4,17 +4,20 @@ import { ExistingLightComponent } from './existing-light/existing-light';
 import { ReplacementComponent } from './replacement/replacement';
 import { BulbDialogComponent } from './bulb-dialog/bulb-dialog';
 import { FinalizeComponent } from './finalize/finalize';
+import { BulbComponent } from './bulb/bulb';
 @NgModule({
 	declarations: [GeneralInfoComponent,
     ExistingLightComponent,
     ReplacementComponent,
     BulbDialogComponent,
-    FinalizeComponent],
+    FinalizeComponent,
+    BulbComponent],
 	imports: [],
 	exports: [GeneralInfoComponent,
     ExistingLightComponent,
     ReplacementComponent,
     BulbDialogComponent,
-    FinalizeComponent]
+    FinalizeComponent,
+    BulbComponent]
 })
 export class ComponentsModule {}

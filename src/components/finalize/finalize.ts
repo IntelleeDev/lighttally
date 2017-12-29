@@ -9,7 +9,7 @@ import { DashboardPage } from '../../pages/dashboard/dashboard';
   templateUrl: 'finalize.html'
 })
 export class FinalizeComponent {
-  @Input() toFirst;
+  @Input() public toFirst;
 
   constructor(private navCtrl: NavController) { }
 
