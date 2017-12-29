@@ -1,22 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Slides, NavController } from 'ionic-angular';
 
-/**
- * Generated class for the FinalizeComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
+import { RoomPage } from '../../pages/room/room';
+import { DashboardPage } from '../../pages/dashboard/dashboard';
+
 @Component({
   selector: 'finalize',
   templateUrl: 'finalize.html'
 })
 export class FinalizeComponent {
+  @Input() toFirst;
 
-  text: string;
+  constructor(private navCtrl: NavController) { }
 
-  constructor() {
-    console.log('Hello FinalizeComponent Component');
-    this.text = 'Hello World';
+  doNewEvaluation() {
+    this.toFirst(0);
+  }
+
+  finishEvaluation() {
+    this.navCtrl.popToRoot();
+    this.navCtrl.setRoot(DashboardPage);
   }
 
 }

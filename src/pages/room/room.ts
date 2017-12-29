@@ -24,7 +24,7 @@ export class RoomPage {
   ionViewDidLoad() {
   }
 
-  goToSlide(index): void {
+  public goToSlide(index): void {
     this.slides.slideTo(index, 500);
   }
 

@@ -5,9 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: 'replacement.html'
 })
 export class ReplacementComponent {
-
-  constructor() {
-    
-  }
-
+  constructor() { }
 }
