@@ -25,7 +25,7 @@ export class RoomPage {
     this.slides.slideTo(index, 500);
   }
 
-  openFinalizePage() {
+  public openFinalizePage() {
     this.navCtrl.push(FinalizePage, {});
   }
 
