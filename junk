@@ -1,0 +1,9 @@
+<div class="c-item-box">
+      <span ion-text color="text-color">Replacement Bulb</span>
+      <ion-input 
+        value=""
+        ngClass="trans" 
+        [(ngModel)]="replacementBulb" 
+        placeholder="Enter replacementBulb">
+      </ion-input>
+    </div>

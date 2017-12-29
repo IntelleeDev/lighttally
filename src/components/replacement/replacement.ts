@@ -5,5 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: 'replacement.html'
 })
 export class ReplacementComponent {
+  public head: string = 'Replacement Bulb';
   constructor() { }
 }
