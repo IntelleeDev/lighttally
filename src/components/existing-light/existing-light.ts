@@ -12,6 +12,8 @@ export class ExistingLightComponent {
 
   // existingBulb: string;
 
+  title: string = 'Existing Bulb';
+
   readonly options: CameraOptions = {
     quality: 100,
     destinationType: this.camera.DestinationType.DATA_URL,

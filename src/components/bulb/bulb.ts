@@ -9,7 +9,7 @@ import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
 })
 export class BulbComponent {
   
-  @Input() title: string = '';
+  @Input() public headTitle;
   
   indexCounter = 0;
   public readonly data: Array<{number, string}> = [];
