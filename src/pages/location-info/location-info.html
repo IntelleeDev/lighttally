@@ -15,88 +15,90 @@
 
   <div padding>
     <!-- Form -->
-    <div class="c-item-box">
-      <span ion-text color="text-color">Business Name</span>
-      <ion-input ngClass="trans" [(ngModel)]="businessName" type="text" value="" placeholder="Enter your business name"></ion-input>
-    </div>
-
-    <div class="c-item-box">
-      <span ion-text color="text-color">Address</span>
-      <ion-input ngClass="trans" [(ngModel)]="address" type="text" value="" placeholder="Enter your address"></ion-input>
-    </div>
-
-    <div class="c-item-box">
-      <span ion-text color="text-color">Electric Company</span>
-      <ion-item ngClass="blank" no-lines>
-        <ion-select ngClass="trans" [(ngModel)]="electricCompany" full placeholder="Select electric company">
-          <ion-option>PHCN</ion-option>
-          <ion-option>LAEDCO</ion-option>
-        </ion-select>
-      </ion-item>
-    </div>  
-    
-    <div class="c-item-box">
-      <span ion-text color="text-color">Account Number</span>
-      <ion-input ngClass="trans" [(ngModel)]="accountNumber" type="number" value="" placeholder="Enter account number"></ion-input>
-    </div>
-
-    <div class="c-item-box">
-      <span ion-text color="text-color">KWH Filed</span>
-      <ion-list radio-group [(ngModel)]="kwhFiled">
-        <ion-item ngClass="trans" no-lines>
-          <ion-label>Yes</ion-label>
-          <ion-radio value="true"></ion-radio>
-        </ion-item>
-        <ion-item ngClass="trans" no-lines>
-          <ion-label>No</ion-label>
-          <ion-radio value="false"></ion-radio>
-        </ion-item>
-      </ion-list>
-    </div>
-
-    <div class="c-item-box">
-      <span ion-text color="text-color">Square Footage</span>
-      <ion-input ngClass="trans" [(ngModel)]="squareFootage" type="number" value="" placeholder="Enter square footage"></ion-input>
-    </div>
-
-    <div class="c-item-box">
-      <span ion-text color="text-color">Working Hours</span>
-      <ion-item ngClass="blank" no-lines>
-        <ion-select ngClass="trans" [(ngModel)]="workingHours" full placeholder="Select working hours">
-          <ion-option *ngFor="let hour of hours">{{ hour }}</ion-option>
-        </ion-select>
-      </ion-item>
-
-      <div class="time-box">
-        <div>
-          <span ion-text color="text-color">From</span>
-          <ion-item ngClass="blank" no-lines>
-            <ion-datetime ngClass="trans" displayFormat="HH:mm" [(ngModel)]="fromHour"></ion-datetime>
-          </ion-item>
-        </div>
-        <div>
-          <span ion-text color="text-color">To</span>
-          <ion-item ngClass="blank" no-lines>
-            <ion-datetime ngClass="trans" displayFormat="HH:mm" [(ngModel)]="toHour"></ion-datetime>
-          </ion-item>
-        </div>
+    <form>
+      <div class="c-item-box">
+        <span ion-text color="text-color">Business Name</span>
+        <ion-input ngClass="trans" [(ngModel)]="businessName" type="text" value="" placeholder="Enter your business name"></ion-input>
       </div>
-    </div>  
 
-    <div class="c-item-box">
-      <span ion-text color="text-color">Contact Person</span>
-      <ion-input ngClass="trans" [(ngModel)]="contactPerson" type="text" value="" placeholder="Enter the name of contact person"></ion-input>
-    </div>
+      <div class="c-item-box">
+        <span ion-text color="text-color">Address</span>
+        <ion-input ngClass="trans" [(ngModel)]="address" type="text" value="" placeholder="Enter your address"></ion-input>
+      </div>
 
-    <div class="c-item-box">
-      <span ion-text color="text-color">Email</span>
-      <ion-input ngClass="trans" [(ngModel)]="email" type="email" value="" placeholder="Please enter email"></ion-input>
-    </div>
+      <div class="c-item-box">
+        <span ion-text color="text-color">Electric Company</span>
+        <ion-item ngClass="blank" no-lines>
+          <ion-select ngClass="trans" [(ngModel)]="electricCompany" full placeholder="Select electric company">
+            <ion-option>PHCN</ion-option>
+            <ion-option>LAEDCO</ion-option>
+          </ion-select>
+        </ion-item>
+      </div>  
+      
+      <div class="c-item-box">
+        <span ion-text color="text-color">Account Number</span>
+        <ion-input ngClass="trans" [(ngModel)]="accountNumber" type="number" value="" placeholder="Enter account number"></ion-input>
+      </div>
 
-    <div class="c-item-box">
-      <span ion-text color="text-color">Phone Number</span>
-      <ion-input ngClass="trans" [(ngModel)]="phoneNumber" type="tel" value="" placeholder="Please enter your land or mobile phone"></ion-input>
-    </div>
+      <div class="c-item-box">
+        <span ion-text color="text-color">KWH Filed</span>
+        <ion-list radio-group [(ngModel)]="kwhFiled">
+          <ion-item ngClass="trans" no-lines>
+            <ion-label>Yes</ion-label>
+            <ion-radio value="true"></ion-radio>
+          </ion-item>
+          <ion-item ngClass="trans" no-lines>
+            <ion-label>No</ion-label>
+            <ion-radio value="false"></ion-radio>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div class="c-item-box">
+        <span ion-text color="text-color">Square Footage</span>
+        <ion-input ngClass="trans" [(ngModel)]="squareFootage" type="number" value="" placeholder="Enter square footage"></ion-input>
+      </div>
+
+      <div class="c-item-box">
+        <span ion-text color="text-color">Working Hours</span>
+        <ion-item ngClass="blank" no-lines>
+          <ion-select ngClass="trans" [(ngModel)]="workingHours" full placeholder="Select working hours">
+            <ion-option *ngFor="let hour of hours" value="hour">{{ hour }}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <div class="time-box">
+          <div>
+            <span ion-text color="text-color">From</span>
+            <ion-item ngClass="blank" no-lines>
+              <ion-datetime ngClass="trans" displayFormat="HH:mm" [(ngModel)]="fromHour"></ion-datetime>
+            </ion-item>
+          </div>
+          <div>
+            <span ion-text color="text-color">To</span>
+            <ion-item ngClass="blank" no-lines>
+              <ion-datetime ngClass="trans" displayFormat="HH:mm" [(ngModel)]="toHour"></ion-datetime>
+            </ion-item>
+          </div>
+        </div>
+      </div>  
+
+      <div class="c-item-box">
+        <span ion-text color="text-color">Contact Person</span>
+        <ion-input ngClass="trans" [(ngModel)]="contactPerson" type="text" value="" placeholder="Enter the name of contact person"></ion-input>
+      </div>
+
+      <div class="c-item-box">
+        <span ion-text color="text-color">Email</span>
+        <ion-input ngClass="trans" [(ngModel)]="email" type="email" value="" placeholder="Please enter email"></ion-input>
+      </div>
+
+      <div class="c-item-box">
+        <span ion-text color="text-color">Phone Number</span>
+        <ion-input ngClass="trans" [(ngModel)]="phoneNumber" type="tel" value="" placeholder="Please enter your land or mobile phone"></ion-input>
+      </div>
+    </form>
 
     <!-- Next and Previous Button -->
     <div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
 import { RoomPage } from '../room/room';
 import { DashboardPage } from '../dashboard/dashboard';
@@ -9,6 +9,7 @@ import { Location } from '../../model/location';
 
 import { WORK_HOURS } from '../../data/constants';
 
+import { Repository } from '../../repository/base';
 import { ContactRepository } from '../../repository/contact-repository';
 import { LocationRepository } from '../../repository/location-repository';
 import { FirestoreDataSourceProvider } from '../../providers/firestore-data-source/firestore-data-source';
@@ -18,8 +19,8 @@ import { FirestoreDataSourceProvider } from '../../providers/firestore-data-sour
   selector: 'page-location-info',
   templateUrl: 'location-info.html',
   providers: [ 
-      ContactRepository,
-      LocationRepository
+      { provide: Repository, useClass: ContactRepository },
+      { provide: Repository, useClass: LocationRepository }
   ]
 })
 export class LocationInfoPage {
@@ -43,6 +44,7 @@ export class LocationInfoPage {
   constructor(
     public navParams: NavParams,
     public navCtrl: NavController, 
+    private toastCtrl: ToastController,
     private locRepository: LocationRepository,
     private contactRepository: ContactRepository) {
       this.hours = ['Mon-Fri 6-5'];
@@ -65,19 +67,32 @@ export class LocationInfoPage {
       phoneNumber: this.phoneNumber
     }
 
-    // this.locRepository
-    //     .store(location as Location)
-    //     .then(locId => { 
-    //       contact['locationId'] = locId;
-    //       this.contactRepository
-    //           .store(contact as Contact)
-    //           .then(() => this.toRoomPage());
-    //     });
-    this.toRoomPage();
+    this.locRepository
+        .store(location as Location)
+        .then(locId => { 
+          contact['locationId'] = locId;
+          this.contactRepository
+              .store(contact as Contact)
+              .then(() => this.presentToast('Location added successfully'))
+              .catch(error => console.log(error));
+        });
   }
 
   toDashboardPage() {
     this.navCtrl.setRoot(DashboardPage);
+  }
+
+  presentToast(message: string) {
+    const toast = this.toastCtrl.create({
+      message,
+      duration: 2000,
+      position: 'top'
+    });
+
+    toast.onDidDismiss(() => {
+      this.toRoomPage();
+    });
+    toast.present();
   }
 
   private toRoomPage() {

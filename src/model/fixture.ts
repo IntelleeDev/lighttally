@@ -1,5 +1,5 @@
 
-export interface Fixtures {
+export interface Fixture {
   wattage: number;
   image: string;
   wrongBulb: boolean;

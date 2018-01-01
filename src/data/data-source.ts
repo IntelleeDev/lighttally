@@ -1,7 +1,7 @@
 
 import { Observable } from 'rxjs/Observable';
 
-export interface DataSource<T> {
+export declare class DataSource<T> {
   find(entityName, id: string): Observable<T>;
   
   findAll(entityName: string): Observable<T>;
