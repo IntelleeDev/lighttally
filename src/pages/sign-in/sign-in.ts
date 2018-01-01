@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
 
@@ -16,29 +17,23 @@ import { AuthProvider } from '../../providers/auth/auth';
 })
 export class SignInPage {
 
-  email: string;
-  password: string;
+  signInForm: FormGroup;
   isAuthenticating = false;
 
   constructor(
-    public navCtrl: NavController,
     public navParams: NavParams,
-    private authProvider: AuthProvider) {
+    public navCtrl: NavController,
+    private formBuilder: FormBuilder,
+    private authProvider: AuthProvider
+  ) {
+    this.createForm();
   }
   
-  authenticateUser(): void {
-    if (!this.inputsValidated()) {
-      return;
-    }
+  authenticateUser() {
     this.showSpinner();
 
-    const user = { 
-      email: this.email, 
-      password: this.password
-    } as User;
-
     // this.authProvider
-    //     .authenticateUser(user)
+    //     .authenticateUser(this.getData())
     //     .subscribe(authenticated => {
     //       if (authenticated) {
     //         this.hideSpinner()
@@ -59,15 +54,32 @@ export class SignInPage {
     this.navCtrl.push(SignUpPage, {});
   }
 
-  showSpinner() {
+  private createForm() {
+    this.signInForm = this.formBuilder.group({
+      email: '',
+      password: ''
+    });
+  }
+
+  private getData(): User {
+    const formModel = this.signInForm.value;
+
+    const user: User = {
+      fullname: '',
+      phoneNumber: '',
+      email: formModel.email,
+      password: formModel.password
+    }
+    return user;
+  }
+
+  private showSpinner() {
     this.isAuthenticating = true;
   }
 
-  hideSpinner() {
+  private hideSpinner() {
     this.isAuthenticating = false;
   }
 
-  inputsValidated() {
-    return (this.email != null && this.password != null);
-  }
+  
 }

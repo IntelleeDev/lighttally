@@ -93,7 +93,7 @@ export class SignUpPage {
     this.signUpForm = this.formBuilder.group({
       fullname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', [Validators.required, Validators.pattern('/^[0-9]{10}$/')]],
+      phoneNumber: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(8)]]
     })
   }

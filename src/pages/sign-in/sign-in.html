@@ -4,21 +4,23 @@
       <img class="fluid" src="../../assets/imgs/light_tally.png"/>
     </div>
 
-    <ion-item ngClass="c-item">
-      <ion-label floating>Email</ion-label>
-      <ion-input [(ngModel)]="email" type="text" placeholder="Email"></ion-input>
-    </ion-item>
-    <ion-item ngClass="c-item">
-      <ion-label floating>Password</ion-label>
-      <ion-input [(ngModel)]="password" type="password" placehloder="password"></ion-input>
-    </ion-item>
-
-    <div class="btn-box">
-      <button class="c-button" ion-button full (click)="authenticateUser()">
-        Continue<span>&nbsp;&nbsp;</span>
-        <ion-spinner *ngIf="isAuthenticating"></ion-spinner>
-      </button>
-    </div>
+    <form [formGroup]="signInForm" novalidate>
+      <ion-item ngClass="c-item">
+        <ion-label floating>Email</ion-label>
+        <ion-input formControlName="email" type="text" placeholder="Email"></ion-input>
+      </ion-item>
+      <ion-item ngClass="c-item">
+        <ion-label floating>Password</ion-label>
+        <ion-input formControlName="password" type="password" placehloder="password"></ion-input>
+      </ion-item>
+      <div class="btn-box">
+        <button [disabled]="signInForm.invalid" class="c-button" ion-button full (click)="authenticateUser()">
+          Continue<span>&nbsp;&nbsp;</span>
+          <ion-spinner *ngIf="isAuthenticating"></ion-spinner>
+        </button>
+      </div>
+    </form>
+    
     <div class="text-box">
       <span>Don't have an account?</span>
       <span ion-text color="link-color" (click)="toSignUpPage()">SignUp</span>
