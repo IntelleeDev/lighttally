@@ -9,24 +9,33 @@
         <ion-label floating>Fullname</ion-label>
         <ion-input formControlName="fullname" type="text" placeholder="Fullname"></ion-input>
       </ion-item>
-      <div class="error" *ngIf="errorBag.fullname">
-        {{ errorBag.fullname }}
-      </div>
+      <span class="error" *ngIf="errorBag.fullname">
+          {{ errorBag.fullname }}
+      </span>
      
       <ion-item ngClass="c-item">
         <ion-label floating>Email</ion-label>
         <ion-input formControlName="email" type="text" placeholder="Email"></ion-input>
       </ion-item>
+      <span class="error" *ngIf="errorBag.email">
+          {{ errorBag.email }}
+      </span>
 
       <ion-item ngClass="c-item">
         <ion-label floating>Phone Number</ion-label>
         <ion-input formControlName="phoneNumber" type="tel" placehloder="Phone number"></ion-input>
       </ion-item>
+      <span class="error" *ngIf="errorBag.phoneNumber">
+          {{ errorBag.phoneNumber }}
+      </span>
       
       <ion-item ngClass="c-item">
         <ion-label floating>Password</ion-label>
         <ion-input formControlName="password" type="password" placehloder="password"></ion-input>
       </ion-item>
+      <span class="error" *ngIf="errorBag.password">
+          {{ errorBag.password }}
+      </span>
       
       <div ngClass="text-box">
         <button type="submit" [disabled]="signUpForm.invalid" class="c-button" ion-button full (click)="registerUser()">

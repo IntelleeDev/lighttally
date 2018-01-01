@@ -36,8 +36,8 @@ export class SignUpPage {
       this.validationErrors = {
         fullname: { required: 'Fullname is required' },
         email: { required: 'Email is required', email: 'Please input a valid email address' },
-        phoneNumber: { required: 'Phonenumber is required' },
-        password: { required: 'Password is required', minlength: 'Min length is 8 characters' }
+        password: { required: 'Password is required', minlength: 'Min length is 8 characters' },
+        phoneNumber: { required: 'Phone Number is required', pattern:'Please enter a valid phone number' }
       } 
   }
 
@@ -71,7 +71,7 @@ export class SignUpPage {
       if (control && control.invalid && (control.dirty || control.untouched)) {
         const messages = this.validationErrors[field];
         for (const key in control.errors) {
-          this.errorBag[field] += `${messages[key]} `;
+          this.errorBag[field] = messages[key];
         }
       }
     }
@@ -93,7 +93,7 @@ export class SignUpPage {
     this.signUpForm = this.formBuilder.group({
       fullname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', Validators.required],
+      phoneNumber: ['', [Validators.required, Validators.pattern('/^[0-9]{10}$/')]],
       password: ['', [Validators.required, Validators.minLength(8)]]
     })
   }
