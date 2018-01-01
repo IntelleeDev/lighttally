@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IonicPage, NavController, NavParams, Toast, ToastController } from 'ionic-angular';
 
 import { User } from '../../model/user';
 import { RegistrationProvider } from '../../providers/registration/registration';
@@ -11,33 +12,47 @@ import { RegistrationProvider } from '../../providers/registration/registration'
 })
 export class SignUpPage {
 
-  email: string = '';
-  fullname: string = '';
-  password: string = '';
-  phoneNumber: string = '';
   isWaiting = false;
-  
+  errorBag: any;
+  validationErrors: any;
+  signUpForm: FormGroup;  
+
   constructor(
-    public navCtrl: NavController,
     public navParams: NavParams,
-    private regProvider: RegistrationProvider) {
+    public navCtrl: NavController,
+    private formBuilder: FormBuilder,
+    private toastCtrl: ToastController,
+    private regProvider: RegistrationProvider
+  ) {
+      this.createForm();
+      this.signUpForm.valueChanges.subscribe(this.onValueChange.bind(this));
+
+      this.errorBag = {
+        email: '',
+        fullname: '',
+        password: '',
+        phoneNumber: '',
+      }
+      this.validationErrors = {
+        fullname: { required: 'Fullname is required' },
+        email: { required: 'Email is required', email: 'Please input a valid email address' },
+        phoneNumber: { required: 'Phonenumber is required' },
+        password: { required: 'Password is required', minlength: 'Min length is 8 characters' }
+      } 
   }
 
   registerUser() {
     this.showSpinner();
-
-    const data = {
-      email: this.email, 
-      fullname: this.fullname,
-      password: this.password, 
-      phoneNumber: this.phoneNumber
-    } as User;
-
     this.regProvider
-      .registerUser(data)
+      .registerUser(this.getData())
       .then(() => {
         this.hideSpinner()
-        this.backToSignInPage()
+        this.signUpForm.reset()
+        this.createToast('Account created successfully. Please SignIn')
+            .onDidDismiss(() => this.backToSignInPage())
+      })
+      .catch(() => {
+        this.createToast('Connection error')
       });
   }
 
@@ -45,11 +60,57 @@ export class SignUpPage {
     this.navCtrl.popTo(SignUpPage);
   }
 
-  showSpinner() {
+  private onValueChange(value: any) {
+    if (!this.signUpForm) {
+      return;
+    }
+    const form = this.signUpForm;
+    for (const field in this.errorBag) {
+      this.errorBag[field] = '';
+      let control = form.get(field);
+      if (control && control.invalid && (control.dirty || control.untouched)) {
+        const messages = this.validationErrors[field];
+        for (const key in control.errors) {
+          this.errorBag[field] += `${messages[key]} `;
+        }
+      }
+    }
+  }
+
+  private getData(): User {
+    const formModel = this.signUpForm.value;
+
+    const user: User = {
+      email: formModel.email,
+      fullname: formModel.fullname,
+      password: formModel.password,
+      phoneNumber: formModel.phoneNumber
+    }
+    return user;
+  }
+
+  private createForm() {
+    this.signUpForm = this.formBuilder.group({
+      fullname: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phoneNumber: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(8)]]
+    })
+  }
+
+  private createToast(message: string): Toast {
+    return this.toastCtrl.create({
+      message,
+      duration: 3000,
+      position: 'bottom'
+    });
+  }
+
+  private showSpinner() {
     this.isWaiting = true;
   }
 
-  hideSpinner() {
+  private hideSpinner() {
     this.isWaiting = false;
   }
 

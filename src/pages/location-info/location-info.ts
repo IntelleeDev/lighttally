@@ -19,8 +19,8 @@ import { FirestoreDataSourceProvider } from '../../providers/firestore-data-sour
   selector: 'page-location-info',
   templateUrl: 'location-info.html',
   providers: [ 
-      { provide: Repository, useClass: ContactRepository },
-      { provide: Repository, useClass: LocationRepository }
+      ContactRepository,
+      LocationRepository
   ]
 })
 export class LocationInfoPage {

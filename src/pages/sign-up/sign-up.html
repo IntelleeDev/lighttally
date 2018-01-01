@@ -1,38 +1,41 @@
 <ion-content ngClass="hero-bg">
   <div padding>
-    
-    <div class="logo-box">
-      <img class="fluid" src="../../assets/imgs/light_tally.png"/>
-    </div>
-    
-    <ion-item ngClass="c-item">
-      <ion-label floating>Fullname</ion-label>
-      <ion-input [(ngModel)]="fullname" value='' type="text" placeholder="Fullname"></ion-input>
-    </ion-item>
+    <form [formGroup]="signUpForm" novalidate>
+      <div class="logo-box">
+        <img class="fluid" src="../../assets/imgs/light_tally.png"/>
+      </div>
+      
+      <ion-item ngClass="c-item">
+        <ion-label floating>Fullname</ion-label>
+        <ion-input formControlName="fullname" type="text" placeholder="Fullname"></ion-input>
+      </ion-item>
+      <div class="error" *ngIf="errorBag.fullname">
+        {{ errorBag.fullname }}
+      </div>
+     
+      <ion-item ngClass="c-item">
+        <ion-label floating>Email</ion-label>
+        <ion-input formControlName="email" type="text" placeholder="Email"></ion-input>
+      </ion-item>
 
-    <ion-item ngClass="c-item">
-      <ion-label floating>Email</ion-label>
-      <ion-input [(ngModel)]="email" value='' type="text" placeholder="Email"></ion-input>
-    </ion-item>
-
-    <ion-item ngClass="c-item">
-       <ion-label floating>Phone Number</ion-label>
-       <ion-input [(ngModel)]="phoneNumber" value='' type="tel" placehloder="Phone number"></ion-input>
-    </ion-item>
-    
-    <ion-item ngClass="c-item">
-      <ion-label floating>Password</ion-label>
-      <ion-input [(ngModel)]="password" value='' type="password" placehloder="password"></ion-input>
-    </ion-item>
-    
-    <div ngClass="text-box">
-      <button class="c-button" ion-button full (click)="registerUser()">
-        Continue
-        <span>&nbsp;&nbsp;</span>
-        <ion-spinner color="text-color" *ngIf="isWaiting"></ion-spinner>
-      </button>
-    </div>
-
+      <ion-item ngClass="c-item">
+        <ion-label floating>Phone Number</ion-label>
+        <ion-input formControlName="phoneNumber" type="tel" placehloder="Phone number"></ion-input>
+      </ion-item>
+      
+      <ion-item ngClass="c-item">
+        <ion-label floating>Password</ion-label>
+        <ion-input formControlName="password" type="password" placehloder="password"></ion-input>
+      </ion-item>
+      
+      <div ngClass="text-box">
+        <button type="submit" [disabled]="signUpForm.invalid" class="c-button" ion-button full (click)="registerUser()">
+          Continue
+          <span>&nbsp;&nbsp;</span>
+          <ion-spinner color="text-color" *ngIf="isWaiting"></ion-spinner>
+        </button>
+      </div>
+    </form>
     <div ngClass="text-box">
       <span>Already have an account?</span>
       <span ion-text color="link-color" (click)="backToSignInPage()">Sign In</span>
