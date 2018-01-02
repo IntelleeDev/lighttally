@@ -25,12 +25,12 @@ export const EXISTING_BULBS = [
 ];
 
 export const BULB_CATEGORIES = [
-  { type: 'Incandescent', src: '../assets/imgs/b10.png'},
-  { type: 'Halogen', src: '../assets/imgs/bt15.png'},
-  { type: 'Fluorescent', src: '../assets/imgs/a15.png'},
-  { type: 'LED', src: '../assets/imgs/e17.png'},
-  { type: 'Battiya', src: '../assets/imgs/g11.png'},
-  { type: 'E-bulb', src: '../assets/imgs/t9.png'}
+  { type: 'Incandescent', icon: '../assets/imgs/b10.png'},
+  { type: 'Halogen', icon: 'bt15.png'},
+  { type: 'Fluorescent', icon: 'a15.png'},
+  { type: 'LED', icon: 'e17.png'},
+  { type: 'Battiya', icon: 'g11.png'},
+  { type: 'E-bulb', icon: 't9.png'}
 ];
 
 export const ENERGY_COMPANIES = [

@@ -1,12 +1,15 @@
 <ion-content ngClass="frame-content">
   <br/><br/>
   <!-- Label here -->
-  <ion-item-divider ngClass='heading'>{{ bulb.category }}</ion-item-divider>
+  <ion-item-divider ngClass='heading'>{{ headTitle }}</ion-item-divider>
   <div padding>
     <ion-list>
-      <ion-item ngClass="evaluation-list padding-20" no-lines>
+      <ion-item *ngFor="let category of categories" ngClass="evaluation-list margin-10" no-lines>
+        <div item-start>
+          <img width="50" height="50" src="{{ category.icon }}"/>
+        </div>
         <div>
-          <span ion-text color="text-color">save me</span>
+          <span class="text">{{ category.type }}</span>
         </div>
       </ion-item>
     </ion-list>
