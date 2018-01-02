@@ -18,9 +18,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { BulbComponent } from '../components/bulb/bulb';
 import { FinalizeComponent } from '../components/finalize/finalize';
+import { WorkTimeComponent } from '../components/work-time/work-time';
 import { BulbDialogComponent } from '../components/bulb-dialog/bulb-dialog';
 import { ReplacementComponent } from '../components/replacement/replacement';
 import { GeneralInfoComponent } from '../components/general-info/general-info';
+import { BulbCategoryComponent } from '../components/bulb-category/bulb-category';
 import { ExistingLightComponent } from '../components/existing-light/existing-light';
 
 import { firebaseConfig } from '../config/firebaseConfig';
@@ -44,10 +46,12 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     MyProfilePage,
     LocationInfoPage,
     BulbComponent,
+    WorkTimeComponent,
     FinalizeComponent,
     BulbDialogComponent,
     ReplacementComponent,
     GeneralInfoComponent,
+    BulbCategoryComponent,
     ExistingLightComponent
   ],
   imports: [
@@ -69,10 +73,12 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     MyProfilePage,
     LocationInfoPage,
     BulbComponent,
+    WorkTimeComponent,
     FinalizeComponent,
     BulbDialogComponent,
     ReplacementComponent,
     GeneralInfoComponent,
+    BulbCategoryComponent,
     ExistingLightComponent
   ],
   providers: [

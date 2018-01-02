@@ -24,6 +24,15 @@ export const EXISTING_BULBS = [
   }  
 ];
 
+export const BULB_CATEGORIES = [
+  { type: 'Incandescent', src: '../assets/imgs/b10.png'},
+  { type: 'Halogen', src: '../assets/imgs/bt15.png'},
+  { type: 'Fluorescent', src: '../assets/imgs/a15.png'},
+  { type: 'LED', src: '../assets/imgs/e17.png'},
+  { type: 'Battiya', src: '../assets/imgs/g11.png'},
+  { type: 'E-bulb', src: '../assets/imgs/t9.png'}
+]
+
 export const ENERGY_COMPANIES = [
   'Alliant', 'Alliant (prescriptive)',
   'Mid-America', 'Mid-America (prescriptive)'
