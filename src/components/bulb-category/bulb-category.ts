@@ -9,8 +9,10 @@ import { BULB_CATEGORIES } from '../../data/constants';
 export class BulbCategoryComponent {
 
   headTitle = 'Bulb Categories';
-  public categories = BULB_CATEGORIES;
+  public categories: Array<{type: string, src: string}> = [];
 
-  constructor() { }
+  constructor() { 
+    this.categories = BULB_CATEGORIES;
+  }
 
 }
