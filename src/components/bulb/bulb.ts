@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 
 import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
+import { BulbCategoryComponent } from '../bulb-category/bulb-category';
 
 @Component({
   selector: 'bulb',
@@ -17,10 +18,10 @@ export class BulbComponent {
   constructor(private modalCtrl: ModalController) {}
 
   public openModal() {
-    let modal = this.modalCtrl.create(BulbDialogComponent);
-    modal.onDidDismiss(data => {
-      this.addItem({ id: ++this.indexCounter, name: data });
-    })
+    let modal = this.modalCtrl.create(BulbCategoryComponent);
+    // modal.onDidDismiss(data => {
+    //   this.addItem({ id: ++this.indexCounter, name: data });
+    // })
     modal.present();
   }
 
