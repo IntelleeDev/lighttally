@@ -31,7 +31,7 @@ export const BULB_CATEGORIES = [
   { type: 'LED', src: '../assets/imgs/e17.png'},
   { type: 'Battiya', src: '../assets/imgs/g11.png'},
   { type: 'E-bulb', src: '../assets/imgs/t9.png'}
-]
+];
 
 export const ENERGY_COMPANIES = [
   'Alliant', 'Alliant (prescriptive)',
