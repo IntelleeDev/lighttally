@@ -7,7 +7,8 @@ import { DashboardPage } from '../dashboard/dashboard';
 import { Contact } from '../../model/contact';
 import { Location } from '../../model/location';
 
-import { Repository } from '../../repository/base';
+import { ENERGY_COMPANIES } from '../../data/constants';
+
 import { ContactRepository } from '../../repository/contact-repository';
 import { LocationRepository } from '../../repository/location-repository';
 import { FirestoreDataSourceProvider } from '../../providers/firestore-data-source/firestore-data-source';
@@ -24,6 +25,7 @@ import { FirestoreDataSourceProvider } from '../../providers/firestore-data-sour
 export class LocationInfoPage {
 
   hours: Array<string>;
+  energyCompanies: Array<string> = ENERGY_COMPANIES;
   
   // Location collection data
   address: string;
