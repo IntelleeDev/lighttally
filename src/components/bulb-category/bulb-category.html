@@ -4,9 +4,10 @@
   <ion-item-divider ngClass='heading'>{{ headTitle }}</ion-item-divider>
   <div padding>
     <ion-list>
-      <ion-item *ngFor="let category of categories" ngClass="evaluation-list margin-10" no-lines>
+      <ion-item (click)="openBulbDialog()" 
+        *ngFor="let category of categories" ngClass="evaluation-list margin-10" no-lines>
         <div item-start>
-          <img width="50" height="50" src="{{ category.icon }}"/>
+          <img width="50" height="50" src="{{category.src}}"/>
         </div>
         <div>
           <span class="text">{{ category.type }}</span>
