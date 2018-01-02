@@ -7,8 +7,6 @@ import { DashboardPage } from '../dashboard/dashboard';
 import { Contact } from '../../model/contact';
 import { Location } from '../../model/location';
 
-import { WORK_HOURS } from '../../data/constants';
-
 import { Repository } from '../../repository/base';
 import { ContactRepository } from '../../repository/contact-repository';
 import { LocationRepository } from '../../repository/location-repository';
