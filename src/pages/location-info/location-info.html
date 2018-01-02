@@ -29,7 +29,7 @@
         <span ion-text color="text-color">Electric Company</span>
         <ion-item ngClass="blank" no-lines>
           <ion-select ngClass="trans" [(ngModel)]="electricCompany" full placeholder="Select electric company">
-            <ion-option  *ngFor="let company for energyCompanies" value="company">{{ company }}</ion-option>
+            <ion-option  *ngFor="let company of energyCompanies">{{ company }}</ion-option>
           </ion-select>
         </ion-item>
       </div>  

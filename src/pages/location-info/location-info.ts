@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
 import { RoomPage } from '../room/room';
@@ -24,6 +25,8 @@ import { FirestoreDataSourceProvider } from '../../providers/firestore-data-sour
 })
 export class LocationInfoPage {
 
+  locationForm: FormGroup;
+
   hours: Array<string>;
   energyCompanies: Array<string> = ENERGY_COMPANIES;
   
@@ -43,12 +46,28 @@ export class LocationInfoPage {
 
   constructor(
     public navParams: NavParams,
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
+    private formBuilder: FormBuilder, 
     private toastCtrl: ToastController,
     private locRepository: LocationRepository,
     private contactRepository: ContactRepository) {
       this.hours = ['Mon-Fri 6-5'];
     }
+
+  private createForm() {
+    this.locationForm = this.formBuilder.group({
+      businessName: ['', Validators.required],
+      address: ['', Validators.required],
+      accountNumber: ['', Validators.required],
+      kwhFiled: ['', Validators.required],
+      squareFootage: ['', Validators.required],
+      contactPerson: this.formBuilder.group({
+        name: ['', Validators.required],
+        email: ['', Validators.email],
+        phoneNumber: ['', Validators.required]
+      })
+    });
+  }
 
   submit() {
     const location = {
@@ -67,22 +86,23 @@ export class LocationInfoPage {
       phoneNumber: this.phoneNumber
     }
 
-    this.locRepository
-        .store(location as Location)
-        .then(locId => { 
-          contact['locationId'] = locId;
-          this.contactRepository
-              .store(contact as Contact)
-              .then(() => this.presentToast('Location added successfully'))
-              .catch(error => console.log(error));
-        });
+    // this.locRepository
+    //     .store(location as Location)
+    //     .then(locId => { 
+    //       contact['locationId'] = locId;
+    //       this.contactRepository
+    //           .store(contact as Contact)
+    //           .then(() => this.presentToast('Location added successfully'))
+    //           .catch(error => console.log(error));
+    //     });
+    this.toRoomPage();
   }
 
   toDashboardPage() {
     this.navCtrl.setRoot(DashboardPage);
   }
 
-  presentToast(message: string) {
+  private presentToast(message: string) {
     const toast = this.toastCtrl.create({
       message,
       duration: 2000,
