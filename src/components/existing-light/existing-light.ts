@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
+import { BALLAST_TYPES } from '../../data/constants';
 import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
 
 @Component({
@@ -13,6 +14,7 @@ export class ExistingLightComponent {
   // existingBulb: string;
 
   title: string = 'Existing Bulb';
+  balastTypes: Array<string> = BALLAST_TYPES;
 
   readonly options: CameraOptions = {
     quality: 100,

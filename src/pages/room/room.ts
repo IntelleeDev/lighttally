@@ -25,6 +25,7 @@ export class RoomPage {
   }
 
   public goToSlide(index): void {
+    this.showFinalizePage = false;
     this.slides.slideTo(index, 500);
   }
 

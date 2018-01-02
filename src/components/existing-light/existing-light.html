@@ -9,7 +9,7 @@
       <span ion-text color="text-color">Balast Type</span>
       <ion-item ngClass="blank" no-lines>
         <ion-select ngClass="trans" [(ngModel)]="balastType" full placeholder="Select balast type">
-          <ion-option>CEE High BF</ion-option>
+          <ion-option *ngFor="let balast of balastTypes">{{ balast }}</ion-option>
         </ion-select>
       </ion-item>
     </div>
