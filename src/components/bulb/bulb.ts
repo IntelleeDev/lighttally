@@ -27,14 +27,9 @@ export class BulbComponent {
 
   addItem(value: any) {
     this.data = 
-        this.data.concat(value)
-                 .map((data, index) => {
-                   return {
-                     id: index + 1,
-                     ...data
-                   }
-                 });
-    console.log(this.data);
+        this.data
+            .concat(value)
+            .map((data, index) => { return { id: index + 1, ...data } });
   }
 
   public removeItem(id: any) {

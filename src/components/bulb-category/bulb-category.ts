@@ -24,7 +24,8 @@ export class BulbCategoryComponent {
   public openBulbDialog(category: any) {
     const modal = this.modalCtrl.create(BulbDialogComponent, { category });
     modal.onDidDismiss(data => {
-      this.addItem({ name: data });
+      this.addItem({ fixture: data });
+      console.log(data);
     })
     modal.present();
   }
