@@ -18,10 +18,17 @@ export class WorkTimeComponent {
       { day: 'Thursday', from: 'thuFrom', to: 'thuTo' },
       { day: 'Friday', from: 'friFrom', to: 'friTo' },
     ];
+    this.createForm();
   }
 
   private createForm() {
-    this.workTimeForm = this.formBuilder.group({});
+    this.workTimeForm = this.formBuilder.group({
+      Monday: this.formBuilder.group({}),
+      Tuesday: this.formBuilder.group({}),
+      Wednesday: this.formBuilder.group({}),
+      Thursday: this.formBuilder.group({}),
+      Friday: this.formBuilder.group({}),
+    });
   }
 
 }
