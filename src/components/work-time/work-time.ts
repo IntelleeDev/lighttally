@@ -17,6 +17,8 @@ export class WorkTimeComponent {
       { day: 'Wednesday', from: 'wedFrom', to: 'wedTo' },
       { day: 'Thursday', from: 'thuFrom', to: 'thuTo' },
       { day: 'Friday', from: 'friFrom', to: 'friTo' },
+      { day: 'Saturday', from: 'satFrom', to: 'satTo' },
+      { day: 'Sunday', from: 'sunFrom', to: 'sunTo' },
     ];
 
     this.createForm();
@@ -45,6 +47,14 @@ export class WorkTimeComponent {
         friFrom: '',
         friTo: ''
       }),
+      saturday: this.formBuilder.group({
+        satFrom: '',
+        satTo: ''
+      }),
+      sunday: this.formBuilder.group({
+        sunFrom: '',
+        sunTo: ''
+      }),
     });
   }
 
@@ -60,12 +70,15 @@ export class WorkTimeComponent {
     console.log(formModel);
 
     const data = [];
-    data[0] = { from: formModel.monday.monFrom, to: formModel.monday.to };
-    data[1] = { from: formModel.tuesday.monFrom, to: formModel.tuesday.to };
-    data[2] = { from: formModel.wednesday.monFrom, to: formModel.wednesday.to };
-    data[3] = { from: formModel.thursday.monFrom, to: formModel.thursday.to };
-    data[4] = { from: formModel.friday.monFrom, to: formModel.friday.to };
+    data[0] = { from: formModel.monday['monFrom'], to: formModel.monday['monTo'] };
+    data[1] = { from: formModel.tuesday['tueFrom'], to: formModel.tuesday['tuesTo'] };
+    data[2] = { from: formModel.wednesday['wedFrom'], to: formModel.wednesday['wedTo'] };
+    data[3] = { from: formModel.thursday['thuFrom'], to: formModel.thursday['thuTo'] };
+    data[4] = { from: formModel.friday['friFrom'], to: formModel.friday['friTo'] };
+    data[5] = { from: formModel.friday['satFrom'], to: formModel.saturday['satTo'] };
+    data[6] = { from: formModel.sunday['sunFrom'], to: formModel.sunday['sunTo'] };
 
+    console.log(data);
     return data;
   }
 
