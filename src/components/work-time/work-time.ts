@@ -6,10 +6,17 @@ import { Component } from '@angular/core';
 })
 export class WorkTimeComponent {
 
-  text: string;
+  daysOfWeek: Array<any>;
 
   constructor() {
-    this.text = 'Hello World';
+    this.daysOfWeek = [
+      { day: 'Monday', from: 'monFrom', to: 'monTo' },
+      { day: 'Tuesday', from: 'tueFrom', to: 'tueTo' },
+      { day: 'Wednesday', from: 'wedFrom', to: 'wedTo' },
+      { day: 'Thursday', from: 'thuFrom', to: 'thuTo' },
+      { day: 'Friday', from: 'friFrom', to: 'friTo' },
+    ];
+
   }
 
 }

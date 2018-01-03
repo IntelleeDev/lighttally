@@ -1,4 +1,38 @@
-<!-- Generated template for the WorkTimeComponent component -->
-<div>
-  {{text}}
-</div>
+<ion-content ngClass="frame-content">
+  <br/>
+  <!-- Label here -->
+  <ion-item-divider ngClass='heading'>Input Worktime</ion-item-divider>
+  <div style="padding: 5px">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <span ion-text color="text-color">Days</span>
+        </ion-col>
+        <ion-col col-4>
+          <span ion-text color="text-color">From</span>
+        </ion-col>
+        <ion-col col-4>
+            <span ion-text color="text-color">To</span>
+          </ion-col>
+      </ion-row>
+      <ion-row><ion-col><div padding></div></ion-col></ion-row>
+      <ion-row *ngFor="let day of daysOfWeek">
+        <ion-col col-4>
+          <span ion-text color="text-color">{{ day.day }}</span>
+        </ion-col>
+        <ion-col col-4>
+          <ion-item ngClass="blank" no-padding>
+            <ion-datetime ngClass="fs-12" displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="day.from"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-4>
+          <ion-item ngClass="blank">
+            <ion-datetime ngClass="fs-12" displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="day.to"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>       
+    <button  class="c-button no-bg" color="loc-button" ion-button full>done</button>
+  </div>
+  <br/>
+</ion-content>
