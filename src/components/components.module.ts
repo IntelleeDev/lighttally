@@ -7,6 +7,7 @@ import { FinalizeComponent } from './finalize/finalize';
 import { BulbComponent } from './bulb/bulb';
 import { WorkTimeComponent } from './work-time/work-time';
 import { BulbCategoryComponent } from './bulb-category/bulb-category';
+import { LightComponent } from './light/light';
 @NgModule({
 	declarations: [GeneralInfoComponent,
     ExistingLightComponent,
@@ -15,7 +16,8 @@ import { BulbCategoryComponent } from './bulb-category/bulb-category';
     FinalizeComponent,
     BulbComponent,
     WorkTimeComponent,
-    BulbCategoryComponent],
+    BulbCategoryComponent,
+    LightComponent],
 	imports: [],
 	exports: [GeneralInfoComponent,
     ExistingLightComponent,
@@ -24,6 +26,7 @@ import { BulbCategoryComponent } from './bulb-category/bulb-category';
     FinalizeComponent,
     BulbComponent,
     WorkTimeComponent,
-    BulbCategoryComponent]
+    BulbCategoryComponent,
+    LightComponent]
 })
 export class ComponentsModule {}

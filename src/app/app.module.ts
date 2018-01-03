@@ -17,6 +17,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { BulbComponent } from '../components/bulb/bulb';
+import { LightComponent } from '../components/light/light';
 import { FinalizeComponent } from '../components/finalize/finalize';
 import { WorkTimeComponent } from '../components/work-time/work-time';
 import { BulbDialogComponent } from '../components/bulb-dialog/bulb-dialog';
@@ -46,6 +47,7 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     MyProfilePage,
     LocationInfoPage,
     BulbComponent,
+    LightComponent,
     WorkTimeComponent,
     FinalizeComponent,
     BulbDialogComponent,
@@ -73,6 +75,7 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     MyProfilePage,
     LocationInfoPage,
     BulbComponent,
+    LightComponent,
     WorkTimeComponent,
     FinalizeComponent,
     BulbDialogComponent,
