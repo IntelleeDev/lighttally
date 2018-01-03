@@ -25,23 +25,23 @@ export class WorkTimeComponent {
 
   private createForm() {
     this.workTimeForm = this.formBuilder.group({
-      Monday: this.formBuilder.group({
+      monday: this.formBuilder.group({
         monFrom: '',
         monTo: ''
       }),
-      Tuesday: this.formBuilder.group({
+      tuesday: this.formBuilder.group({
         tueFrom: '',
         tueTo: ''
       }),
-      Wednesday: this.formBuilder.group({
+      wednesday: this.formBuilder.group({
         wedFrom: '',
         wedTo: ''
       }),
-      Thursday: this.formBuilder.group({
+      thursday: this.formBuilder.group({
         thuFrom: '',
         thuTo: ''
       }),
-      Friday: this.formBuilder.group({
+      friday: this.formBuilder.group({
         friFrom: '',
         friTo: ''
       }),
@@ -57,17 +57,14 @@ export class WorkTimeComponent {
 
   private getData(): Array<any> {
     const formModel = this.workTimeForm.value;
-
-    for (let val of formModel) {
-      alert(val);
-    }
+    console.log(formModel);
 
     const data = [];
-    data[0] = { from: formModel.Monday.monFrom, to: formModel.Monday.to };
-    data[1] = { from: formModel.Monday.monFrom, to: formModel.Monday.to };
-    data[2] = { from: formModel.Monday.monFrom, to: formModel.Monday.to };
-    data[3] = { from: formModel.Monday.monFrom, to: formModel.Monday.to };
-    data[4] = { from: formModel.Monday.monFrom, to: formModel.Monday.to };
+    data[0] = { from: formModel.monday.monFrom, to: formModel.monday.to };
+    data[1] = { from: formModel.tuesday.monFrom, to: formModel.tuesday.to };
+    data[2] = { from: formModel.wednesday.monFrom, to: formModel.wednesday.to };
+    data[3] = { from: formModel.thursday.monFrom, to: formModel.thursday.to };
+    data[4] = { from: formModel.friday.monFrom, to: formModel.friday.to };
 
     return data;
   }
