@@ -19,18 +19,22 @@ export class BulbComponent {
 
   public openModal() {
     let modal = this.modalCtrl.create(BulbCategoryComponent);
-    // modal.onDidDismiss(data => {
-    //   this.addItem({ id: ++this.indexCounter, name: data });
-    // })
+    modal.onDidDismiss(data => {
+      this.addItem(data);
+    })
     modal.present();
   }
 
-  getData(): Array<string> {
-    return new Array();
-  }
-
   addItem(value: any) {
-    this.data.push(value);
+    this.data = 
+        this.data.concat(value)
+                 .map((data, index) => {
+                   return {
+                     id: index + 1,
+                     ...data
+                   }
+                 });
+    console.log(this.data);
   }
 
   public removeItem(id: any) {

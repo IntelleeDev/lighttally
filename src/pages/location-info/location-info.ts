@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, PopoverController, ToastController } from 'ionic-angular';
 
 import { RoomPage } from '../room/room';
 import { DashboardPage } from '../dashboard/dashboard';
+import { WorkTimeComponent } from '../../components/work-time/work-time';
 
 import { Contact } from '../../model/contact';
 import { Location } from '../../model/location';
@@ -26,7 +27,6 @@ import { FirestoreDataSourceProvider } from '../../providers/firestore-data-sour
 export class LocationInfoPage {
 
   locationForm: FormGroup;
-
   hours: Array<string>;
   energyCompanies: Array<string> = ENERGY_COMPANIES;
   
@@ -49,6 +49,7 @@ export class LocationInfoPage {
     public navCtrl: NavController,
     private formBuilder: FormBuilder, 
     private toastCtrl: ToastController,
+    private popCtrl: PopoverController,
     private locRepository: LocationRepository,
     private contactRepository: ContactRepository) {
       this.hours = ['Mon-Fri 6-5'];
@@ -70,22 +71,6 @@ export class LocationInfoPage {
   }
 
   submit() {
-    const location = {
-      address: this.address,
-      kwhFiled: this.kwhFiled,
-      businessName: this.businessName,
-      workingHours: this.workingHours,
-      accountNumber: this.accountNumber,
-      squareFootage: this.squareFootage,
-      electricCompany: this.electricCompany
-    } 
-
-    const contact = {
-      email: this.email,
-      name: this.contactPerson,
-      phoneNumber: this.phoneNumber
-    }
-
     // this.locRepository
     //     .store(location as Location)
     //     .then(locId => { 
@@ -96,6 +81,11 @@ export class LocationInfoPage {
     //           .catch(error => console.log(error));
     //     });
     this.toRoomPage();
+  }
+
+  presentPopover() {
+    const popover = this.popCtrl.create(WorkTimeComponent);
+    popover.present();
   }
 
   toDashboardPage() {

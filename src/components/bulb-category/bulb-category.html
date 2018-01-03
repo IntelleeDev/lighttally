@@ -4,7 +4,7 @@
   <ion-item-divider ngClass='heading'>{{ headTitle }}</ion-item-divider>
   <div padding>
     <ion-list>
-      <ion-item (click)="openBulbDialog()" 
+      <ion-item (click)="openBulbDialog(category.type)" 
         *ngFor="let category of categories" ngClass="evaluation-list margin-10" no-lines>
         <div item-start>
           <img width="50" height="50" src="{{category.src}}"/>
@@ -14,5 +14,6 @@
         </div>
       </ion-item>
     </ion-list>
+    <button ion-button (click)="dismissModal()" full class="c-button no-bg" color="loc-button">done</button>
   </div>
 </ion-content>

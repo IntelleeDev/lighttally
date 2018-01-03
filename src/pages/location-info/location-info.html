@@ -60,26 +60,7 @@
 
       <div class="c-item-box">
         <span ion-text color="text-color">Working Hours</span>
-        <ion-item ngClass="blank" no-lines>
-          <ion-select ngClass="trans" [(ngModel)]="workingHours" full placeholder="Select working hours">
-            <ion-option *ngFor="let hour of hours" value="hour">{{ hour }}</ion-option>
-          </ion-select>
-        </ion-item>
-
-        <div class="time-box">
-          <div>
-            <span ion-text color="text-color">From</span>
-            <ion-item ngClass="blank" no-lines>
-              <ion-datetime ngClass="trans" displayFormat="HH:mm" [(ngModel)]="fromHour"></ion-datetime>
-            </ion-item>
-          </div>
-          <div>
-            <span ion-text color="text-color">To</span>
-            <ion-item ngClass="blank" no-lines>
-              <ion-datetime ngClass="trans" displayFormat="HH:mm" [(ngModel)]="toHour"></ion-datetime>
-            </ion-item>
-          </div>
-        </div>
+        <div ngClass="trans" (click)="presentPopover()">Select working hours</div>
       </div>  
 
       <div class="c-item-box">

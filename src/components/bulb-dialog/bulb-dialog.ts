@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ViewController } from 'ionic-angular';
+import { NavParams, ViewController } from 'ionic-angular';
 
 import { EXISTING_BULBS } from '../../data/constants';
 
@@ -9,12 +9,20 @@ import { EXISTING_BULBS } from '../../data/constants';
 })
 export class BulbDialogComponent {
 
-  bulbs: any = EXISTING_BULBS;
+  bulbs: Array<any>;
 
-  constructor(public viewCtrl: ViewController) { }
+  constructor(
+    public params: NavParams,
+    public viewCtrl: ViewController) {  
+    const category = params.get('category');
+    this.bulbs = EXISTING_BULBS.filter(bulb => {
+      if (bulb.category == category) {
+        return bulb;
+      }
+    });
+  }
 
   selectBulb(bulbType: any) {
     this.viewCtrl.dismiss(bulbType);
   }
-
 }
