@@ -24,12 +24,14 @@
           </ion-col>
           <ion-col col-4>
             <div class="trans padding-none">
-              <ion-datetime ngClass="fs-12" displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="day.from"></ion-datetime>
+              <ion-datetime ngClass="fs-12" 
+                displayFormat="HH:mm" pickerFormat="HH:mm" formControlName="{{day.from}}"></ion-datetime>
             </div>
           </ion-col>
           <ion-col col-4>
             <div class="trans padding-none">
-              <ion-datetime ngClass="fs-12" displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="day.to"></ion-datetime>
+              <ion-datetime ngClass="fs-12" 
+                displayFormat="HH:mm" pickerFormat="HH:mm" formControlName="{{day.to}}"></ion-datetime>
             </div>
           </ion-col>
         </ion-row>
