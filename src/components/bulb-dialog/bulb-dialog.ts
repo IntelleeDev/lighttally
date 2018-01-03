@@ -29,7 +29,7 @@ export class BulbDialogComponent {
   public presentPopover(bulbType: any) {
     const popover = this.popCtrl.create(LightComponent);
     popover.onDidDismiss(fixAttributes => {
-      this.selectBulb({...fixAttributes, ...bulbType})
+      this.selectBulb({...fixAttributes, name: bulbType})
     });
     popover.present();
   }
