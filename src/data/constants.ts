@@ -65,8 +65,7 @@ export const EXISTING_BULBS = [
       { name: 'Type - 05', src: '../assets/imgs/c6.png' },
       { name: 'Type - 06', src: '../assets/imgs/c11.png' },
     ]
-  },
-    
+  },    
 ];
 
 export const BULB_CATEGORIES = [
@@ -77,6 +76,10 @@ export const BULB_CATEGORIES = [
   { type: 'Battiya', src: '../assets/imgs/g11.png'},
   { type: 'E-bulb', src: '../assets/imgs/t9.png'}
 ];
+
+export const WATTAGE_METRICS = [
+  { type: 'A', wattage: ['20W', '30W', '60W'] }
+]
 
 export const ENERGY_COMPANIES = [
   'Alliant', 'Alliant (prescriptive)',

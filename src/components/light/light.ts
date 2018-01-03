@@ -1,22 +1,25 @@
 import { Component } from '@angular/core';
+import { ViewController } from 'ionic-angular';
 
-/**
- * Generated class for the LightComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
+import { WATTAGE_METRICS } from '../../data/constants';
+
 @Component({
   selector: 'light',
   templateUrl: 'light.html'
 })
 export class LightComponent {
+  
+  public retroFit: any = '';
+  public wattage: string = '';
+  public metrics: Array<any> = WATTAGE_METRICS[0].wattage;
 
-  text: string;
+  constructor(private viewCtrl: ViewController) { }
 
-  constructor() {
-    console.log('Hello LightComponent Component');
-    this.text = 'Hello World';
+  public dismissPopover() {
+    this.viewCtrl.dismiss({
+      wattage: this.wattage,
+      retroFit: this.retroFit
+    });
   }
 
 }
