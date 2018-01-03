@@ -29,3 +29,6 @@
             <ion-option *ngFor="let hour of hours" value="hour">{{ hour }}</ion-option>
           </ion-select>
         </ion-item>
+
+
+        selectBulb(bulb.category + ' ' + t.name)

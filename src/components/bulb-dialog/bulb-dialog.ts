@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavParams, ViewController, AlertController } from 'ionic-angular';
+
+import { LightComponent } from '../light/light';
+import { NavParams, ViewController, PopoverController } from 'ionic-angular';
 
 import { EXISTING_BULBS } from '../../data/constants';
 
@@ -14,8 +16,8 @@ export class BulbDialogComponent {
   constructor(
     public params: NavParams,
     public viewCtrl: ViewController,
-    private alertCtrl: AlertController
-  ) {
+    private popCtrl: PopoverController) {
+      
     const category = params.get('category');
     this.bulbs = EXISTING_BULBS.filter(bulb => {
       if (bulb.category == category) {
@@ -24,7 +26,12 @@ export class BulbDialogComponent {
     });
   }
 
-  selectBulb(bulbType: any) {
+  public presentPopover() {
+    const popover = this.popCtrl.create(LightComponent);
+    popover.present();
+  }
+
+  private selectBulb(bulbType: any) {
     this.viewCtrl.dismiss(bulbType);
   }
 }
