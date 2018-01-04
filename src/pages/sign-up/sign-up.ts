@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonicPage, NavController, NavParams, Toast, ToastController } from 'ionic-angular';
 
+import { SignInPage } from '../sign-in/sign-in';
 import { User } from '../../model/user';
 import { RegistrationProvider } from '../../providers/registration/registration';
 
@@ -49,10 +50,11 @@ export class SignUpPage {
     this.regProvider
       .registerUser(this.getData())
       .then(() => {
-        this.hideSpinner()
-        this.signUpForm.reset()
-        this.createToast('Account created successfully. Please SignIn')
-            .onDidDismiss(() => this.backToSignInPage())
+        this.hideSpinner();
+        this.signUpForm.reset();
+        this.backToSignInPage();
+        // this.createToast('Account created successfully. Please SignIn')
+            // .onDidDismiss(() => this.backToSignInPage())
       })
       .catch(() => {
         this.createToast('Connection error')
@@ -60,7 +62,7 @@ export class SignUpPage {
   }
 
   backToSignInPage() {
-    this.navCtrl.popTo(SignUpPage);
+    this.navCtrl.popTo(SignInPage);
   }
 
   private onValueChange(value: any) {
