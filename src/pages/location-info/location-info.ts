@@ -62,7 +62,7 @@ export class LocationInfoPage {
   }
 
   presentPopover() {
-    const popover = this.popCtrl.create(WorkTimeComponent);
+    const popover = this.popCtrl.create(WorkTimeComponent, {}, { enableBackdropDismiss: false });
     popover.present();
   }
 
@@ -85,10 +85,10 @@ export class LocationInfoPage {
 
     const contact: Contact = {
       name: formModel.contactPerson.name,
-      email: formModel.contactPerson.address,
+      email: formModel.contactPerson.email,
       phoneNumber: formModel.contactPerson.phoneNumber,
       locationId: ''
-    }
+    };
 
     return [location, contact];
   }
