@@ -18,12 +18,12 @@
     <form [formGroup]="locationForm">
       <div class="c-item-box">
         <span ion-text color="text-color">Business Name</span>
-        <ion-input ngClass="trans" formControlName="businessName" type="text" value="" placeholder="Enter your business name"></ion-input>
+        <ion-input ngClass="trans" formControlName="businessName" type="text" placeholder="Enter your business name"></ion-input>
       </div>
 
       <div class="c-item-box">
         <span ion-text color="text-color">Address</span>
-        <ion-input ngClass="trans" formControlName="address" type="text" value="" placeholder="Enter your address"></ion-input>
+        <ion-input ngClass="trans" formControlName="address" type="text" placeholder="Enter your address"></ion-input>
       </div>
 
       <div class="c-item-box">
@@ -37,7 +37,7 @@
       
       <div class="c-item-box">
         <span ion-text color="text-color">Account Number</span>
-        <ion-input ngClass="trans" formControlName="accountNumber" type="number" value="" placeholder="Enter account number"></ion-input>
+        <ion-input ngClass="trans" formControlName="accountNumber" type="number" placeholder="Enter account number"></ion-input>
       </div>
 
       <div class="c-item-box">
@@ -65,7 +65,7 @@
 
       <div class="c-item-box">
         <span ion-text color="text-color">Square Footage</span>
-        <ion-input ngClass="trans" formControlName="squareFootage" type="number" value="" placeholder="Enter square footage"></ion-input>
+        <ion-input ngClass="trans" formControlName="squareFootage" type="number" placeholder="Enter square footage"></ion-input>
       </div>
 
       <div class="c-item-box">
@@ -76,17 +76,17 @@
       <div formGroupName="contactPerson">
         <div class="c-item-box">
           <span ion-text color="text-color">Contact Person</span>
-          <ion-input ngClass="trans" formControlName="name" type="text" value="" placeholder="Enter the name of contact person"></ion-input>
+          <ion-input ngClass="trans" formControlName="name" type="text" placeholder="Enter the name of contact person"></ion-input>
         </div>
 
         <div class="c-item-box">
           <span ion-text color="text-color">Email</span>
-          <ion-input ngClass="trans" formControlName="email" type="email" value="" placeholder="Please enter email"></ion-input>
+          <ion-input ngClass="trans" formControlName="email" type="email" placeholder="Please enter email"></ion-input>
         </div>
 
         <div class="c-item-box">
           <span ion-text color="text-color">Phone Number</span>
-          <ion-input ngClass="trans" formControlName="phoneNumber" type="tel" value="" placeholder="Please enter your land or mobile phone"></ion-input>
+          <ion-input ngClass="trans" formControlName="phoneNumber" type="tel" placeholder="Please enter your land or mobile phone"></ion-input>
         </div>
       </div>
 
@@ -99,7 +99,7 @@
           </ion-col>
           <ion-col></ion-col>
           <ion-col col-4>
-            <button class="c-button no-bg" color="loc-button" ion-button full (click)="submit()">next</button>
+            <button class="c-button no-bg" color="loc-button" [disabled]="locationForm.invalid" ion-button full (click)="submit()">next</button>
           </ion-col>
         </ion-row>
       </ion-grid>

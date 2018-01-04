@@ -81,6 +81,7 @@ export class LocationInfoPage {
     //           .then(() => this.presentToast('Location added successfully'))
     //           .catch(error => console.log(error));
     //     });
+    this.resetForm();
     this.toRoomPage();
   }
 
@@ -91,6 +92,10 @@ export class LocationInfoPage {
 
   toDashboardPage() {
     this.navCtrl.setRoot(DashboardPage);
+  }
+
+  private resetForm() {
+    this.locationForm.reset();
   }
 
   private presentToast(message: string) {
