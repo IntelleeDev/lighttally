@@ -1,36 +1,34 @@
 <div>
-  <div class="box">
-    <bulb [headTitle]="head"></bulb>
+  <!-- Bulb Replacement Form -->
+  <form [formGroup]="replacementForm" class="box">
 
-    <div class="c-item-box">
-      <span ion-text color="text-color">Wattage</span>
-      <ion-input 
-        ngClass="trans" 
-        [(ngModel)]="wattage" 
-        type="number" value="" 
-        placeholder="Enter wattage">
-      </ion-input>
-    </div>
+    <!-- Select Replacement Bulb Component -->
+    <bulb [headTitle]="title"></bulb>
 
+    <!-- Units in Kalvins -->
     <div class="c-item-box">
       <span ion-text color="text-color">Kalvins</span>
       <ion-input 
         ngClass="trans" 
-        [(ngModel)]="kalvins" 
+        formControlName="kalvins" 
         type="number" value="" 
         placeholder="Enter kalvins">
       </ion-input>
     </div>
 
+    <!-- Additional Notes -->
     <div class="c-item-box">
       <span ion-text color="text-color">Special Notes</span>
       <ion-textarea 
         value=""
         type="number"
         ngClass="trans" 
-        [(ngModel)]="specialNotes" 
+        formControlName="specialNotes" 
         placeholder="Enter special notes">
       </ion-textarea>
     </div>
-  </div>
+  </form>
+  
+  <!-- Form ends-->
+
 </div>

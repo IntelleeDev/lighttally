@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { ModalController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
@@ -11,6 +13,7 @@ import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
 })
 export class ExistingLightComponent {
 
+  existingLightForm: FormGroup;
   title: string = 'Existing Bulb';
   balastTypes: Array<string> = BALLAST_TYPES;
 
@@ -23,7 +26,11 @@ export class ExistingLightComponent {
 
 constructor(
   private camera: Camera,
-  private modalCtrl: ModalController) { }
+  private formBuilder: FormBuilder,
+  private modalCtrl: ModalController) {
+
+    this.createForm();
+  }
 
   takeSnapShot() {
     this.camera.getPicture(this.options).then((imageData) => {
@@ -35,5 +42,14 @@ constructor(
       // Handle error
      });
   } 
+
+  private createForm() {
+    this.existingLightForm = this.formBuilder.group({
+      numOfFixtures: ['', Validators.required],
+      balastType: ['', Validators.required],
+      numOfBulbs: ['', Validators.required],
+      wrongBulb: ['', Validators.required]
+    });
+  }
 
 }

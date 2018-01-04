@@ -1,14 +1,14 @@
 <div>
-  <div class="box">
+  <form [formGroup]="existingLightForm" class="box">
     <div class="c-item-box">
       <span ion-text color="text-color">Enter Number of Fixtures</span>
-      <ion-input ngClass="trans" [(ngModel)]="numOfFixtures" type="number" value="" placeholder="Enter number of fixtures"></ion-input>
+      <ion-input ngClass="trans" formControlName="numOfFixtures" type="number" value="" placeholder="Enter number of fixtures"></ion-input>
     </div>
 
     <div class="c-item-box">
       <span ion-text color="text-color">Balast Type</span>
       <ion-item ngClass="blank" no-lines>
-        <ion-select ngClass="trans" [(ngModel)]="balastType" full placeholder="Select balast type">
+        <ion-select ngClass="trans" formControlName="balastType" full placeholder="Select balast type">
           <ion-option *ngFor="let balast of balastTypes">{{ balast }}</ion-option>
         </ion-select>
       </ion-item>
@@ -16,14 +16,14 @@
 
     <div class="c-item-box">
       <span ion-text color="text-color">Enter Number of Bulbs</span>
-      <ion-input ngClass="trans" [(ngModel)]="numOfBulbs" type="number" value="" placeholder="Enter number of bulbs"></ion-input>
+      <ion-input ngClass="trans" formControlName="numOfBulbs" type="number" value="" placeholder="Enter number of bulbs"></ion-input>
     </div>
 
     <bulb [headTitle]="title"></bulb>
 
     <div class="c-item-box">
       <span ion-text color="text-color">Wrong Bulb</span>
-      <ion-list radio-group [(ngModel)]="wrongBulb">
+      <ion-list radio-group formControlName="wrongBulb">
         <ion-grid no-padding>
           <ion-row>
             <ion-col col-5>
@@ -43,7 +43,7 @@
         </ion-grid>
       </ion-list>
     </div>
-  </div>
+  </form>
 
  <div>
     <div class="icon-box" (click)="takeSnapShot()">

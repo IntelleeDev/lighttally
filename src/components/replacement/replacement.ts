@@ -1,10 +1,23 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'replacement',
   templateUrl: 'replacement.html'
 })
 export class ReplacementComponent {
-  public head: string = 'Replacement Bulb';
-  constructor() { }
+  
+  title = 'Replacement Bulb';
+  replacementForm: FormGroup;
+  
+  constructor(private formBuilder: FormBuilder) {
+    this.createForm();
+  }
+
+  private createForm() {
+    this.replacementForm = this.formBuilder.group({
+      kalvins: '',
+      specialNotes: ''
+    });
+  }
 }

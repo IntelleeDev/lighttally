@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { PopoverController } from 'ionic-angular';
 
 import { WorkTimeComponent } from '../work-time/work-time';
@@ -9,11 +11,26 @@ import { WorkTimeComponent } from '../work-time/work-time';
 })
 export class GeneralInfoComponent {
   
-  constructor(private popCtrl: PopoverController) { }
+  public genInfoForm: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private popCtrl: PopoverController) { 
+      
+      this.createForm();
+    }
 
   public presentPopover() {
     const popover = this.popCtrl.create(WorkTimeComponent);
     popover.present();
+  }
+
+  private createForm() {
+    this.genInfoForm = this.formBuilder.group({
+      hasLift: ['', Validators.required],
+      roomName: ['', Validators.required],
+      heightToFixtures: ['', Validators.required]
+    })
   }
 
 }

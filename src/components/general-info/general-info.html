@@ -1,8 +1,8 @@
 <div>
-  <div class="box">
+  <form [formGroup]="genInfoForm" class="box">
     <div class="c-item-box">
       <span ion-text color="text-color">Room Name</span>
-      <ion-input ngClass="trans" [(ngModel)]="roomName" type="text" value="" placeholder="Enter room name"></ion-input>
+      <ion-input ngClass="trans" formControlName="roomName" type="text" value="" placeholder="Enter room name"></ion-input>
     </div>
 
     <div class="c-item-box">
@@ -12,21 +12,22 @@
 
     <div class="c-item-box">
       <span ion-text color="text-color">Height To Fixtures</span>
-      <ion-input ngClass="trans" [(ngModel)]="heightToFixtures" type="text" value="" placeholder="Enter height to fixtures"></ion-input>
+      <ion-input ngClass="trans" formControlName="heightToFixtures" type="text" value="" placeholder="Enter height to fixtures"></ion-input>
     </div>
     
     <div class="c-item-box">
       <span ion-text color="text-color">Lift</span>
-      <ion-list radio-group [(ngModel)]="hasLift">
-        <ion-grid>
+      <ion-list radio-group formControlName="hasLift">
+        <ion-grid no-padding>
           <ion-row>
-            <ion-col col-6>
+            <ion-col col-5>
               <ion-item ngClass="trans fs-12" no-lines>
                 <ion-label color="text-color">YES</ion-label>
                 <ion-radio value="true"></ion-radio>
               </ion-item>
             </ion-col>
-            <ion-col>
+            <ion-col col-1><div></div></ion-col>
+            <ion-col col-5>
               <ion-item ngClass="trans fs-12" no-lines>
                 <ion-label color="text-color">NO</ion-label>
                 <ion-radio value="false"></ion-radio>
@@ -36,5 +37,5 @@
         </ion-grid>
       </ion-list>
     </div>
-  </div>
+  </form>
 </div>
