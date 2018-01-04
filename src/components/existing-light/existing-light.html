@@ -1,26 +1,47 @@
 <div>
+  <!-- Existing Light Fixture Form -->
   <form [formGroup]="existingLightForm" class="box">
+
+    <!-- Number of Fixtures -->
     <div class="c-item-box">
       <span ion-text color="text-color">Enter Number of Fixtures</span>
-      <ion-input ngClass="trans" formControlName="numOfFixtures" type="number" value="" placeholder="Enter number of fixtures"></ion-input>
+      <ion-input 
+        type="number"
+        ngClass="trans" 
+        formControlName="numOfFixtures"
+        placeholder="Enter number of fixtures">
+      </ion-input>
     </div>
 
+    <!-- Balast Type -->
     <div class="c-item-box">
       <span ion-text color="text-color">Balast Type</span>
       <ion-item ngClass="blank" no-lines>
-        <ion-select ngClass="trans" formControlName="balastType" full placeholder="Select balast type">
+        <ion-select 
+          ngClass="trans" 
+          formControlName="balastType" 
+          full placeholder="Select balast type"
+          >
           <ion-option *ngFor="let balast of balastTypes">{{ balast }}</ion-option>
         </ion-select>
       </ion-item>
     </div>
 
+    <!-- Number of Bulbs  -->
     <div class="c-item-box">
       <span ion-text color="text-color">Enter Number of Bulbs</span>
-      <ion-input ngClass="trans" formControlName="numOfBulbs" type="number" value="" placeholder="Enter number of bulbs"></ion-input>
+      <ion-input 
+        type="number"
+        ngClass="trans" 
+        formControlName="numOfBulbs" 
+        placeholder="Enter number of bulbs">
+      </ion-input>
     </div>
 
+    <!-- Select Bulb Component -->
     <bulb [headTitle]="title"></bulb>
 
+    <!-- Wrong Bulb -->
     <div class="c-item-box">
       <span ion-text color="text-color">Wrong Bulb</span>
       <ion-list radio-group formControlName="wrongBulb">
@@ -43,8 +64,12 @@
         </ion-grid>
       </ion-list>
     </div>
-  </form>
 
+  </form>
+  
+  <!-- Form Ends -->
+
+ <!-- Snapshot of Fixture -->
  <div>
     <div class="icon-box" (click)="takeSnapShot()">
       <ion-icon ngClass="large" color="text-color" name="camera"></ion-icon>

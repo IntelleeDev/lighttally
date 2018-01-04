@@ -13,8 +13,8 @@ import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
 })
 export class ExistingLightComponent {
 
+  title = 'Existing Bulb';
   existingLightForm: FormGroup;
-  title: string = 'Existing Bulb';
   balastTypes: Array<string> = BALLAST_TYPES;
 
   readonly options: CameraOptions = {
@@ -27,8 +27,8 @@ export class ExistingLightComponent {
 constructor(
   private camera: Camera,
   private formBuilder: FormBuilder,
-  private modalCtrl: ModalController) {
-
+  private modalCtrl: ModalController
+  ) {
     this.createForm();
   }
 
