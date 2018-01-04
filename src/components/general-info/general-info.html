@@ -1,20 +1,37 @@
 <div>
+
+  <!-- General Info Form -->
   <form [formGroup]="genInfoForm" class="box">
+
+    <!-- Room Name -->
     <div class="c-item-box">
       <span ion-text color="text-color">Room Name</span>
-      <ion-input ngClass="trans" formControlName="roomName" type="text" value="" placeholder="Enter room name"></ion-input>
+      <ion-input 
+        type="text"
+        ngClass="trans" 
+        formControlName="roomName"
+        placeholder="Enter room name">
+      </ion-input>
     </div>
 
+    <!-- Lighting Hours (Total/week)-->
     <div class="c-item-box">
       <span ion-text color="text-color">Lighting Occupied Hours</span>
       <div ngClass="trans" (click)="presentPopover()">Select lighting hours</div>
     </div>
 
+    <!-- Height to Fixtures -->
     <div class="c-item-box">
       <span ion-text color="text-color">Height To Fixtures</span>
-      <ion-input ngClass="trans" formControlName="heightToFixtures" type="text" value="" placeholder="Enter height to fixtures"></ion-input>
+      <ion-input
+        type="text" 
+        ngClass="trans" 
+        formControlName="heightToFixtures" 
+        placeholder="Enter height to fixtures">
+      </ion-input>
     </div>
     
+    <!-- Lift -->
     <div class="c-item-box">
       <span ion-text color="text-color">Lift</span>
       <ion-list radio-group formControlName="hasLift">
@@ -37,5 +54,8 @@
         </ion-grid>
       </ion-list>
     </div>
+    
   </form>
+
+  <!-- Form Ends -->
 </div>
