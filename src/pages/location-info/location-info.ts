@@ -27,7 +27,6 @@ import { FirestoreDataSourceProvider } from '../../providers/firestore-data-sour
 export class LocationInfoPage {
 
   locationForm: FormGroup;
-  hours: Array<string>;
   energyCompanies: Array<string> = ENERGY_COMPANIES;
   
   // Location collection data
@@ -52,13 +51,15 @@ export class LocationInfoPage {
     private popCtrl: PopoverController,
     private locRepository: LocationRepository,
     private contactRepository: ContactRepository) {
-      this.hours = ['Mon-Fri 6-5'];
+  
+      this.createForm();
     }
 
   private createForm() {
     this.locationForm = this.formBuilder.group({
       businessName: ['', Validators.required],
       address: ['', Validators.required],
+      energyCompany: ['', Validators.required],
       accountNumber: ['', Validators.required],
       kwhFiled: ['', Validators.required],
       squareFootage: ['', Validators.required],
