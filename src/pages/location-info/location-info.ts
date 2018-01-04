@@ -29,20 +29,6 @@ export class LocationInfoPage {
   locationForm: FormGroup;
   energyCompanies: Array<string> = ENERGY_COMPANIES;
   
-  // Location collection data
-  address: string;
-  kwhFiled: boolean;
-  businessName: string;
-  workingHours: string;
-  accountNumber: number;
-  squareFootage: number;
-  electricCompany: string;
-
-  // Contact collection data
-  email: string;
-  phoneNumber: string;
-  contactPerson: string;
-
   constructor(
     public navParams: NavParams,
     public navCtrl: NavController,

@@ -14,32 +14,58 @@
   <ion-item-divider ngClass='heading'>Enter Location Information</ion-item-divider>
 
   <div padding>
-    <!-- Form -->
+
+    <!-- Location Form -->
     <form [formGroup]="locationForm">
+
+      <!-- Business Name -->
       <div class="c-item-box">
         <span ion-text color="text-color">Business Name</span>
-        <ion-input ngClass="trans" formControlName="businessName" type="text" placeholder="Enter your business name"></ion-input>
+        <ion-input 
+          type="text"
+          ngClass="trans" 
+          formControlName="businessName" 
+          placeholder="Enter your business name">
+        </ion-input>
       </div>
 
+      <!-- Address -->
       <div class="c-item-box">
         <span ion-text color="text-color">Address</span>
-        <ion-input ngClass="trans" formControlName="address" type="text" placeholder="Enter your address"></ion-input>
+        <ion-input 
+          type="text"
+          ngClass="trans" 
+          formControlName="address" 
+          placeholder="Enter your address">
+        </ion-input>
       </div>
 
+      <!-- Energy Company -->
       <div class="c-item-box">
         <span ion-text color="text-color">Electric Company</span>
         <ion-item ngClass="blank" no-lines>
-          <ion-select ngClass="trans" formControlName="energyCompany" full placeholder="Select electric company">
+          <ion-select 
+            ngClass="trans" 
+            formControlName="energyCompany" 
+            full placeholder="Select electric company"
+            >
             <ion-option  *ngFor="let company of energyCompanies">{{ company }}</ion-option>
           </ion-select>
         </ion-item>
       </div>  
       
+      <!-- Account Number -->
       <div class="c-item-box">
         <span ion-text color="text-color">Account Number</span>
-        <ion-input ngClass="trans" formControlName="accountNumber" type="number" placeholder="Enter account number"></ion-input>
+        <ion-input 
+          type="number"
+          ngClass="trans" 
+          formControlName="accountNumber" 
+          placeholder="Enter account number">
+        </ion-input>
       </div>
 
+      <!-- KWH Filed -->
       <div class="c-item-box">
         <span ion-text color="text-color">KWH Filed</span>
         <ion-list radio-group formControlName="kwhFiled">
@@ -63,30 +89,53 @@
         </ion-list>
       </div>
 
+      <!-- Square Footage -->
       <div class="c-item-box">
         <span ion-text color="text-color">Square Footage</span>
-        <ion-input ngClass="trans" formControlName="squareFootage" type="number" placeholder="Enter square footage"></ion-input>
+        <ion-input 
+          type="number"
+          ngClass="trans" 
+          formControlName="squareFootage" 
+          placeholder="Enter square footage">
+        </ion-input>
       </div>
 
+      <!-- Total Working Hours  -->
       <div class="c-item-box">
         <span ion-text color="text-color">Working Hours</span>
         <div ngClass="trans" (click)="presentPopover()">Select working hours</div>
       </div>  
 
+      <!-- Contact Person -->
       <div formGroupName="contactPerson">
         <div class="c-item-box">
           <span ion-text color="text-color">Contact Person</span>
-          <ion-input ngClass="trans" formControlName="name" type="text" placeholder="Enter the name of contact person"></ion-input>
+          <ion-input 
+            type="text"
+            ngClass="trans" 
+            formControlName="name" 
+            placeholder="Enter the name of contact person">
+          </ion-input>
         </div>
 
         <div class="c-item-box">
           <span ion-text color="text-color">Email</span>
-          <ion-input ngClass="trans" formControlName="email" type="email" placeholder="Please enter email"></ion-input>
+          <ion-input 
+            type="email"
+            ngClass="trans" 
+            formControlName="email" 
+            placeholder="Please enter email">
+          </ion-input>
         </div>
 
         <div class="c-item-box">
           <span ion-text color="text-color">Phone Number</span>
-          <ion-input ngClass="trans" formControlName="phoneNumber" type="tel" placeholder="Please enter your land or mobile phone"></ion-input>
+          <ion-input 
+            type="tel"
+            ngClass="trans" 
+            formControlName="phoneNumber" 
+            placeholder="Please enter your land or mobile phone">
+          </ion-input>
         </div>
       </div>
 
@@ -95,11 +144,23 @@
       <ion-grid no-padding>
         <ion-row>
           <ion-col col-4>
-            <button class="c-button no-bg" color="loc-button" ion-button full (click)="toDashboardPage()">previous</button>
+            <button
+              color="loc-button" 
+              class="c-button no-bg"  
+              ion-button full (click)="toDashboardPage()"
+              >
+              previous
+            </button>
           </ion-col>
           <ion-col></ion-col>
           <ion-col col-4>
-            <button class="c-button no-bg" color="loc-button" ion-button full (click)="submit()">next</button>
+            <button 
+              color="loc-button" 
+              class="c-button no-bg" 
+              ion-button full (click)="submit()"
+              >
+              next
+            </button>
           </ion-col>
         </ion-row>
       </ion-grid>
