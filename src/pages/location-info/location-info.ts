@@ -101,4 +101,14 @@ export class LocationInfoPage {
     this.navCtrl.push(RoomPage, {});
   }
 
+  // Form control getters
+  get businessName() { return this.locationForm.get('businessName'); }
+  get address() { return this.locationForm.get('address'); }
+  get energyCompany() { return this.locationForm.get('energyCompany'); }
+  get accountNumber() { return this.locationForm.get('accountNumber'); }
+  get kwhFiled() { return this.locationForm.get('kwhFiled'); }
+  get squareFootage() { return this.locationForm.get('squareFootage'); }
+  get name() { return this.locationForm.get('name'); }
+  get email() { return this.locationForm.get('email'); }
+  get phoneNumber() { return this.locationForm.get('phoneNumber'); }
 }

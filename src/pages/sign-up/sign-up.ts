@@ -12,9 +12,10 @@ import { RegistrationProvider } from '../../providers/registration/registration'
 })
 export class SignUpPage {
 
-  isWaiting = false;
   errorBag: any;
   validationErrors: any;
+
+  isWaiting = false;
   signUpForm: FormGroup;  
 
   constructor(
@@ -25,7 +26,9 @@ export class SignUpPage {
     private regProvider: RegistrationProvider
   ) {
       this.createForm();
-      this.signUpForm.valueChanges.subscribe(this.onValueChange.bind(this));
+      this.signUpForm
+          .valueChanges
+          .subscribe(this.onValueChange.bind(this));
 
       this.errorBag = {
         email: '',

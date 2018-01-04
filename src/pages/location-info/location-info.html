@@ -27,6 +27,11 @@
           formControlName="businessName" 
           placeholder="Enter your business name">
         </ion-input>
+        <div *ngIf="businessName.invalid && (businessName.dirty || businessName.touched)">
+          <span *ngIf="businessName.errors.required" class="error fs-12">
+            Business name is required
+          </span>
+        </div>
       </div>
 
       <!-- Address -->
@@ -38,11 +43,16 @@
           formControlName="address" 
           placeholder="Enter your address">
         </ion-input>
+        <div *ngIf="address.invalid && (address.dirty || address.touched)">
+          <span *ngIf="address.errors.required" class="error fs-12">
+            Address is required
+          </span>
+        </div>
       </div>
 
       <!-- Energy Company -->
       <div class="c-item-box">
-        <span ion-text color="text-color">Electric Company</span>
+        <span ion-text color="text-color">Energy Company</span>
         <ion-item ngClass="blank" no-lines>
           <ion-select 
             ngClass="trans" 
@@ -52,6 +62,11 @@
             <ion-option  *ngFor="let company of energyCompanies">{{ company }}</ion-option>
           </ion-select>
         </ion-item>
+        <div *ngIf="energyCompany.invalid && (energyCompany.dirty || energyCompany.touched)">
+          <span *ngIf="energyCompany.errors.required" class="error fs-12">
+            Energy company is required
+          </span>
+        </div>
       </div>  
       
       <!-- Account Number -->
@@ -63,6 +78,11 @@
           formControlName="accountNumber" 
           placeholder="Enter account number">
         </ion-input>
+        <div *ngIf="accountNumber.invalid && (accountNumber.dirty || accountNumber.touched)">
+          <span *ngIf="accountNumber.errors.required" class="error fs-12">
+            Account number is required
+          </span>
+        </div>
       </div>
 
       <!-- KWH Filed -->
@@ -87,6 +107,11 @@
             </ion-row>
           </ion-grid>
         </ion-list>
+        <div *ngIf="kwhFiled.invalid && (kwhFiled.dirty || kwhFiled.touched)">
+          <span *ngIf="kwhFiled.errors.required" class="error fs-12">
+            KwhFiled is required
+          </span>
+        </div>
       </div>
 
       <!-- Square Footage -->
@@ -98,6 +123,11 @@
           formControlName="squareFootage" 
           placeholder="Enter square footage">
         </ion-input>
+        <div *ngIf="squareFootage.invalid && (squareFootage.dirty || squareFootage.touched)">
+          <span *ngIf="squareFootage.errors.required" class="error fs-12">
+            Square footage is required
+          </span>
+        </div>
       </div>
 
       <!-- Total Working Hours  -->
@@ -116,6 +146,11 @@
             formControlName="name" 
             placeholder="Enter the name of contact person">
           </ion-input>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)">
+            <span *ngIf="name.errors.required" class="error fs-12">
+              Contact name is required
+            </span>
+          </div>
         </div>
 
         <div class="c-item-box">
@@ -126,6 +161,14 @@
             formControlName="email" 
             placeholder="Please enter email">
           </ion-input>
+          <div *ngIf="email.invalid && (email.dirty || email.touched)">
+            <span *ngIf="email.errors.required" class="error fs-12">
+              Contact email is required
+            </span>
+            <span *ngIf="email.errors.required" class="error fs-12">
+              Please enter a valid email address
+            </span>
+          </div>
         </div>
 
         <div class="c-item-box">
@@ -136,6 +179,11 @@
             formControlName="phoneNumber" 
             placeholder="Please enter your land or mobile phone">
           </ion-input>
+          <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
+            <span *ngIf="phoneNumber.errors.required" class="error fs-12">
+              PhoneNumber is required
+            </span>
+          </div>
         </div>
       </div>
 
@@ -157,6 +205,7 @@
             <button 
               color="loc-button" 
               class="c-button no-bg" 
+              [disabled]="locationForm.invalid"
               ion-button full (click)="submit()"
               >
               next
