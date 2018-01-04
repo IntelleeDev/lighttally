@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ViewController } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -10,7 +11,10 @@ export class WorkTimeComponent {
   public daysOfWeek: Array<any>;
   public workTimeForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private viewCtrl:ViewController,
+    private formBuilder: FormBuilder
+  ) {
     this.daysOfWeek = [
       { day: 'Monday', from: 'monFrom', to: 'monTo' },
       { day: 'Tuesday', from: 'tueFrom', to: 'tueTo' },
@@ -56,6 +60,10 @@ export class WorkTimeComponent {
         sunTo: ''
       })
   });
+  }
+
+  closePopover() {
+    this.viewCtrl.dismiss();
   }
 
   private computeTotalWorkHours() {
