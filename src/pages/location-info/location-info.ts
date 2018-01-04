@@ -41,22 +41,6 @@ export class LocationInfoPage {
       this.createForm();
     }
 
-  private createForm() {
-    this.locationForm = this.formBuilder.group({
-      businessName: ['', Validators.required],
-      address: ['', Validators.required],
-      energyCompany: ['', Validators.required],
-      accountNumber: ['', Validators.required],
-      kwhFiled: ['', Validators.required],
-      squareFootage: ['', Validators.required],
-      contactPerson: this.formBuilder.group({
-        name: ['', Validators.required],
-        email: ['', Validators.email],
-        phoneNumber: ['', Validators.required]
-      })
-    });
-  }
-
   submit() {
     // this.locRepository
     //     .store(location as Location)
@@ -80,6 +64,22 @@ export class LocationInfoPage {
     this.navCtrl.setRoot(DashboardPage);
   }
 
+  private createForm() {
+    this.locationForm = this.formBuilder.group({
+      businessName: ['', Validators.required],
+      address: ['', Validators.required],
+      energyCompany: ['', Validators.required],
+      accountNumber: ['', Validators.required],
+      kwhFiled: ['', Validators.required],
+      squareFootage: ['', Validators.required],
+      contactPerson: this.formBuilder.group({
+        name: ['', Validators.required],
+        email: ['', Validators.email],
+        phoneNumber: ['', Validators.required]
+      })
+    });
+  }
+  
   private resetForm() {
     this.locationForm.reset();
   }
