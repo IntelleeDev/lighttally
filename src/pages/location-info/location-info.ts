@@ -36,22 +36,28 @@ export class LocationInfoPage {
     private toastCtrl: ToastController,
     private popCtrl: PopoverController,
     private locRepository: LocationRepository,
-    private contactRepository: ContactRepository) {
-  
+    private contactRepository: ContactRepository
+  ) {  
       this.createForm();
-    }
+  }
 
   submit() {
-    // this.locRepository
-    //     .store(location as Location)
-    //     .then(locId => { 
-    //       contact['locationId'] = locId;
-    //       this.contactRepository
-    //           .store(contact as Contact)
-    //           .then(() => this.presentToast('Location added successfully'))
-    //           .catch(error => console.log(error));
-    //     });
-    this.resetForm();
+    const data = this.getData();
+    const location = data[0];
+    const contact  = data[1];
+
+    this.locRepository
+        .store(location)
+        .then(locId => { 
+          contact['locationId'] = locId;
+          this.contactRepository
+              .store(contact)
+              .then(() => {
+                this.resetForm();
+                this.presentToast('Location added successfully');
+              })
+              .catch(error => console.log(error));
+        });
     this.toRoomPage();
   }
 
@@ -62,6 +68,29 @@ export class LocationInfoPage {
 
   toDashboardPage() {
     this.navCtrl.setRoot(DashboardPage);
+  }
+
+  private getData(): Array<any> {
+    const formModel = this.locationForm.value;
+
+    const location: Location = {
+      businessName: formModel.businessName,
+      address: formModel.address,
+      energyCompany: formModel.energyCompany,
+      accountNumber: formModel.accountNumber,
+      kwhFiled: formModel.kwhFiled,
+      squareFootage: formModel.squareFootage,
+      workingHours: formModel['workingHours'] ? formModel.workingHours : ''
+    };
+
+    const contact: Contact = {
+      name: formModel.contactPerson.name,
+      email: formModel.contactPerson.address,
+      phoneNumber: formModel.contactPerson.phoneNumber,
+      locationId: ''
+    }
+
+    return [location, contact];
   }
 
   private createForm() {
@@ -79,7 +108,7 @@ export class LocationInfoPage {
       })
     });
   }
-  
+
   private resetForm() {
     this.locationForm.reset();
   }
@@ -108,7 +137,7 @@ export class LocationInfoPage {
   get accountNumber() { return this.locationForm.get('accountNumber'); }
   get kwhFiled() { return this.locationForm.get('kwhFiled'); }
   get squareFootage() { return this.locationForm.get('squareFootage'); }
-  get name() { return this.locationForm.get('name'); }
-  get email() { return this.locationForm.get('email'); }
-  get phoneNumber() { return this.locationForm.get('phoneNumber'); }
+  get name() { return this.locationForm.get('contactPerson').get('name'); }
+  get email() { return this.locationForm.get('contactPerson').get('email'); }
+  get phoneNumber() { return this.locationForm.get('contactPerson').get('phoneNumber'); }
 }
