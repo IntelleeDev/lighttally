@@ -17,6 +17,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 })
 export class SignInPage {
 
+  errorMessage = null;
   signInForm: FormGroup;
   isAuthenticating = false;
 
@@ -32,18 +33,19 @@ export class SignInPage {
   authenticateUser() {
     this.showSpinner();
 
-    // this.authProvider
-    //     .authenticateUser(this.getData())
-    //     .subscribe(authenticated => {
-    //       if (authenticated) {
-    //         this.hideSpinner()
-    //         this.toHomePage()            
-    //       } else {
-    //         this.hideSpinner()
-    //       }
-    //     });
-    this.hideSpinner();
-    this.toHomePage();
+    this.authProvider
+        .authenticateUser(this.getData())
+        .subscribe(authenticated => {
+          if (authenticated) {
+            this.hideSpinner();
+            this.toHomePage();          
+          } else {
+            this.hideSpinner();
+            this.errorMessage = 'Invalid username or password';
+          }
+        });
+    // this.hideSpinner();
+    // this.toHomePage();
   }
 
   toHomePage(): void {

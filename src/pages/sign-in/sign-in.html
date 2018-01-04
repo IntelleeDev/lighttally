@@ -20,6 +20,12 @@
         </button>
       </div>
     </form>
+
+    <div *ngIf="errorMessage">
+      <span class="errror">
+        {{ errorMessage }}
+      </span>
+    </div>
     
     <div class="text-box">
       <span>Don't have an account?</span>
