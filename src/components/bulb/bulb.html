@@ -3,10 +3,10 @@
   <div ngClass="trans" (click)="openModal()">Select bulb</div>
 
   <div *ngIf="data.length > 0">
-    <div class="trans" *ngFor="let d of data">
+    <div class="bulb-pill" *ngFor="let d of data">
       <div class="actions-box">
-        <span>{{ d.name }}</span>
-        <span color="link-color" (click)="removeItem(d.id)">
+        <span>{{ d.name }} - {{ d.type }} {{ d.wattage }}</span>
+        <span class="remove" color="link-color" (click)="removeItem(d.id)">
           <ion-icon name="close"></ion-icon>
         </span>
       </div>
