@@ -32,3 +32,30 @@
 
 
         selectBulb(bulb.category + ' ' + t.name)
+
+
+
+
+        <!-- Wrong Bulb
+    <div class="c-item-box">
+      <span ion-text color="text-color">Wrong Bulb</span>
+      <ion-list radio-group formControlName="wrongBulb">
+        <ion-grid no-padding>
+          <ion-row>
+            <ion-col col-5>
+              <ion-item ngClass="trans fs-12" no-lines>
+                <ion-label>YES</ion-label>
+                <ion-radio value="true"></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col col-1><div></div></ion-col>
+            <ion-col col-5>
+              <ion-item ngClass="trans fs-12" no-lines>
+                <ion-label>NO</ion-label>
+                <ion-radio value="false"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+    </div> -->

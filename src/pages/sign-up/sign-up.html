@@ -38,7 +38,11 @@
       </span>
       
       <div ngClass="text-box">
-        <button type="submit" [disabled]="signUpForm.invalid" class="c-button" ion-button full (click)="registerUser()">
+        <button 
+          type="submit"
+          class="c-button padding-15" 
+          [disabled]="signUpForm.invalid" 
+           ion-button full (click)="registerUser()">
           Continue
           <span>&nbsp;&nbsp;</span>
           <ion-spinner color="text-color" *ngIf="isWaiting"></ion-spinner>
