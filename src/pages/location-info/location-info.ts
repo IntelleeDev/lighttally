@@ -49,7 +49,7 @@ export class LocationInfoPage {
           loader.dismiss();
           this.toRoomPage({ locationId });          
         })
-        .catch(error => console.log(error));
+        .catch(error => loader.dismiss());
   }
 
   presentPopover() {
