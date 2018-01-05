@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 
+import { Bulb } from '../../model/bulb';
 import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
 import { BulbCategoryComponent } from '../bulb-category/bulb-category';
 
@@ -13,19 +14,19 @@ export class BulbComponent {
   @Input() public headTitle;
   
   indexCounter = 0;
-  public data: Array<{number, string}> = [];
+  public data: Array<{number, Bulb}> = [];
 
   constructor(private modalCtrl: ModalController) {}
 
   public openModal() {
     let modal = this.modalCtrl.create(BulbCategoryComponent);
-    modal.onDidDismiss(data => {
-      this.addItem(data);
+    modal.onDidDismiss((bulbArray: Array<any>) => {
+      this.addItem(bulbArray);
     })
     modal.present();
   }
 
-  addItem(value: any) {
+  addItem(value: Array<any>) {
     this.data = 
         this.data
             .concat(value)

@@ -9,7 +9,7 @@ import { WATTAGE_METRICS } from '../../data/constants';
 })
 export class LightComponent {
   
-  public retroFit: any = '';
+  public retroFit: boolean;
   public wattage: string = '';
   public metrics: Array<any> = WATTAGE_METRICS[0].wattage;
 
@@ -18,7 +18,7 @@ export class LightComponent {
   public dismissPopover() {
     this.viewCtrl.dismiss({
       wattage: this.wattage,
-      retroFit: this.retroFit
+      retrofit: this.retroFit
     });
   }
 

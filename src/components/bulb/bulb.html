@@ -5,7 +5,7 @@
   <div *ngIf="data.length > 0">
     <div class="trans" *ngFor="let d of data">
       <div class="actions-box">
-        <span>{{ d.fixture.name }}</span>
+        <span>{{ d.name }}</span>
         <span color="link-color" (click)="removeItem(d.id)">
           <ion-icon name="close"></ion-icon>
         </span>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ViewController, ModalController } from 'ionic-angular';
 
+import { Bulb } from '../../model/bulb';
 import { BULB_CATEGORIES } from '../../data/constants';
 import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
 
@@ -11,7 +12,7 @@ import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
 export class BulbCategoryComponent {
 
   headTitle = 'Bulb Categories';
-  data: Array<{string}> = [];
+  data: Array<Bulb> = [];
   
   public categories: Array<{type: string, src: string}> = [];
 
@@ -23,15 +24,15 @@ export class BulbCategoryComponent {
 
   public openBulbDialog(category: any) {
     const modal = this.modalCtrl.create(BulbDialogComponent, { category });
-    modal.onDidDismiss(data => {
-      this.addItem({ fixture: data });
-      console.log(data);
+    modal.onDidDismiss((selectedBulb: Bulb) => {
+      this.addItem(selectedBulb);
+      console.log(selectedBulb);
     })
     modal.present();
   }
 
-  private addItem(value: any) {
-    this.data.push(value);
+  private addItem(bulb: Bulb) {
+    this.data.push(bulb);
   }
 
   public dismissModal() {

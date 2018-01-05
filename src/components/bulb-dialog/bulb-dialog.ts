@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { LightComponent } from '../light/light';
 import { NavParams, ViewController, PopoverController } from 'ionic-angular';
 
+import { Bulb } from '../../model/bulb';
 import { EXISTING_BULBS } from '../../data/constants';
 
 @Component({
@@ -26,15 +27,15 @@ export class BulbDialogComponent {
     });
   }
 
-  public presentPopover(bulbType: any) {
+  public presentPopover(name: string, type: string) {
     const popover = this.popCtrl.create(LightComponent);
-    popover.onDidDismiss(fixAttributes => {
-      this.selectBulb({...fixAttributes, name: bulbType})
+    popover.onDidDismiss(attr => {
+      this.selectBulb({...attr, name, type} as Bulb);
     });
     popover.present();
   }
 
-  private selectBulb(bulbType: any) {
-    this.viewCtrl.dismiss(bulbType);
+  private selectBulb(bulb: Bulb) {
+    this.viewCtrl.dismiss(bulb);
   }
 }

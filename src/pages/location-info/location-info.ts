@@ -46,18 +46,13 @@ export class LocationInfoPage {
     const location = data[0];
     const contact  = data[1];
 
-    this.locRepository
-        .store(location)
-        .then(locId => { 
-          contact['locationId'] = locId;
-          this.contactRepository
-              .store(contact)
-              .then(() => {
-                this.resetForm();
-                this.presentToast('Location added successfully');
-              })
-              .catch(error => console.log(error));
-        });
+    // this.locRepository
+    //     .storeWithContact(location, contact)
+    //     .then(() => {
+    //       this.resetForm();
+    //       this.presentToast('Location added successfully');
+    //     })
+    //     .catch(error => console.log(error));
     this.toRoomPage();
   }
 
