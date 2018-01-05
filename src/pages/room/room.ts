@@ -1,9 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Slides, Segment, IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import { ReplacementComponent } from '../../components/replacement/replacement';
-import { ExistingLightComponent } from '../../components/existing-light/existing-light';
-import { GeneralInfoComponent } from '../../components/general-info/general-info';
+import { Slides, IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -12,16 +8,13 @@ import { GeneralInfoComponent } from '../../components/general-info/general-info
 })
 export class RoomPage {
   @ViewChild (Slides) slides: Slides;
-  @ViewChild (Segment) segment: Segment;
-
   showFinalizePage = false;
+  locationId: string = '';
   
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
+      this.locationId = navParams.get('locationId');
   }
 
   public goToSlide(index): void {

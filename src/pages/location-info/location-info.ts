@@ -50,6 +50,7 @@ export class LocationInfoPage {
           this.toRoomPage({ locationId });          
         })
         .catch(error => loader.dismiss());
+    setTimeout(() => loader.dismiss(), 4000);
   }
 
   presentPopover() {
