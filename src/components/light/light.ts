@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ViewController } from 'ionic-angular';
 
 import { WATTAGE_METRICS } from '../../data/constants';
@@ -9,16 +10,20 @@ import { WATTAGE_METRICS } from '../../data/constants';
 })
 export class LightComponent {
   
-  public retroFit: boolean;
-  public wattage: string = '';
-  public metrics: Array<any> = WATTAGE_METRICS[0].wattage;
+  kalvin: number;
+  retroFit: boolean;
+  wrongBulb: boolean;
+  wattage: string = '';
+  metrics: Array<any> = WATTAGE_METRICS[0].wattage;
 
   constructor(private viewCtrl: ViewController) { }
 
   public dismissPopover() {
     this.viewCtrl.dismiss({
+      kavlin: this.kalvin,
       wattage: this.wattage,
-      retrofit: this.retroFit
+      retrofit: this.retroFit,
+      wrongBulb: this.wrongBulb
     });
   }
 
