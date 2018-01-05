@@ -10,19 +10,13 @@ import { Contact } from '../../model/contact';
 import { Location } from '../../model/location';
 
 import { ENERGY_COMPANIES } from '../../data/constants';
-
-import { ContactRepository } from '../../repository/contact-repository';
 import { LocationRepository } from '../../repository/location-repository';
-import { FirestoreDataSourceProvider } from '../../providers/firestore-data-source/firestore-data-source';
 
 @IonicPage()
 @Component({
   selector: 'page-location-info',
   templateUrl: 'location-info.html',
-  providers: [ 
-      ContactRepository,
-      LocationRepository
-  ]
+  providers: [ LocationRepository ]
 })
 export class LocationInfoPage {
 
@@ -35,8 +29,7 @@ export class LocationInfoPage {
     private formBuilder: FormBuilder, 
     private toastCtrl: ToastController,
     private popCtrl: PopoverController,
-    private locRepository: LocationRepository,
-    private contactRepository: ContactRepository
+    private locRepository: LocationRepository
   ) {  
       this.createForm();
   }
