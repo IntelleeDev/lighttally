@@ -63,7 +63,7 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
