@@ -41,7 +41,7 @@ export class SignUpPage {
         fullname: { required: 'Fullname is required' },
         email: { required: 'Email is required', email: 'Please input a valid email address' },
         password: { required: 'Password is required', minlength: 'Min length is 8 characters' },
-        phoneNumber: { required: 'Phone Number is required', pattern:'Please enter a valid phone number' }
+        phoneNumber: { required: 'Phone Number is required', pattern:'Please input like this (XXX) XXX-XXXX' }
       } 
   }
 
@@ -95,10 +95,11 @@ export class SignUpPage {
   }
 
   private createForm() {
+    const pattern = /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/;
     this.signUpForm = this.formBuilder.group({
       fullname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', Validators.required],
+      phoneNumber: ['', [Validators.required, Validators.pattern(pattern)]],
       password: ['', [Validators.required, Validators.minLength(8)]]
     })
   }
