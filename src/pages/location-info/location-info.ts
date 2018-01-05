@@ -41,10 +41,10 @@ export class LocationInfoPage {
 
     this.locRepository
         .storeWithContact(location, contact)
-        .then(() => {
+        .then((locationId) => {
           this.resetForm();
           const toast = this.createToast('Location added successfully');
-          toast.onDidDismiss(() => this.toRoomPage());
+          toast.onDidDismiss(() => this.toRoomPage({ locationId }));
           toast.present();          
         })
         .catch(error => console.log(error));
@@ -110,8 +110,8 @@ export class LocationInfoPage {
     });
   }
 
-  private toRoomPage() {
-    this.navCtrl.push(RoomPage, {});
+  private toRoomPage(params: any) {
+    this.navCtrl.push(RoomPage, params);
   }
 
   // Form control getters
