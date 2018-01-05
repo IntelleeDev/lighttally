@@ -44,8 +44,8 @@ export class SignInPage {
             this.errorMessage = 'Invalid username or password';
           }
         });
-    this.hideSpinner();
-    this.toHomePage();
+    // this.hideSpinner();
+    // this.toHomePage();
   }
 
   toHomePage(): void {
