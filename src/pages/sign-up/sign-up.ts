@@ -53,8 +53,8 @@ export class SignUpPage {
         this.hideSpinner();
         this.signUpForm.reset();
         this.backToSignInPage();
-        // this.createToast('Account created successfully. Please SignIn')
-            // .onDidDismiss(() => this.backToSignInPage())
+        this.createToast('Account created successfully. Please SignIn')
+            .onDidDismiss(() => this.backToSignInPage())
       })
       .catch(() => {
         this.createToast('Connection error')

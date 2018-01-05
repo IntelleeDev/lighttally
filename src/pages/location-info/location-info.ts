@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonicPage, NavController, NavParams, PopoverController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, PopoverController, Toast, ToastController } from 'ionic-angular';
 
 import { RoomPage } from '../room/room';
 import { DashboardPage } from '../dashboard/dashboard';
@@ -46,14 +46,15 @@ export class LocationInfoPage {
     const location = data[0];
     const contact  = data[1];
 
-    // this.locRepository
-    //     .storeWithContact(location, contact)
-    //     .then(() => {
-    //       this.resetForm();
-    //       this.presentToast('Location added successfully');
-    //     })
-    //     .catch(error => console.log(error));
-    this.toRoomPage();
+    this.locRepository
+        .storeWithContact(location, contact)
+        .then(() => {
+          this.resetForm();
+          const toast = this.createToast('Location added successfully');
+          toast.onDidDismiss(() => this.toRoomPage());
+          toast.present();          
+        })
+        .catch(error => console.log(error));
   }
 
   presentPopover() {
@@ -108,17 +109,12 @@ export class LocationInfoPage {
     this.locationForm.reset();
   }
 
-  private presentToast(message: string) {
-    const toast = this.toastCtrl.create({
+  private createToast(message: string): Toast {
+    return this.toastCtrl.create({
       message,
-      duration: 2000,
+      duration: 3000,
       position: 'top'
     });
-
-    toast.onDidDismiss(() => {
-      this.toRoomPage();
-    });
-    toast.present();
   }
 
   private toRoomPage() {
