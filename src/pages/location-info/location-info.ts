@@ -36,6 +36,8 @@ export class LocationInfoPage {
   }
 
   submit() {
+    const loader = this.presentLoader();
+    
     const data = this.getData();
     const location = data[0];
     const contact  = data[1];
@@ -44,6 +46,7 @@ export class LocationInfoPage {
         .storeWithContact(location, contact)
         .then((locationId) => {
           this.resetForm();
+          loader.dismiss();
           this.toRoomPage({ locationId });          
         })
         .catch(error => console.log(error));
@@ -103,7 +106,9 @@ export class LocationInfoPage {
 
   private presentLoader() {
     const loader = this.loadingCtrl.create({
-      content: 'Please wait'
+      content: 'Please wait',
+      dismissOnPageChange: true,
+      enableBackdropDismiss: false
     });
     loader.present();
     return loader;
