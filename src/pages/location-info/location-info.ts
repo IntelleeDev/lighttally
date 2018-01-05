@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonicPage, NavController, NavParams, PopoverController, Toast, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, PopoverController, LoadingController } from 'ionic-angular';
 
 import { RoomPage } from '../room/room';
 import { DashboardPage } from '../dashboard/dashboard';
@@ -28,8 +28,8 @@ export class LocationInfoPage {
     public navParams: NavParams,
     public navCtrl: NavController,
     private formBuilder: FormBuilder, 
-    private toastCtrl: ToastController,
     private popCtrl: PopoverController,
+    private loadingCtrl: LoadingController,
     private locRepository: LocationRepository
   ) {  
       this.createForm();
@@ -44,9 +44,7 @@ export class LocationInfoPage {
         .storeWithContact(location, contact)
         .then((locationId) => {
           this.resetForm();
-          const toast = this.createToast('Location added successfully');
-          toast.onDidDismiss(() => this.toRoomPage({ locationId }));
-          toast.present();          
+          this.toRoomPage({ locationId });          
         })
         .catch(error => console.log(error));
   }
@@ -103,12 +101,12 @@ export class LocationInfoPage {
     this.locationForm.reset();
   }
 
-  private createToast(message: string): Toast {
-    return this.toastCtrl.create({
-      message,
-      duration: 3000,
-      position: 'top'
+  private presentLoader() {
+    const loader = this.loadingCtrl.create({
+      content: 'Please wait'
     });
+    loader.present();
+    return loader;
   }
 
   private toRoomPage(params: any) {
