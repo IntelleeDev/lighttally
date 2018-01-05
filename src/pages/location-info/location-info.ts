@@ -53,7 +53,11 @@ export class LocationInfoPage {
   }
 
   presentPopover() {
-    const popover = this.popCtrl.create(WorkTimeComponent, {}, { enableBackdropDismiss: false });
+    const popover = this.popCtrl.create(
+      WorkTimeComponent, 
+      {}, 
+      { enableBackdropDismiss: false 
+    });
     popover.present();
   }
 

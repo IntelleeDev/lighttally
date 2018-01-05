@@ -31,6 +31,7 @@ export class FirestoreDataSourceProvider<T> implements DataSource<T> {
   store(collectionName, data: T): Promise<any> {
     let collection = this.fireStore.collection<T>(collectionName);
     return collection.add(data)
-              .then(docRef => docRef.id);
+              .then(docRef => docRef.id)
+              .catch(error => error);
   }
 }
