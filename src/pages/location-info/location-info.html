@@ -183,6 +183,9 @@
             <span *ngIf="phoneNumber.errors.required" class="error fs-12">
               PhoneNumber is required
             </span>
+            <span *ngIf="phoneNumber.errors.pattern" class="error fs-12">
+              Please input like this (XXX) XXX-XXXX
+            </span>
           </div>
         </div>
       </div>
