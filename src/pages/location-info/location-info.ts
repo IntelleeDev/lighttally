@@ -10,13 +10,14 @@ import { Contact } from '../../model/contact';
 import { Location } from '../../model/location';
 
 import { ENERGY_COMPANIES } from '../../data/constants';
+import { ContactRepository } from '../../repository/contact-repository';
 import { LocationRepository } from '../../repository/location-repository';
 
 @IonicPage()
 @Component({
   selector: 'page-location-info',
   templateUrl: 'location-info.html',
-  providers: [ LocationRepository ]
+  providers: [ ContactRepository, LocationRepository ]
 })
 export class LocationInfoPage {
 
