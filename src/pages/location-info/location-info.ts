@@ -89,7 +89,7 @@ export class LocationInfoPage {
   }
 
   private createForm() {
-    const regPattern = /^(\([0-9]\){3} |[0-9]{3}-)[0-9]{4}$/;
+    const regPattern = /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/;
     this.locationForm = this.formBuilder.group({
       businessName: ['', Validators.required],
       address: ['', Validators.required],
@@ -100,7 +100,7 @@ export class LocationInfoPage {
       contactPerson: this.formBuilder.group({
         name: ['', Validators.required],
         email: ['', Validators.email],
-        phoneNumber: ['', Validators.required, Validators.pattern(regPattern)]
+        phoneNumber: ['', [Validators.required, Validators.pattern(regPattern)]]
       })
     });
   }
@@ -113,7 +113,7 @@ export class LocationInfoPage {
     const loader = this.loadingCtrl.create({
       content: 'Please wait',
       dismissOnPageChange: true,
-      enableBackdropDismiss: false
+      enableBackdropDismiss: true
     });
     loader.present();
     return loader;
