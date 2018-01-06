@@ -24,7 +24,7 @@ export class FirestoreDataSourceProvider<T> implements DataSource<T> {
   findByFilter(collectionName, data: any[], constraint: any): Observable<T[]> {
     return this.fireStore
       .collection<T>(collectionName, ref =>
-        ref.where(data[0], constraint, data[1]))
+        ref.where(data[0], constraint, data[2]))
         .valueChanges()   
   }
 

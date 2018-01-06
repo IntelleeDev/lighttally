@@ -20,8 +20,8 @@ export class RoomPage {
   showFinalizePage = false;
   
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams) {
+    public navParams: NavParams,
+    public navCtrl: NavController) {
       this.locationId = navParams.get('locationId');
   }
 
@@ -56,6 +56,5 @@ export class RoomPage {
     console.log(this.replacementComponent.getData());
     console.log(this.existingLightComponent.getData());
   }
-
 
 }

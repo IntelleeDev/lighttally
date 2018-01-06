@@ -17,7 +17,7 @@ export class LocationRepository implements Repository<Location> {
     private contactRepo: ContactRepository,
     private dataSource: FirestoreDataSourceProvider<Location>) {}
 
-  findByFilter(whereFilter: string): Observable<Location> {
+  findByFilter(whereFilter: Array<any>): Observable<Location> {
     throw new Error("Method not implemented.");
   }
 

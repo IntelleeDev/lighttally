@@ -12,7 +12,7 @@ export class ContactRepository implements Repository<Contact> {
 
   constructor(private dataSource: FirestoreDataSourceProvider<Contact>) { }
 
-  findByFilter(whereFilter: string): Observable<Contact> {
+  findByFilter(whereFilter: Array<any>): Observable<Contact> {
     throw new Error("Method not implemented.");
   }
 
