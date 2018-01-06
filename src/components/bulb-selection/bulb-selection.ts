@@ -6,10 +6,10 @@ import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
 import { BulbCategoryComponent } from '../bulb-category/bulb-category';
 
 @Component({
-  selector: 'bulb',
-  templateUrl: 'bulb.html'
+  selector: 'bulb-selection',
+  templateUrl: 'bulb-selection.html'
 })
-export class BulbComponent {
+export class BulbSelectionComponent {
   
   @Input() public headTitle;
   

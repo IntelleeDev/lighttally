@@ -17,7 +17,6 @@ import { Camera } from '@ionic-native/camera';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { BulbComponent } from '../components/bulb/bulb';
 import { LightComponent } from '../components/light/light';
 import { FinalizeComponent } from '../components/finalize/finalize';
 import { WorkTimeComponent } from '../components/work-time/work-time';
@@ -26,6 +25,7 @@ import { ReplacementComponent } from '../components/replacement/replacement';
 import { GeneralInfoComponent } from '../components/general-info/general-info';
 import { BulbCategoryComponent } from '../components/bulb-category/bulb-category';
 import { ExistingLightComponent } from '../components/existing-light/existing-light';
+import { BulbSelectionComponent } from '../components/bulb-selection/bulb-selection';
 
 import { firebaseConfig } from '../config/firebaseConfig';
 import { AngularFireModule } from 'angularfire2';
@@ -47,7 +47,6 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     DashboardPage,
     MyProfilePage,
     LocationInfoPage,
-    BulbComponent,
     LightComponent,
     WorkTimeComponent,
     FinalizeComponent,
@@ -55,7 +54,8 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     ReplacementComponent,
     GeneralInfoComponent,
     BulbCategoryComponent,
-    ExistingLightComponent
+    ExistingLightComponent,
+    BulbSelectionComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +76,6 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     DashboardPage,
     MyProfilePage,
     LocationInfoPage,
-    BulbComponent,
     LightComponent,
     WorkTimeComponent,
     FinalizeComponent,
@@ -84,7 +83,8 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     ReplacementComponent,
     GeneralInfoComponent,
     BulbCategoryComponent,
-    ExistingLightComponent
+    ExistingLightComponent,
+    BulbSelectionComponent
   ],
   providers: [
     Camera,

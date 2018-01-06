@@ -1,11 +1,11 @@
 
+import { Bulb } from './bulb';
+
 export interface Fixture {
-  wattage: number;
   image: string;
-  wrongBulb: boolean;
   balastType: string;
-  existingBulb: string;
+  existingBulbs?: Array<Bulb>;
   numberOfBulbs: number;
   numberOfFixtures: number;
-  roomId: string;
+  roomId?: string;
 }

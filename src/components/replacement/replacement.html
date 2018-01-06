@@ -3,18 +3,7 @@
   <form [formGroup]="replacementForm" class="box">
 
     <!-- Select Replacement Bulb Component -->
-    <bulb [headTitle]="title"></bulb>
-
-    <!-- Units in Kalvins -->
-    <div class="c-item-box">
-      <span ion-text color="text-color">Kalvins</span>
-      <ion-input 
-        ngClass="trans" 
-        formControlName="kalvins" 
-        type="number" value="" 
-        placeholder="Enter kalvins">
-      </ion-input>
-    </div>
+    <bulb-selection [headTitle]="title"></bulb-selection>
 
     <!-- Additional Notes -->
     <div class="c-item-box">

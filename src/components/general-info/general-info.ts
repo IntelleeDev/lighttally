@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
+import { PopoverController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { PopoverController } from 'ionic-angular';
+import { Room } from '../../model/room';
 import { WorkTimeComponent } from '../work-time/work-time';
-import { Evaluation } from '../../model/evaluation';
 
 @Component({
   selector: 'general-info',
@@ -36,12 +36,13 @@ export class GeneralInfoComponent {
   getData() {
     const formModel = this.genInfoForm.value;
 
-    const evaluation: Evaluation = {
+    const room: Room = {
       name: formModel.roomName,
       lift: formModel.hasLift,
       lightOccupiedHours: "",
       heightToFixtures: formModel.heightToFixtures
     }
+    return room;
   }
 
 }

@@ -1,7 +1,6 @@
 
 export interface Evaluation {
-  name: string;
-  lift: boolean;
-  heightToFixtures: number;
-  lightOccupiedHours: string;
+  userId?: string;
+  locationId?: string;
+  timestamp: Date
 }

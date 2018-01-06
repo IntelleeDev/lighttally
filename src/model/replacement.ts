@@ -1,8 +1,8 @@
 
+import { Bulb } from './bulb';
+
 export interface Replacement {
-  wattage: number;
-  kalvins: number;
   specialNotes: string;
-  replacementBulb: string;
-  roomId;
+  replacementBulb?: Array<Bulb>;
+  roomId?: string;
 }

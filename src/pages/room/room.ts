@@ -1,7 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { Slides, IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { ReplacementComponent } from '../../components/replacement/replacement';
 import { GeneralInfoComponent } from '../../components/general-info/general-info';
+import { ExistingLightComponent } from '../../components/existing-light/existing-light';
 
 @IonicPage()
 @Component({
@@ -11,10 +13,11 @@ import { GeneralInfoComponent } from '../../components/general-info/general-info
 export class RoomPage {
   @ViewChild (Slides) slides: Slides;
   @ViewChild (GeneralInfoComponent) genInfoComponent: GeneralInfoComponent;
+  @ViewChild (ReplacementComponent) replacementComponent: ReplacementComponent;
+  @ViewChild (ExistingLightComponent) existingLightComponent: ExistingLightComponent;
   
-  showFinalizePage = false;
   locationId: string = '';
-  cache: Array<any> = [];
+  showFinalizePage = false;
   
   constructor(
     public navCtrl: NavController, 
@@ -49,7 +52,9 @@ export class RoomPage {
   }
 
   addItem() {
-    console.log(this.genInfoComponent.getData() + "meme");
+    console.log(this.genInfoComponent.getData());
+    console.log(this.replacementComponent.getData());
+    console.log(this.existingLightComponent.getData());
   }
 
 
