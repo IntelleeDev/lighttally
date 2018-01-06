@@ -14,7 +14,7 @@ export class AuthProvider {
 
   authenticateUser(userToAuth: User): Observable<boolean> {
     return this.repository
-        .findByFilter([userToAuth.email, '==', this.authenticatedUser.email])
+        .findByFilter(['email', '==', userToAuth.email])
         .pipe(
           map(user => {
             if (user != null) {
