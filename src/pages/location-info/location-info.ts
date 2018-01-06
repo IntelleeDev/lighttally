@@ -42,15 +42,16 @@ export class LocationInfoPage {
     const location = data[0];
     const contact  = data[1];
 
-    this.locRepository
-        .storeWithContact(location, contact)
-        .then((locationId) => {
-          this.resetForm();
-          loader.dismiss();
-          this.toRoomPage({ locationId });          
-        })
-        .catch(error => loader.dismiss());
-    setTimeout(() => loader.dismiss(), 4000);
+    // this.locRepository
+    //     .storeWithContact(location, contact)
+    //     .then((locationId) => {
+    //       this.resetForm();
+    //       loader.dismiss();
+    //       this.toRoomPage({ locationId });          
+    //     })
+    //     .catch(error => loader.dismiss());
+    // setTimeout(() => loader.dismiss(), 4000);
+    this.toRoomPage({});
   }
 
   presentPopover() {
@@ -90,7 +91,7 @@ export class LocationInfoPage {
   }
 
   private createForm() {
-    const regPattern = /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/;
+    const regPattern = /^[0-9]{10}$/;
     this.locationForm = this.formBuilder.group({
       businessName: ['', Validators.required],
       address: ['', Validators.required],

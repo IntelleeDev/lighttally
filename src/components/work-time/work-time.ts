@@ -80,7 +80,7 @@ export class WorkTimeComponent {
     data[2] = { from: formModel.wednesday['wedFrom'], to: formModel.wednesday['wedTo'] };
     data[3] = { from: formModel.thursday['thuFrom'],  to: formModel.thursday['thuTo'] };
     data[4] = { from: formModel.friday['friFrom'],    to: formModel.friday['friTo'] };
-    data[5] = { from: formModel.saturday['satFrom'],    to: formModel.saturday['satTo'] };
+    data[5] = { from: formModel.saturday['satFrom'],  to: formModel.saturday['satTo'] };
     data[6] = { from: formModel.sunday['sunFrom'],    to: formModel.sunday['sunTo'] };
 
     console.log(data);
