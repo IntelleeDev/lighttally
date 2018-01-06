@@ -20,6 +20,7 @@ export class AuthProvider {
             if (user != null) {
               if (user.password === userToAuth.password) {
                 this.authenticatedUser = user;
+                console.log(user);
                 return true;
               }
               return false;
