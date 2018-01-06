@@ -4,7 +4,7 @@ import { ExistingLightComponent } from './existing-light/existing-light';
 import { ReplacementComponent } from './replacement/replacement';
 import { BulbDialogComponent } from './bulb-dialog/bulb-dialog';
 import { FinalizeComponent } from './finalize/finalize';
-import { BulbComponent } from './bulb/bulb';
+import { BulbSelectionComponent } from './bulb-selection/bulb-selection';
 import { WorkTimeComponent } from './work-time/work-time';
 import { BulbCategoryComponent } from './bulb-category/bulb-category';
 import { LightComponent } from './light/light';
@@ -14,7 +14,7 @@ import { LightComponent } from './light/light';
     ReplacementComponent,
     BulbDialogComponent,
     FinalizeComponent,
-    BulbComponent,
+    BulbSelectionComponent,
     WorkTimeComponent,
     BulbCategoryComponent,
     LightComponent],
@@ -24,7 +24,7 @@ import { LightComponent } from './light/light';
     ReplacementComponent,
     BulbDialogComponent,
     FinalizeComponent,
-    BulbComponent,
+    BulbSelectionComponent,
     WorkTimeComponent,
     BulbCategoryComponent,
     LightComponent]
