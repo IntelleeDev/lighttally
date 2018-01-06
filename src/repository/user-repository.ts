@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -5,7 +6,7 @@ import { Repository } from './base';
 import { User } from '../model/user';
 import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/firestore-data-source';
 
-
+@Injectable()
 export class UserRepository implements Repository<User> {
   private collectionName: string = 'users';
 
