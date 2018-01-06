@@ -14,7 +14,11 @@
         <ion-input formControlName="password" type="password" placehloder="password"></ion-input>
       </ion-item>
       <div class="btn-box">
-        <button [disabled]="signInForm.invalid" class="c-button padding-15" ion-button full (click)="authenticateUser()">
+        <button
+          mode="ios"
+          class="c-button padding-15" 
+          [disabled]="signInForm.invalid" 
+          ion-button full (click)="authenticateUser()">
           Continue<span>&nbsp;&nbsp;</span>
           <ion-spinner *ngIf="isAuthenticating"></ion-spinner>
         </button>

@@ -38,12 +38,14 @@ export class SignInPage {
     //     .subscribe(authenticated => {
     //       if (authenticated) {
     //         this.hideSpinner();
+    //         this.signInForm.reset()
     //         this.toHomePage();          
     //       } else {
     //         this.hideSpinner();
     //         this.errorMessage = 'Invalid username or password';
     //       }
     //     });
+    this.signInForm.reset()
     this.hideSpinner();
     this.toHomePage();
   }

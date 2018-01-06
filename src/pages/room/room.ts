@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { Slides, IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { GeneralInfoComponent } from '../../components/general-info/general-info';
+
 @IonicPage()
 @Component({
   selector: 'page-room',
@@ -8,8 +10,11 @@ import { Slides, IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RoomPage {
   @ViewChild (Slides) slides: Slides;
+  @ViewChild (GeneralInfoComponent) genInfoComponent: GeneralInfoComponent;
+  
   showFinalizePage = false;
   locationId: string = '';
+  cache: Array<any> = [];
   
   constructor(
     public navCtrl: NavController, 
@@ -27,6 +32,7 @@ export class RoomPage {
       this.showFinalizePage = true;
       return;
     }
+    this.addItem();
     this.slides.slideNext(300);
   }
 
@@ -41,5 +47,10 @@ export class RoomPage {
   backToLocationPage() {
     this.navCtrl.pop();
   }
+
+  addItem() {
+    console.log(this.genInfoComponent.getData() + "meme");
+  }
+
 
 }

@@ -92,14 +92,14 @@
           <ion-grid no-padding>
             <ion-row>
               <ion-col col-5>
-                <ion-item ngClass="trans fs-12" no-lines>
+                <ion-item ngClass="blank fs-12" no-lines>
                   <ion-label color="text-color">YES</ion-label>
                   <ion-radio value="true"></ion-radio>
                 </ion-item>
               </ion-col>
               <ion-col col-1><div></div></ion-col>
               <ion-col col-5>
-                <ion-item ngClass="trans fs-12" no-lines>
+                <ion-item ngClass="blank fs-12" no-lines>
                   <ion-label color="text-color">NO</ion-label>
                   <ion-radio value="false"></ion-radio>
                 </ion-item>
@@ -184,7 +184,7 @@
               PhoneNumber is required
             </span>
             <span *ngIf="phoneNumber.errors.pattern" class="error fs-12">
-              Please input like this (XXX) XXX-XXXX
+              Please input a valid phone number
             </span>
           </div>
         </div>
@@ -196,6 +196,7 @@
         <ion-row>
           <ion-col col-4>
             <button
+              mode="ios"
               color="loc-button" 
               class="c-button no-bg"  
               ion-button full (click)="toDashboardPage()"
@@ -205,7 +206,8 @@
           </ion-col>
           <ion-col></ion-col>
           <ion-col col-4>
-            <button 
+            <button
+              mode="ios" 
               color="loc-button" 
               class="c-button no-bg" 
               
