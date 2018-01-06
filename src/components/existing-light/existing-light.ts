@@ -1,18 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ModalController, ToastController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
-import { BALLAST_TYPES } from '../../data/constants';
-import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
 import { Fixture } from '../../model/fixture';
+
+import { BALLAST_TYPES } from '../../data/constants';
+import { BulbSelectionComponent } from '../bulb-selection/bulb-selection';
 
 @Component({
   selector: 'existing-light',
   templateUrl: 'existing-light.html'
 })
 export class ExistingLightComponent {
+
+  @ViewChild(BulbSelectionComponent) bulbSelection: BulbSelectionComponent;
 
   fixtureImage: string;
   existingLightForm: FormGroup;
@@ -63,10 +66,14 @@ constructor(
   }
 
   getData() {
+    const bulbFixtures = this.bulbSelection.getData();
     const formModel = this.existingLightForm.value;
+
+    console.log(bulbFixtures);
 
     const fixture: Fixture = {
       image: this.fixtureImage ? this.fixtureImage: '',
+      existingBulbs: bulbFixtures,
       balastType: formModel.balastType,
       numberOfBulbs: formModel.numberOfBulbs,
       numberOfFixtures: formModel.numOfFixtures

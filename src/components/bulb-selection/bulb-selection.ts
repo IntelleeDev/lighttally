@@ -14,18 +14,18 @@ export class BulbSelectionComponent {
   @Input() public headTitle;
   
   indexCounter = 0;
-  public data: Array<{number, Bulb}> = [];
+  data: Array<{Bulb}> = [];
 
-  constructor(private modalCtrl: ModalController) {}
+  constructor(private modalCtrl: ModalController) { }
 
-  public openModal() {
+  openModal() {
     let modal = this.modalCtrl.create(BulbCategoryComponent);
     modal.onDidDismiss((bulbArray: Array<any>) => {
       this.addItem(bulbArray);
     })
     modal.present();
   }
-
+  
   addItem(value: Array<any>) {
     this.data = 
         this.data
@@ -33,12 +33,16 @@ export class BulbSelectionComponent {
             .map((data, index) => { return { id: index + 1, ...data } });
   }
 
-  public removeItem(id: any) {
+  removeItem(id: any) {
     this.data = this.data.filter((val:any, index) => {
       if (parseInt(id) == parseInt(val.id)) {
         return;
       }
       return val;
     })
+  }
+
+  getData(): Array<{Bulb}> {
+    return this.data;
   }
 }
