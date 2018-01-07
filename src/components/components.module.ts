@@ -8,6 +8,7 @@ import { BulbSelectionComponent } from './bulb-selection/bulb-selection';
 import { WorkTimeComponent } from './work-time/work-time';
 import { BulbCategoryComponent } from './bulb-category/bulb-category';
 import { LightComponent } from './light/light';
+import { LoadingDialogComponent } from './loading-dialog/loading-dialog';
 @NgModule({
 	declarations: [GeneralInfoComponent,
     ExistingLightComponent,
@@ -17,7 +18,8 @@ import { LightComponent } from './light/light';
     BulbSelectionComponent,
     WorkTimeComponent,
     BulbCategoryComponent,
-    LightComponent],
+    LightComponent,
+    LoadingDialogComponent],
 	imports: [],
 	exports: [GeneralInfoComponent,
     ExistingLightComponent,
@@ -27,6 +29,7 @@ import { LightComponent } from './light/light';
     BulbSelectionComponent,
     WorkTimeComponent,
     BulbCategoryComponent,
-    LightComponent]
+    LightComponent,
+    LoadingDialogComponent]
 })
 export class ComponentsModule {}

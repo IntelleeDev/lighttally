@@ -29,6 +29,7 @@ import { GeneralInfoComponent } from '../components/general-info/general-info';
 import { BulbCategoryComponent } from '../components/bulb-category/bulb-category';
 import { ExistingLightComponent } from '../components/existing-light/existing-light';
 import { BulbSelectionComponent } from '../components/bulb-selection/bulb-selection';
+import { LoadingDialogComponent } from '../components/loading-dialog/loading-dialog';
 
 import { firebaseConfig } from '../config/firebaseConfig';
 import { AngularFireModule } from 'angularfire2';
@@ -59,7 +60,8 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     GeneralInfoComponent,
     BulbCategoryComponent,
     ExistingLightComponent,
-    BulbSelectionComponent
+    BulbSelectionComponent,
+    LoadingDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +90,8 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     GeneralInfoComponent,
     BulbCategoryComponent,
     ExistingLightComponent,
-    BulbSelectionComponent
+    BulbSelectionComponent,
+    LoadingDialogComponent,
   ],
   providers: [
     File,
