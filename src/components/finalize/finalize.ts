@@ -13,6 +13,8 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import { File } from '@ionic-native/file';
 import { FileOpener } from "@ionic-native/file-opener";
 
+import { CacheProvider } from '../../providers/cache/cache';
+
 import { RoomPage } from '../../pages/room/room';
 import { DashboardPage } from '../../pages/dashboard/dashboard';
 import { LoadingDialogComponent } from '../loading-dialog/loading-dialog';
@@ -30,6 +32,7 @@ export class FinalizeComponent {
   constructor(
     private file: File,
     private platform: Platform,
+    private cache: CacheProvider,
     private fileOpener: FileOpener,
     private navCtrl: NavController,
     private toastCtrl: ToastController,
@@ -64,6 +67,9 @@ export class FinalizeComponent {
   }
 
   private createPdf() {
+    const dataToRender = this.cache.getItem('location');
+    console.log(dataToRender);
+    
     let docDefinition = {
       content: [{ text: 'Reminder' }]
     };

@@ -9,10 +9,11 @@ import { LoadingDialogComponent } from '../../components/loading-dialog/loading-
 
 import { Contact } from '../../model/contact';
 import { Location } from '../../model/location';
-
 import { ENERGY_COMPANIES } from '../../data/constants';
 import { ContactRepository } from '../../repository/contact-repository';
 import { LocationRepository } from '../../repository/location-repository';
+
+import { CacheProvider } from '../../providers/cache/cache';
 
 @IonicPage()
 @Component({
@@ -26,6 +27,7 @@ export class LocationInfoPage {
   energyCompanies: Array<string> = ENERGY_COMPANIES;
   
   constructor(
+    private cache: CacheProvider,
     public navParams: NavParams,
     public navCtrl: NavController,
     private formBuilder: FormBuilder, 
@@ -52,7 +54,11 @@ export class LocationInfoPage {
     //     })
     //     .catch(error => loader.dismiss());
     // setTimeout(() => loader.dismiss(), 4000);
-    this.toRoomPage({});
+    
+    setTimeout(() => {
+      loader.dismiss();
+      this.toRoomPage({});
+    }, 3000);
   }
 
   presentPopover() {
@@ -87,6 +93,9 @@ export class LocationInfoPage {
       phoneNumber: formModel.contactPerson.phoneNumber,
       locationId: ''
     };
+
+    // Save data to cache
+    this.cache.addItem('location', { ...location, contact });
 
     return [location, contact];
   }
