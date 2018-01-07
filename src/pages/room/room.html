@@ -86,9 +86,11 @@
 
       </ion-slide>
       <ion-slide>
-        <replacement *ngIf="!showFinalizePage"></replacement>
+        <replacement
+          [toSlide]="goToSlide.bind(this)"
+          *ngIf="!showFinalizePage"></replacement>
         <finalize 
-          [toFirst]="goToSlide.bind(this)"
+          [toSlide]="goToSlide.bind(this)"
           [resetAllForms]="resetForms.bind(this)"
           *ngIf="showFinalizePage"></finalize>
 

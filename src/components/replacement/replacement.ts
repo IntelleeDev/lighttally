@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Replacement } from '../../model/replacement';
@@ -9,6 +9,7 @@ import { BulbSelectionComponent } from '../bulb-selection/bulb-selection';
   templateUrl: 'replacement.html'
 })
 export class ReplacementComponent {
+  @Input() public toSlide;
   @ViewChild(BulbSelectionComponent) bulbSelection: BulbSelectionComponent;
 
   title = 'Replacement Bulb';
@@ -40,7 +41,10 @@ export class ReplacementComponent {
     this.replacementForm.reset();
   }
 
-  addBulb() { }
+  // Implementation will come from parent Room component
+  addBulb() {
+    this.toSlide(1);
+  }
 
   get formInvalid() { 
     return !this.bulbSelection.getSelectedBulb()

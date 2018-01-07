@@ -9,14 +9,14 @@ import { DashboardPage } from '../../pages/dashboard/dashboard';
   templateUrl: 'finalize.html'
 })
 export class FinalizeComponent {
-  @Input() public toFirst;
+  @Input() public toSlide;
   @Input() public resetAllForms;
 
   constructor(private navCtrl: NavController) { }
 
   doNewEvaluation() {
     this.resetAllForms();
-    this.toFirst(0);
+    this.toSlide(0);
   }
 
   finishEvaluation() {
