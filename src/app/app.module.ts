@@ -13,6 +13,9 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
 import { MyProfilePage } from '../pages/my-profile/my-profile';
 import { LocationInfoPage } from '../pages/location-info/location-info';
 
+import { File } from '@ionic-native/file';
+import { FileOpener } from '@ionic-native/file-opener';
+
 import { Camera } from '@ionic-native/camera';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -88,6 +91,8 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     BulbSelectionComponent
   ],
   providers: [
+    File,
+    FileOpener,
     Camera,
     StatusBar,
     SplashScreen,
