@@ -2,7 +2,7 @@
   <span ion-text color="text-color">{{ headTitle }}</span>
   <div ngClass="trans" (click)="openModal()">Select bulb</div>
 
-  <div *ngIf="data.length > 0">
+  <div *ngIf="selectedBulb">
     <div class="bulb-pill">
       <div class="actions-box">
         <span>{{ selectedBulb.name }} - {{ selectedBulb.type }} {{ selectedBulb.wattage }}</span>
