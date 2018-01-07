@@ -2,14 +2,12 @@ import { Component, Input } from '@angular/core';
 import { Slides, Platform, NavController } from 'ionic-angular';
 
 import { File } from '@ionic-native/file';
-import {  FileOpener } from "@ionic-native/file-opener";
+import { FileOpener } from "@ionic-native/file-opener";
 
 import { RoomPage } from '../../pages/room/room';
 import { DashboardPage } from '../../pages/dashboard/dashboard';
 
 import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfMake/build/vfs_fonts';
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'finalize',
