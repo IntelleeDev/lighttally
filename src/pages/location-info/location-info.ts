@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonicPage, NavController, NavParams, PopoverController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, PopoverController, ModalController } from 'ionic-angular';
 
 import { RoomPage } from '../room/room';
 import { DashboardPage } from '../dashboard/dashboard';
 import { WorkTimeComponent } from '../../components/work-time/work-time';
+import { LoadingDialogComponent } from '../../components/loading-dialog/loading-dialog';
 
 import { Contact } from '../../model/contact';
 import { Location } from '../../model/location';
@@ -29,7 +30,7 @@ export class LocationInfoPage {
     public navCtrl: NavController,
     private formBuilder: FormBuilder, 
     private popCtrl: PopoverController,
-    private loadingCtrl: LoadingController,
+    private modalCtrl: ModalController,
     private locRepository: LocationRepository
   ) {  
       this.createForm();
@@ -112,10 +113,8 @@ export class LocationInfoPage {
   }
 
   private presentLoader() {
-    const loader = this.loadingCtrl.create({
-      content: 'Please wait',
-      dismissOnPageChange: true,
-      enableBackdropDismiss: true
+    const loader = this.modalCtrl.create(LoadingDialogComponent, {
+      message: ''
     });
     loader.present();
     return loader;

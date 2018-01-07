@@ -1,22 +1,16 @@
 import { Component } from '@angular/core';
+import { NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the LoadingDialogComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'loading-dialog',
   templateUrl: 'loading-dialog.html'
 })
 export class LoadingDialogComponent {
 
-  text: string;
+  message: string;
 
-  constructor() {
-    console.log('Hello LoadingDialogComponent Component');
-    this.text = 'Hello World';
+  constructor(private navParams: NavParams) {
+    this.message = navParams.get('message');
   }
 
 }

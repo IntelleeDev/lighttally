@@ -15,7 +15,6 @@ import { FileOpener } from "@ionic-native/file-opener";
 
 import { RoomPage } from '../../pages/room/room';
 import { DashboardPage } from '../../pages/dashboard/dashboard';
-
 import { LoadingDialogComponent } from '../loading-dialog/loading-dialog';
 
 @Component({
@@ -49,7 +48,9 @@ export class FinalizeComponent {
   }
 
   private createModal(): Modal {
-    const modal = this.modalCtrl.create(LoadingDialogComponent);
+    const modal = this.modalCtrl.create(LoadingDialogComponent, {
+      message: 'Generating Files...'
+    });
     modal.present();
     return modal;
   }
