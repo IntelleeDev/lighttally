@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController, ToastController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
-import { Fixture } from '../../model/fixture';
+import { Light } from '../../model/light';
 
 import { BALLAST_TYPES } from '../../data/constants';
 import { BulbSelectionComponent } from '../bulb-selection/bulb-selection';
@@ -61,19 +61,21 @@ constructor(
     this.existingLightForm = this.formBuilder.group({
       numOfFixtures: ['', Validators.required],
       balastType: ['', Validators.required],
-      numOfBulbs: ['', Validators.required]
+      numOfBulbs: ['', Validators.required],
+      wrongBulb: ['', Validators.required]
     });
   }
 
   getData() {
-    const bulbFixtures = this.bulbSelection.getData();
+    const bulbFixture = this.bulbSelection.getSelectedBulb();
     const formModel = this.existingLightForm.value;
 
-    console.log(bulbFixtures);
+    console.log(bulbFixture);
 
-    const fixture: Fixture = {
+    const fixture: Light = {
       image: this.fixtureImage ? this.fixtureImage: '',
-      existingBulbs: bulbFixtures,
+      existingBulb: bulbFixture,
+      wrongBulb: formModel.wrongBulb,
       balastType: formModel.balastType,
       numberOfBulbs: formModel.numberOfBulbs,
       numberOfFixtures: formModel.numOfFixtures

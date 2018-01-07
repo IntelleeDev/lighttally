@@ -12,37 +12,20 @@ import { BulbCategoryComponent } from '../bulb-category/bulb-category';
 export class BulbSelectionComponent {
   
   @Input() public headTitle;
-  
-  indexCounter = 0;
-  data: Array<{Bulb}> = [];
+
+  private selectedBulb: Bulb;
 
   constructor(private modalCtrl: ModalController) { }
 
   openModal() {
     let modal = this.modalCtrl.create(BulbCategoryComponent);
-    modal.onDidDismiss((bulbArray: Array<any>) => {
-      this.addItem(bulbArray);
+    modal.onDidDismiss((bulb: Bulb) => {
+      this.selectedBulb = bulb;
     })
     modal.present();
   }
-  
-  addItem(value: Array<any>) {
-    this.data = 
-        this.data
-            .concat(value)
-            .map((data, index) => { return { id: index + 1, ...data } });
-  }
 
-  removeItem(id: any) {
-    this.data = this.data.filter((val:any, index) => {
-      if (parseInt(id) == parseInt(val.id)) {
-        return;
-      }
-      return val;
-    })
-  }
-
-  getData(): Array<{Bulb}> {
-    return this.data;
+  getSelectedBulb(): Bulb {
+    return this.selectedBulb;
   }
 }

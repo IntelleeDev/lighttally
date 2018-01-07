@@ -22,8 +22,7 @@ export class LightComponent {
     this.viewCtrl.dismiss({
       kavlin: this.kalvin,
       wattage: this.wattage,
-      retrofit: this.retroFit,
-      wrongBulb: this.wrongBulb
+      retrofit: this.retroFit
     });
   }
 

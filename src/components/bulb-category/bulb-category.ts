@@ -11,8 +11,8 @@ import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
 })
 export class BulbCategoryComponent {
 
+  selectedBulb: Bulb;
   headTitle = 'Bulb Categories';
-  data: Array<Bulb> = [];
   
   public categories: Array<{type: string, src: string}> = [];
 
@@ -25,18 +25,14 @@ export class BulbCategoryComponent {
   public openBulbDialog(category: any) {
     const modal = this.modalCtrl.create(BulbDialogComponent, { category });
     modal.onDidDismiss((selectedBulb: Bulb) => {
-      this.addItem(selectedBulb);
+      this.selectedBulb = selectedBulb;
       console.log(selectedBulb);
     })
     modal.present();
   }
 
-  private addItem(bulb: Bulb) {
-    this.data.push(bulb);
-  }
-
   public dismissModal() {
-    this.viewCtrl.dismiss(this.data);
+    this.viewCtrl.dismiss(this.selectedBulb);
   }
   
 }
