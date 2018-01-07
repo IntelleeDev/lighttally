@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { ToastController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { Fixture } from '../../model/fixture';
@@ -31,7 +32,8 @@ export class ExistingLightComponent {
 
 constructor(
   private camera: Camera,
-  private formBuilder: FormBuilder
+  private formBuilder: FormBuilder,
+  private toastCtrl: ToastController
   ) {
     this.createForm();
   }
