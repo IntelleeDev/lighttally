@@ -20,11 +20,12 @@
 
   <div>
     <button 
-      mode="ios" 
+      mode="ios"
+      [disabled]="formInvalid" 
       class="c-button no-bg" 
       color="loc-button" 
       ion-button full (click)="addBulb()">
-        Add another bulb
+        Add another existing bulb
     </button>
   </div>
   

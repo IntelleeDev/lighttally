@@ -41,4 +41,8 @@ export class ReplacementComponent {
   }
 
   addBulb() { }
+
+  get formInvalid() { 
+    return !this.bulbSelection.getSelectedBulb()
+  }
 }

@@ -30,6 +30,6 @@ export class BulbSelectionComponent {
   }
 
   reset() {
-    this.selectedBulb = {} as Bulb;
+    this.selectedBulb = null;
   }
 }
