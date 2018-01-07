@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController, ToastController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
-import { Light } from '../../model/light';
+import { Fixture } from '../../model/fixture';
 
 import { BALLAST_TYPES } from '../../data/constants';
 import { BulbSelectionComponent } from '../bulb-selection/bulb-selection';

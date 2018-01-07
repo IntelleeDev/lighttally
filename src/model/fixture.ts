@@ -1,7 +1,7 @@
 
 import { Bulb } from './bulb';
 
-export interface Light {
+export interface Fixture {
   numberOfFixtures: number;
   numberOfBulbs: number;
   balastType: string;

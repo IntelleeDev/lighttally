@@ -12,7 +12,6 @@ export class LightComponent {
   
   kalvin: number;
   retroFit: boolean;
-  wrongBulb: boolean;
   wattage: string = '';
   metrics: Array<any> = WATTAGE_METRICS[0].wattage;
 
