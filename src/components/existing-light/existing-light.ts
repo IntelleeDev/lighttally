@@ -82,4 +82,10 @@ constructor(
     return fixture;
   }
 
+  resetForm() {
+    this.fixtureImage = '';
+    this.bulbSelection.reset();
+    this.existingLightForm.reset();
+  }  
+
 }

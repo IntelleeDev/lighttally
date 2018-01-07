@@ -35,5 +35,10 @@ export class ReplacementComponent {
     return replacement;
   }
 
+  resetForm() {
+    this.bulbSelection.reset();
+    this.replacementForm.reset();
+  }
+
   addBulb() { }
 }

@@ -28,4 +28,8 @@ export class BulbSelectionComponent {
   getSelectedBulb(): Bulb {
     return this.selectedBulb;
   }
+
+  reset() {
+    this.selectedBulb = {} as Bulb;
+  }
 }

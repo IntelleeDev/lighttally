@@ -45,4 +45,8 @@ export class GeneralInfoComponent {
     return room;
   }
 
+  resetForm() {
+    this.genInfoForm.reset()
+  }
+
 }

@@ -87,7 +87,10 @@
       </ion-slide>
       <ion-slide>
         <replacement *ngIf="!showFinalizePage"></replacement>
-        <finalize [toFirst]="goToSlide.bind(this)" *ngIf="showFinalizePage"></finalize>
+        <finalize 
+          [toFirst]="goToSlide.bind(this)"
+          [resetAllForms]="resetForms.bind(this)"
+          *ngIf="showFinalizePage"></finalize>
 
         <!-- Next and Previous buttons -->
         <div *ngIf="!showFinalizePage" class="box">

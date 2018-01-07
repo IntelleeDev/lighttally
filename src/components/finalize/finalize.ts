@@ -10,10 +10,12 @@ import { DashboardPage } from '../../pages/dashboard/dashboard';
 })
 export class FinalizeComponent {
   @Input() public toFirst;
+  @Input() public resetAllForms;
 
   constructor(private navCtrl: NavController) { }
 
   doNewEvaluation() {
+    this.resetAllForms();
     this.toFirst(0);
   }
 
