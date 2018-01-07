@@ -13,7 +13,7 @@ export class RegistrationProvider {
   registerUser(user: User): Promise<any> {
     return this.fireStore
                .store(this.collectionName, user)
-               .then(id => id); // Returns the id of the newly created document
+               .then(id => id);
   }
 
 }

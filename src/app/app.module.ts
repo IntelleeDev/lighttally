@@ -37,8 +37,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { LocationInfoPageModule } from '../pages/location-info/location-info.module';
 
-import { UserRepository } from '../repository/user-repository';
 import { AuthProvider } from '../providers/auth/auth';
+import { CacheProvider } from '../providers/cache/cache';
+import { UserRepository } from '../repository/user-repository';
 import { RegistrationProvider } from '../providers/registration/registration';
 import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/firestore-data-source';
 
@@ -94,8 +95,8 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     LoadingDialogComponent,
   ],
   providers: [
-    File,
     FileOpener,
+    File,
     Camera,
     StatusBar,
     SplashScreen,
@@ -103,7 +104,8 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     AuthProvider,
     UserRepository,
     RegistrationProvider,
-    FirestoreDataSourceProvider
+    FirestoreDataSourceProvider,
+    CacheProvider
   ]
 })
 export class AppModule {}

@@ -73,17 +73,19 @@ export class FinalizeComponent {
     const modal = this.createModal();
 
     if (this.platform.is('cordova')) {
-      this.pdfObject.getBuffer(buffer => {
-        let blob = new Blob([buffer], { type: 'application/pdf' });
-        
-        this.createToast('Making PDF');
-        this.file.writeFile(this.file.dataDirectory, 'ev.pdf', blob, { replace: true })
-            .then(fileEntry => {
-              modal.dismiss();
-              this.fileOpener.open(this.file.dataDirectory + 'ev.pdf', 'application/pdf');
-            })
-            .catch(error => this.createToast(error));
-      })
+      this.platform.ready().then(() => {
+        this.pdfObject.getBuffer(buffer => {
+          let blob = new Blob([buffer], { type: 'application/pdf' });
+          
+          this.createToast('Making PDF');
+          this.file.writeFile(this.file.dataDirectory, 'ev.pdf', blob, { replace: true })
+              .then(fileEntry => {
+                modal.dismiss();
+                this.fileOpener.open(this.file.dataDirectory + 'ev.pdf', 'application/pdf');
+              })
+              .catch(error => this.createToast(error));
+        });
+      });
     } else {
       modal.dismiss();
       this.pdfObject.download()

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Rx';
-import { of } from 'rxjs/observable/of';
 import { User } from '../../model/user';
 import { catchError, map, tap } from 'rxjs/operators';
 import { UserRepository } from '../../repository/user-repository';
