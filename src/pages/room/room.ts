@@ -57,7 +57,7 @@ export class RoomPage {
     console.log(this.existingLightComponent.getData());
   }
 
-  resetForms() {
+  public resetForms() {
     this.genInfoComponent.resetForm();
     this.replacementComponent.resetForm();
     this.existingLightComponent.resetForm();
