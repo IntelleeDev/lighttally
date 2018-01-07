@@ -72,10 +72,7 @@ export class FinalizeComponent {
             })
       })
     } else {
-      setTimeout(() => {
-        modal.dismiss();
-        this.pdfObject.print();
-      }, 4000);
+      this.pdfObject.download()
     }
     
   }
