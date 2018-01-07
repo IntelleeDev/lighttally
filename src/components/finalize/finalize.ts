@@ -70,8 +70,6 @@ export class FinalizeComponent {
   }
 
   private downloadPdf() {
-
-    // Display progress modal
     const modal = this.createModal();
 
     if (this.platform.is('cordova')) {
