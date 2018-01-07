@@ -72,7 +72,7 @@ constructor(
 
     console.log(bulbFixture);
 
-    const fixture: Light = {
+    const fixture: Fixture = {
       image: this.fixtureImage ? this.fixtureImage: '',
       existingBulb: bulbFixture,
       wrongBulb: formModel.wrongBulb,
