@@ -57,7 +57,9 @@ export class FinalizeComponent {
             .then(fileEntry => {
               this.fileOpener.open(`${file.dataDirectory}evaluation.pdf`, 'application/pdf');
             })
-      });
+      })
+    } else {
+      this.pdfObject.download();
     }
     
   }
