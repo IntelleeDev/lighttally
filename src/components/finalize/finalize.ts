@@ -1,5 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { Slides, Platform, NavController, Modal, ModalController } from 'ionic-angular';
+import { 
+  Slides, 
+  Platform, 
+  NavController,
+  ToastController, 
+  Modal, ModalController } from 'ionic-angular';
 
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
@@ -28,6 +33,7 @@ export class FinalizeComponent {
     private platform: Platform,
     private fileOpener: FileOpener,
     private navCtrl: NavController,
+    private toastCtrl: ToastController,
     private modalCtrl: ModalController) { }
 
   doNewEvaluation() {
@@ -48,6 +54,14 @@ export class FinalizeComponent {
     return modal;
   }
 
+  private createToast(message: string) {
+    const toast = this.toastCtrl.create({
+      message,
+      duration: 3000
+    });
+    toast.present();
+  }
+
   private createPdf() {
     let docDefinition = {
       content: [{ text: 'Reminder' }]
@@ -64,14 +78,16 @@ export class FinalizeComponent {
       this.pdfObject.getBuffer(buffer => {
         let blob = new Blob([buffer], { type: 'application/pdf' });
         
-        const file = this.file;
-        file.writeFile(file.dataDirectory, 'evaluation.pdf', blob, { replace: true })
+        this.createToast('Making PDF');
+        this.file.writeFile(this.file.dataDirectory, 'ev.pdf', blob, { replace: true })
             .then(fileEntry => {
               modal.dismiss();
-              this.fileOpener.open(`${file.dataDirectory}evaluation.pdf`, 'application/pdf');
+              this.fileOpener.open(this.file.dataDirectory + 'ev.pdf', 'application/pdf');
             })
+            .catch(error => this.createToast(error));
       })
     } else {
+      modal.dismiss();
       this.pdfObject.download()
     }
     
