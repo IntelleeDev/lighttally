@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { Slides, Platform, NavController, Modal, ModalController } from 'ionic-angular';
 
-import pdfMake from 'pdfmake/build/pdfmake';
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 import { File } from '@ionic-native/file';
 import { FileOpener } from "@ionic-native/file-opener";

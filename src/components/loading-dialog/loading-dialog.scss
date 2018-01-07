@@ -1,5 +1,17 @@
 loading-dialog {
   .content-box {
-    background: #ffffffab;
+    background: #fffffff3;
+  }
+
+  .msg-txt {
+    font-size: 18px;
+  }
+
+  .flex-container {
+    margin: 70% auto auto auto;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-around;
   }
 }
