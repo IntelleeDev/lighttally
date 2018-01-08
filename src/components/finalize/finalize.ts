@@ -68,8 +68,7 @@ export class FinalizeComponent {
 
   private createPdf() {
     const dataToRender = this.cache.getItem('location');
-    console.log(dataToRender);
-    
+        
     let docDefinition = {
       content: [{ text: 'Reminder' }]
     };
@@ -82,15 +81,22 @@ export class FinalizeComponent {
     if (this.platform.is('cordova')) {
       this.platform.ready().then(() => {
         this.pdfObject.getBuffer(buffer => {
-          let blob = new Blob([buffer], { type: 'application/pdf' });
-          
           this.createToast('Making PDF');
-          this.file.writeFile(this.file.dataDirectory, 'ev.pdf', blob, { replace: true })
-              .then(fileEntry => {
-                modal.dismiss();
-                this.fileOpener.open(this.file.dataDirectory + 'ev.pdf', 'application/pdf');
-              })
-              .catch(error => this.createToast(error));
+          let blob = new Blob([buffer], { type: 'application/pdf' });
+          this.fileOpener
+              .open(this.file.dataDirectory + 'ev.pdf', 'application/pdf')
+              .then(() => {})
+              .catch(error => {
+                this.createToast(error);
+              });
+          
+          
+          // this.file.writeFile(this.file.dataDirectory, 'ev.pdf', blob, { replace: true })
+          //     .then(fileEntry => {
+          //       modal.dismiss();
+          //       this.fileOpener.open(this.file.dataDirectory + 'ev.pdf', 'application/pdf');
+          //     })
+          //     .catch(error => this.createToast(error));
         });
       });
     } else {
