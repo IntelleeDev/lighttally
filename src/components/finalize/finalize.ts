@@ -10,6 +10,7 @@ import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
+import { Location } from '../../model/location';
 import { File } from '@ionic-native/file';
 import { FileOpener } from "@ionic-native/file-opener";
 
@@ -67,10 +68,15 @@ export class FinalizeComponent {
   }
 
   private createPdf() {
-    const dataToRender = this.cache.getItem('location');
+    const location: Location = this.cache.getItem('location');
         
     let docDefinition = {
-      content: [{ text: 'Reminder' }]
+      content: [
+        { text: 'Location' },
+        { text: `Business Name: ${location.businessName}`},
+        { text: `Address: ${location.address}`},
+        { text: `AccountNumber: ${location.accountNumber}`}
+      ]
     };
     this.pdfObject = pdfMake.createPdf(docDefinition);
   }

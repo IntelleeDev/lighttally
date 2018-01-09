@@ -15,15 +15,13 @@ export class RoomPage {
   @ViewChild (GeneralInfoComponent) genInfoComponent: GeneralInfoComponent;
   @ViewChild (ReplacementComponent) replacementComponent: ReplacementComponent;
   @ViewChild (ExistingLightComponent) existingLightComponent: ExistingLightComponent;
-  
-  locationId: string = '';
+
   showFinalizePage = false;
+  roomData: Array<{Room, Fixture, Replacement}>;
   
   constructor(
     public navParams: NavParams,
-    public navCtrl: NavController) {
-      this.locationId = navParams.get('locationId');
-  }
+    public navCtrl: NavController) { }
 
   public goToSlide(index): void {
     this.showFinalizePage = false;
@@ -35,7 +33,6 @@ export class RoomPage {
       this.showFinalizePage = true;
       return;
     }
-    this.addItem();
     this.slides.slideNext(300);
   }
 
@@ -51,7 +48,7 @@ export class RoomPage {
     this.navCtrl.pop();
   }
 
-  addItem() {
+  getDataFromChildren() {
     console.log(this.genInfoComponent.getData());
     console.log(this.replacementComponent.getData());
     console.log(this.existingLightComponent.getData());

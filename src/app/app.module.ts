@@ -42,6 +42,7 @@ import { CacheProvider } from '../providers/cache/cache';
 import { UserRepository } from '../repository/user-repository';
 import { RegistrationProvider } from '../providers/registration/registration';
 import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/firestore-data-source';
+import { PdfProvider } from '../providers/pdf/pdf';
 
 @NgModule({
   declarations: [
@@ -105,7 +106,8 @@ import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/
     UserRepository,
     RegistrationProvider,
     FirestoreDataSourceProvider,
-    CacheProvider
+    CacheProvider,
+    PdfProvider
   ]
 })
 export class AppModule {}
