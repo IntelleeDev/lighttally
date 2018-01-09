@@ -67,13 +67,14 @@ export class RoomPage {
 
   private cacheEvaluation() {
     const room: Room = this.genInfoComponent.getData();
-
+    this.addNewExistingLight();
     this.evaluationData.push({
       room: room,
       fixtures: this.fixtures,
       replacements: this.replacements
     });
 
+    console.log(this.evaluationData);
     // Push to the cache
     // On our next visit we retrieve from the cache
     // and concat with the new entry
