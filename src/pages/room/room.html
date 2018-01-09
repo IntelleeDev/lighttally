@@ -92,6 +92,7 @@
         <finalize 
           [toSlide]="goToSlide.bind(this)"
           [resetAllForms]="resetForms.bind(this)"
+          [addNewLight]="addNewExistingLight.bind(this)"
           *ngIf="showFinalizePage"></finalize>
 
         <!-- Next and Previous buttons -->
@@ -114,7 +115,7 @@
                   mode="ios" 
                   class="c-button no-bg" 
                   color="loc-button" 
-                  ion-button full (click)="finishEvaluation()"
+                  ion-button full (click)="finishRoom()"
                 >
                   finish room
                 </button>

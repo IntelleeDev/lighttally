@@ -26,6 +26,7 @@ import { LoadingDialogComponent } from '../loading-dialog/loading-dialog';
 })
 export class FinalizeComponent {
   @Input() public toSlide;
+  @Input() public addNewLight;
   @Input() public resetAllForms;
 
   private pdfObject;
@@ -40,6 +41,7 @@ export class FinalizeComponent {
     private modalCtrl: ModalController) { }
 
   doNewEvaluation() {
+    this.addNewLight();
     this.resetAllForms();
     this.toSlide(0);
   }

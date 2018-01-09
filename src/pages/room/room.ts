@@ -5,6 +5,10 @@ import { ReplacementComponent } from '../../components/replacement/replacement';
 import { GeneralInfoComponent } from '../../components/general-info/general-info';
 import { ExistingLightComponent } from '../../components/existing-light/existing-light';
 
+import { Room } from '../../model/room';
+import { Fixture } from '../../model/fixture';
+import { Replacement } from '../../model/replacement';
+
 @IonicPage()
 @Component({
   selector: 'page-room',
@@ -17,7 +21,10 @@ export class RoomPage {
   @ViewChild (ExistingLightComponent) existingLightComponent: ExistingLightComponent;
 
   showFinalizePage = false;
-  roomData: Array<{Room, Fixture, Replacement}>;
+  evaluationData: Array<any> = [];
+
+  fixtures: Array<Fixture> = [];
+  replacements: Array<Replacement> = [];
   
   constructor(
     public navParams: NavParams,
@@ -44,19 +51,33 @@ export class RoomPage {
     this.slides.slidePrev();
   }
 
-  public finishEvaluation() {
+  public addNewExistingLight() {
+    this.addNewFixture();
+    this.addNewReplacement();
+  }
+
+  public finishRoom() {
     this.slideNext();
-    this.getDataFromChildren();
+    this.cacheEvaluation();
   }
 
   backToLocationPage() {
     this.navCtrl.pop();
   }
 
-  getDataFromChildren() {
-    console.log(this.genInfoComponent.getData());
-    console.log(this.replacementComponent.getData());
-    console.log(this.existingLightComponent.getData());
+  private cacheEvaluation() {
+    const room: Room = this.genInfoComponent.getData();
+
+    this.evaluationData.push({
+      room: room,
+      fixtures: this.fixtures,
+      replacements: this.replacements
+    });
+
+    // Push to the cache
+    // On our next visit we retrieve from the cache
+    // and concat with the new entry
+    // then push back into the cache
   }
 
   public resetForms() {
@@ -65,6 +86,18 @@ export class RoomPage {
       this.replacementComponent.resetForm();
     }
     this.existingLightComponent.resetForm();
+  }
+
+  private addNewFixture() {
+    this.fixtures.concat([
+      this.existingLightComponent.getData()
+    ]);
+  }
+
+  private addNewReplacement() {
+    this.replacements.concat([
+      this.replacementComponent.getData()
+    ]);
   }
 
 }
