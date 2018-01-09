@@ -69,8 +69,6 @@ constructor(
     const bulbFixture = this.bulbSelection.getSelectedBulb();
     const formModel = this.existingLightForm.value;
 
-    console.log(bulbFixture);
-
     const fixture: Fixture = {
       image: this.fixtureImage ? this.fixtureImage: '',
       existingBulb: bulbFixture,

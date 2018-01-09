@@ -26,7 +26,6 @@ export class BulbCategoryComponent {
     const modal = this.modalCtrl.create(BulbDialogComponent, { category });
     modal.onDidDismiss((selectedBulb: Bulb) => {
       this.selectedBulb = selectedBulb;
-      console.log(selectedBulb);
     })
     modal.present();
   }
