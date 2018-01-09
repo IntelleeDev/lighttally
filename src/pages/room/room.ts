@@ -44,6 +44,11 @@ export class RoomPage {
     this.slides.slidePrev();
   }
 
+  public finishEvaluation() {
+    this.slideNext();
+    this.getDataFromChildren();
+  }
+
   backToLocationPage() {
     this.navCtrl.pop();
   }
