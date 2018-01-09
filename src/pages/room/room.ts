@@ -87,18 +87,28 @@ export class RoomPage {
       this.replacementComponent.resetForm();
     }
     this.existingLightComponent.resetForm();
+    this.clearFixturesAndReplacements();
   }
 
   private addNewFixture() {
-    this.fixtures.concat([
-      this.existingLightComponent.getData()
-    ]);
+    if (this.replacementComponent) {
+      this.fixtures = this.fixtures.concat([
+        this.existingLightComponent.getData()
+      ]);
+    }
   }
 
   private addNewReplacement() {
-    this.replacements.concat([
-      this.replacementComponent.getData()
-    ]);
+    if (this.replacementComponent) {
+      this.replacements = this.replacements.concat([
+        this.replacementComponent.getData()
+      ]);
+    }
+  }
+
+  private clearFixturesAndReplacements() {
+    this.fixtures = [];
+    this.replacements = [];
   }
 
 }
