@@ -21,7 +21,10 @@ export class UserRepository implements Repository<User> {
   store(data: User): Promise<any> {
     return this.dataSource
     .store(this.collectionName, data)
-    .then(id => id)
+    .then(id => { 
+      console.log(id)
+      return id;
+    })
     .catch(error => error);
   }
 }

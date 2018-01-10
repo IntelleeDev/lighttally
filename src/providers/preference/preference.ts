@@ -18,4 +18,8 @@ export class PreferenceProvider {
     })
   }
 
+  clear(): Promise<void> {
+    return this.storage.clear();
+  }
+
 }

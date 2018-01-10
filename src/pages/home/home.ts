@@ -5,6 +5,7 @@ import { SignInPage } from '../sign-in/sign-in';
 import { DashboardPage } from '../dashboard/dashboard';
 import { MyProfilePage } from '../my-profile/my-profile';
 import { LocationInfoPage } from '../location-info/location-info';
+import { PreferenceProvider } from '../../providers/preference/preference';
 
 @IonicPage()
 @Component({
@@ -16,7 +17,10 @@ export class HomePage {
   rootPage: any = DashboardPage;
   pages: Array<{title: string, component: any}>;
 
-  constructor(public navParams: NavParams, public navCtrl: NavController) {
+  constructor(
+    public navParams: NavParams, 
+    public navCtrl: NavController,
+    private preference: PreferenceProvider) {
     this.pages = [
       { title: 'Dashboard', component: DashboardPage },
       { title: 'Make Evaluation', component: LocationInfoPage },
@@ -30,6 +34,13 @@ export class HomePage {
 
   toLogoutPage() {
     this.navCtrl.pop();
+  }
+
+  logOutUser() {
+    this.preference
+        .clear()
+        .then(() => this.toLogoutPage())
+        .catch(error => error);
   }
 
 }
