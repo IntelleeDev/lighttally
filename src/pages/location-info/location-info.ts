@@ -27,8 +27,8 @@ export class LocationInfoPage {
   energyCompanies: Array<string> = ENERGY_COMPANIES;
   
   constructor(
-    private cache: CacheProvider,
     public navParams: NavParams,
+    private cache: CacheProvider,
     public navCtrl: NavController,
     private formBuilder: FormBuilder, 
     private popCtrl: PopoverController,
@@ -53,10 +53,10 @@ export class LocationInfoPage {
         })
         .catch(error => loader.dismiss());
     
-    setTimeout(() => {
-      loader.dismiss();
-      this.toRoomPage({});
-    }, 3000);
+    // setTimeout(() => {
+    //   loader.dismiss();
+    //   this.toRoomPage({});
+    // }, 3000);
   }
 
   presentPopover() {
@@ -133,11 +133,11 @@ export class LocationInfoPage {
   }
 
   // Form control getters
-  get businessName() { return this.locationForm.get('businessName'); }
   get address() { return this.locationForm.get('address'); }
+  get kwhFiled() { return this.locationForm.get('kwhFiled'); }
+  get businessName() { return this.locationForm.get('businessName'); }
   get energyCompany() { return this.locationForm.get('energyCompany'); }
   get accountNumber() { return this.locationForm.get('accountNumber'); }
-  get kwhFiled() { return this.locationForm.get('kwhFiled'); }
   get squareFootage() { return this.locationForm.get('squareFootage'); }
   get name() { return this.locationForm.get('contactPerson').get('name'); }
   get email() { return this.locationForm.get('contactPerson').get('email'); }

@@ -33,8 +33,10 @@ export class DashboardPage {
       avatar_url: '../assets/imgs/bone.jpg'
     }];
 
-    this.authUser = this.authProvider.getAuthenticatedUser();
-    console.log(this.authUser);
+    this.authProvider
+        .getAuthenticatedUser()
+        .then(user => { this.authUser = user; })
+        .catch(error => console.log(error));
   }
 
   goToEvaluationPage(): void {
