@@ -6,14 +6,11 @@ import {
   ToastController, 
   Modal, ModalController } from 'ionic-angular';
 
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
-
 import { Location } from '../../model/location';
 import { File } from '@ionic-native/file';
 import { FileOpener } from "@ionic-native/file-opener";
 
+import { PdfProvider } from '../../providers/pdf/pdf';
 import { CacheProvider } from '../../providers/cache/cache';
 
 import { RoomPage } from '../../pages/room/room';
@@ -32,6 +29,7 @@ export class FinalizeComponent {
 
   constructor(
     private file: File,
+    private pdf: PdfProvider,
     private platform: Platform,
     private cache: CacheProvider,
     private fileOpener: FileOpener,
@@ -69,46 +67,49 @@ export class FinalizeComponent {
 
   private createPdf() {
     const location: Location = this.cache.getItem('location');
-        
-    let docDefinition = {
-      content: [
-        { text: 'Location' },
-        { text: `Business Name: ${location.businessName}`},
-        { text: `Address: ${location.address}`},
-        { text: `AccountNumber: ${location.accountNumber}`}
-      ]
-    };
-    this.pdfObject = pdfMake.createPdf(docDefinition);
+    this.pdf.create(location);    
+    // let docDefinition = {
+    //   content: [
+    //     { text: 'Location' },
+    //     { text: `Business Name: ${location.businessName}`},
+    //     { text: `Address: ${location.address}`},
+    //     { text: `AccountNumber: ${location.accountNumber}`}
+    //   ]
+    // };
+    // this.pdfObject = pdfMake.createPdf(docDefinition);
   }
 
   private downloadPdf() {
     const modal = this.createModal();
+    this.pdf.download()
+            .then(() => { modal.dismiss() })
+            .catch(error => { this.createToast(error) })
 
-    if (this.platform.is('cordova')) {
-      this.platform.ready().then(() => {
-        this.pdfObject.getBuffer(buffer => {
-          this.createToast('Making PDF');
-          let blob = new Blob([buffer], { type: 'application/pdf' });
-          this.fileOpener
-              .open(this.file.dataDirectory + 'ev.pdf', 'application/pdf')
-              .then(() => {})
-              .catch(error => {
-                this.createToast(error);
-              });
+    // if (this.platform.is('cordova')) {
+    //   this.platform.ready().then(() => {
+    //     this.pdfObject.getBuffer(buffer => {
+    //       this.createToast('Making PDF');
+    //       let blob = new Blob([buffer], { type: 'application/pdf' });
+    //       this.fileOpener
+    //           .open(this.file.dataDirectory + 'ev.pdf', 'application/pdf')
+    //           .then(() => {})
+    //           .catch(error => {
+    //             this.createToast(error);
+    //           });
           
           
-          // this.file.writeFile(this.file.dataDirectory, 'ev.pdf', blob, { replace: true })
-          //     .then(fileEntry => {
-          //       modal.dismiss();
-          //       this.fileOpener.open(this.file.dataDirectory + 'ev.pdf', 'application/pdf');
-          //     })
-          //     .catch(error => this.createToast(error));
-        });
-      });
-    } else {
-      modal.dismiss();
-      this.pdfObject.download()
-    }
+    //       // this.file.writeFile(this.file.dataDirectory, 'ev.pdf', blob, { replace: true })
+    //       //     .then(fileEntry => {
+    //       //       modal.dismiss();
+    //       //       this.fileOpener.open(this.file.dataDirectory + 'ev.pdf', 'application/pdf');
+    //       //     })
+    //       //     .catch(error => this.createToast(error));
+    //     });
+    //   });
+    // } else {
+    //   modal.dismiss();
+    //   this.pdfObject.download();
+    // }
     
   }
 

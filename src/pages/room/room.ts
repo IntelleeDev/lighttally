@@ -69,11 +69,7 @@ export class RoomPage {
   }
 
   private cacheEvaluation() {
-    // Run this once to make capture the first
-    // evaluation data.
-    if (this.fixtures.length == 0) {
-      this.addNewExistingLight();
-    }
+    this.addNewExistingLight();
     const room: Room = this.genInfoComponent.getData();
     this.evaluationData.push({
       room: room,
