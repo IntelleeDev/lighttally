@@ -19,6 +19,9 @@ export class UserRepository implements Repository<User> {
   }
 
   store(data: User): Promise<any> {
-    throw new Error("Method not implemented.");
+    return this.dataSource
+    .store(this.collectionName, data)
+    .then(id => id)
+    .catch(error => error);
   }
 }
