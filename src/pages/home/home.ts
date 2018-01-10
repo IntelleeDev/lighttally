@@ -36,7 +36,7 @@ export class HomePage {
     this.navCtrl.pop();
   }
 
-  logOutUser() {
+  logoutUser() {
     this.preference
         .clear()
         .then(() => this.toLogoutPage())
