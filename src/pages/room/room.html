@@ -87,12 +87,14 @@
       </ion-slide>
       <ion-slide>
         <replacement
+          *ngIf="!showFinalizePage"
           [toSlide]="goToSlide.bind(this)"
-          *ngIf="!showFinalizePage"></replacement>
+          [addNewLight]="addNewExistingLight.bind(this)"
+          >
+        </replacement>
         <finalize 
           [toSlide]="goToSlide.bind(this)"
           [resetAllForms]="resetForms.bind(this)"
-          [addNewLight]="addNewExistingLight.bind(this)"
           *ngIf="showFinalizePage"></finalize>
 
         <!-- Next and Previous buttons -->

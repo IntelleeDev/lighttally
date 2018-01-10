@@ -10,6 +10,7 @@ import { BulbSelectionComponent } from '../bulb-selection/bulb-selection';
 })
 export class ReplacementComponent {
   @Input() public toSlide;
+  @Input() public addNewLight;
   @ViewChild(BulbSelectionComponent) bulbSelection: BulbSelectionComponent;
 
   title = 'Replacement Bulb';
@@ -41,8 +42,8 @@ export class ReplacementComponent {
     this.replacementForm.reset();
   }
 
-  // Implementation will come from parent Room component
-  addBulb() {
+  addLight() {
+    this.addNewLight();
     this.toSlide(1);
   }
 

@@ -1,13 +1,15 @@
 import { Component, ViewChild } from '@angular/core';
 import { Slides, IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { Room } from '../../model/room';
+import { Fixture } from '../../model/fixture';
+import { Replacement } from '../../model/replacement';
+
 import { ReplacementComponent } from '../../components/replacement/replacement';
 import { GeneralInfoComponent } from '../../components/general-info/general-info';
 import { ExistingLightComponent } from '../../components/existing-light/existing-light';
 
-import { Room } from '../../model/room';
-import { Fixture } from '../../model/fixture';
-import { Replacement } from '../../model/replacement';
+import { CacheProvider } from '../../providers/cache/cache';
 
 @IonicPage()
 @Component({
@@ -28,6 +30,7 @@ export class RoomPage {
   
   constructor(
     public navParams: NavParams,
+    private cache: CacheProvider,
     public navCtrl: NavController) { }
 
   public goToSlide(index): void {
@@ -74,11 +77,8 @@ export class RoomPage {
       replacements: this.replacements
     });
 
-    console.log(this.evaluationData);
-    // Push to the cache
-    // On our next visit we retrieve from the cache
-    // and concat with the new entry
-    // then push back into the cache
+    this.cache.addItem('evaluation', this.evaluationData);
+    console.log(this.cache.getItem('evaluation'));
   }
 
   public resetForms() {

@@ -95,6 +95,7 @@ export class LocationInfoPage {
 
     // Save data to cache
     this.cache.addItem('location', { ...location, contact });
+    this.cache.addItem('evaluation', []);
 
     return [location, contact];
   }
