@@ -44,6 +44,7 @@ import { RegistrationProvider } from '../providers/registration/registration';
 import { FirestoreDataSourceProvider } from '../providers/firestore-data-source/firestore-data-source';
 import { PdfProvider } from '../providers/pdf/pdf';
 import { EmailProvider } from '../providers/email/email';
+import { PreferenceProvider } from '../providers/preference/preference';
 
 @NgModule({
   declarations: [
@@ -109,7 +110,8 @@ import { EmailProvider } from '../providers/email/email';
     FirestoreDataSourceProvider,
     CacheProvider,
     PdfProvider,
-    EmailProvider
+    EmailProvider,
+    PreferenceProvider
   ]
 })
 export class AppModule {}

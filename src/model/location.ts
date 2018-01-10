@@ -1,5 +1,6 @@
 
 export interface Location {
+  id?: string;
   address: string;
   businessName: string;
   accountNumber: number;

@@ -4,12 +4,14 @@ import { Observable } from 'rxjs/Rx';
 import { User } from '../../model/user';
 import { catchError, map, tap } from 'rxjs/operators';
 import { UserRepository } from '../../repository/user-repository';
+import { PreferenceProvider } from '../../providers/preference/preference';
 
 @Injectable()
 export class AuthProvider {
-  private authenticatedUser?: User = null;
 
-  constructor(private repository: UserRepository) {}
+  constructor(
+    private repository: UserRepository,
+    private preference: PreferenceProvider) {}
 
   authenticateUser(userToAuth: User): Observable<boolean> {
     return this.repository
@@ -18,8 +20,7 @@ export class AuthProvider {
           map(user => {
             if (user != null) {
               if (user.password === userToAuth.password) {
-                this.authenticatedUser = user;
-                console.log(user);
+                this.preference.saveUser(user);
                 return true;
               }
               return false;
@@ -29,7 +30,10 @@ export class AuthProvider {
   }
 
   getAuthenticatedUser() {
-    return this.authenticatedUser;
+    return this.preference
+               .getUser()
+               .then(user => user)
+               .catch(error => error);
   }
 
 }

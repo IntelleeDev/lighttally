@@ -31,9 +31,14 @@ export class MyApp {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
 
-      if (this.authProvider.getAuthenticatedUser() != null) {
-        this.nav.push(HomePage, {});
-      }
+      this.authProvider
+          .getAuthenticatedUser()
+          .then(user => {
+            if (user != null) {
+              this.nav.push(HomePage, {});
+            }
+          })
+          .catch(error => console.log(error))
       this.splashScreen.hide();
     });
   }
