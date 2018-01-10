@@ -38,7 +38,7 @@ export class MyApp {
               this.nav.push(HomePage, {});
             }
           })
-          .catch(error => console.log(error))
+          .catch(error => { console.log(error) })
       this.splashScreen.hide();
     });
   }
