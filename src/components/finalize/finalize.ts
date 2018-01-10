@@ -67,50 +67,14 @@ export class FinalizeComponent {
 
   private createPdf() {
     const location: Location = this.cache.getItem('location');
-    this.pdf.create(location);    
-    // let docDefinition = {
-    //   content: [
-    //     { text: 'Location' },
-    //     { text: `Business Name: ${location.businessName}`},
-    //     { text: `Address: ${location.address}`},
-    //     { text: `AccountNumber: ${location.accountNumber}`}
-    //   ]
-    // };
-    // this.pdfObject = pdfMake.createPdf(docDefinition);
+    this.pdf.create({ location: location });    
   }
 
   private downloadPdf() {
     const modal = this.createModal();
     this.pdf.download()
             .then(() => { modal.dismiss() })
-            .catch(error => { this.createToast(error) })
-
-    // if (this.platform.is('cordova')) {
-    //   this.platform.ready().then(() => {
-    //     this.pdfObject.getBuffer(buffer => {
-    //       this.createToast('Making PDF');
-    //       let blob = new Blob([buffer], { type: 'application/pdf' });
-    //       this.fileOpener
-    //           .open(this.file.dataDirectory + 'ev.pdf', 'application/pdf')
-    //           .then(() => {})
-    //           .catch(error => {
-    //             this.createToast(error);
-    //           });
-          
-          
-    //       // this.file.writeFile(this.file.dataDirectory, 'ev.pdf', blob, { replace: true })
-    //       //     .then(fileEntry => {
-    //       //       modal.dismiss();
-    //       //       this.fileOpener.open(this.file.dataDirectory + 'ev.pdf', 'application/pdf');
-    //       //     })
-    //       //     .catch(error => this.createToast(error));
-    //     });
-    //   });
-    // } else {
-    //   modal.dismiss();
-    //   this.pdfObject.download();
-    // }
-    
+            .catch(error => { this.createToast(error) })    
   }
 
 }

@@ -3,7 +3,6 @@ import { Platform, ToastController } from 'ionic-angular';
 import { File } from '@ionic-native/file';
 import { FileOpener } from '@ionic-native/file-opener';
 
-
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -23,12 +22,12 @@ export class PdfProvider {
     this.pdfObject = pdfMake.createPdf(docDef);
   }
 
-  private makeDocDefinition(data): Array<any> {
-    const docDef = [];
-    docDef.push({ text: `Evaluation for ${data.location.businessName}`})
-    docDef.push({ text: 'Location Data'});
-    docDef.push({ text: ''})
-    return docDef;
+  private makeDocDefinition(data): any {
+    const content = []; 
+    content.push({ text: `Evaluation for ${data.location.businessName}`})
+    content.push({ text: 'Location Data'});
+    content.push({ text: ''})
+    return { content };
   }
 
   download(): Promise<any> {
@@ -45,7 +44,7 @@ export class PdfProvider {
         })
       });
     } else {
-      Promise.resolve(this.pdfObject.download);
+      return Promise.resolve(this.pdfObject.download());
     }
   }
 
