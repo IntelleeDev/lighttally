@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { FirestoreDataSourceProvider } from '../firestore-data-source/firestore-data-source';
 
 import { User } from '../../model/user';
 import { UserRepository } from '../../repository/user-repository';
-import { PreferenceProvider } from '../../providers/preference/preference';
 
 @Injectable()
 export class RegistrationProvider {

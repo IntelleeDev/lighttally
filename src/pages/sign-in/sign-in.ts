@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Observable } from 'rxjs/Rx';
 
 import { MyApp } from '../../app/app.component';
 import { SignUpPage } from '../sign-up/sign-up';
