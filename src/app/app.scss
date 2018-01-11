@@ -105,12 +105,23 @@
 }
 
 .c-item {
+  border: 0px solid black;
   background: transparent;
 }
 
 .drawer {
   color: #fff;
   background: transparent;
+}
+
+.c-input {
+  padding-left: 4px;
+  border-radius: 3px;
+  border: 1px solid rgb(226, 226, 226);
+}
+
+.c-input.invalid {
+  border-color: #f53d3d;
 }
 
 .hero-bg { }

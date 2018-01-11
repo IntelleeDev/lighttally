@@ -5,14 +5,12 @@
     </div>
 
     <form [formGroup]="signInForm" novalidate>
-      <ion-item ngClass="c-item">
-        <ion-label floating>Email</ion-label>
-        <ion-input formControlName="email" type="text" placeholder="Email"></ion-input>
-      </ion-item>
-      <ion-item ngClass="c-item">
-        <ion-label floating>Password</ion-label>
-        <ion-input formControlName="password" type="password" placehloder="password"></ion-input>
-      </ion-item>
+      <div>
+        <ion-input ngClass="c-input invalid" formControlName="email" type="text" placeholder="Email"></ion-input>
+      </div>      
+      <div>
+        <ion-input ngClass="c-input" formControlName="password" type="password" placehloder="password"></ion-input>
+      </div>
       <div class="btn-box">
         <button
           mode="ios"
