@@ -120,6 +120,9 @@ export class SignUpPage {
     this.isWaiting = false;
   }
 
+  get email() { return this.signUpForm.get('email'); }
   get fullname() { return this.signUpForm.get('fullname'); }
+  get password() { return this.signUpForm.get('password'); }
+  get phoneNumber() { return this.signUpForm.get('phoneNumber'); }
 
 }

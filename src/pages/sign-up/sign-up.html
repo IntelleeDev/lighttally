@@ -8,48 +8,69 @@
       <div class="padding-top-10">
         <div class="c-form-control">
           <ion-input
-            [class.invalid]="errorBag.fullname"
-            [class.valid]="!errorBag.fullname" 
+            [class.valid]="fullname.valid && (fullname.dirty || fullname.touched)" 
+            [class.invalid]="fullname.invalid && (fullname.dirty || fullname.touched)"
             ngClass="c-input" 
             formControlName="fullname" 
             type="text" placeholder="Fullname">
           </ion-input>
-          <span class="error" *ngIf="fullname.errors.required">
-              Fullname is required
-          </span>
+          <div *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)">
+            <span class="error" *ngIf="fullname.errors.required">
+                Fullname is required
+            </span>
+          </div>
+          
         </div>
       
         <div class="c-form-control">
           <ion-input 
+            [class.valid]="email.valid && (email.dirty || email.touched)" 
+            [class.invalid]="email.invalid && (email.dirty || email.touched)"
             ngClass="c-input" 
             formControlName="email" 
             type="text" placeholder="Email">
           </ion-input>
-          <span class="error" *ngIf="errorBag.email">
-              {{ errorBag.email }}
-          </span>
+          <div *ngIf="email.invalid && (email.dirty || email.touched)">
+            <span class="error" *ngIf="email.errors.required">
+               Email is required
+            </span>
+          </div>
         </div>
 
         <div class="c-form-control">
           <ion-input 
+            [class.valid]="phoneNumber.valid && (phoneNumber.dirty || phoneNumber.touched)" 
+            [class.invalid]="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
             ngClass="c-input" 
             formControlName="phoneNumber" 
             type="tel" placeholder="Phone number">
           </ion-input>
-          <span class="error" *ngIf="errorBag.phoneNumber">
-              {{ errorBag.phoneNumber }}
-          </span>
+          <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
+            <span class="error" *ngIf="phoneNumber.errors.required">
+                Phonenumber is required
+            </span>
+            <span class="error" *ngIf="phoneNumber.errors.pattern">
+                Please enter a valid Phonenumber
+            </span>
+          </div>
         </div>
             
         <div class="c-form-control">
           <ion-input 
+            [class.valid]="password.valid && (password.dirty || password.touched)" 
+            [class.invalid]="password.invalid && (password.dirty || password.touched)"
             ngClass="c-input" 
             formControlName="password" 
             type="password" placeholder="Password">
           </ion-input>
-          <span class="error" *ngIf="errorBag.password">
-              {{ errorBag.password }}
-          </span>
+          <div *ngIf="password.invalid && (password.dirty || password.touched)">
+            <span class="error" *ngIf="password.errors.required">
+                Password is required
+            </span>
+            <span class="error" *ngIf="password.errors.minlength">
+                Minimum of 8 characters
+            </span>
+          </div>
         </div>      
         
         <div ngClass="text-box">
