@@ -19,6 +19,10 @@
   font-weight: 300;
 }
 
+.fw-600 {
+  font-weight: 600;
+}
+
 .frame-content {
   background: linear-gradient(180deg, #518e7f, #6a9e5e);
 }
@@ -114,23 +118,29 @@
   background: transparent;
 }
 
+.c-form-control {
+  margin: 20px auto;
+}
+
 .c-input {
+  color: #757575;
   padding-left: 4px;
   border-radius: 3px;
-  border: 1px solid rgb(226, 226, 226);
+  border: 1px solid #eeeeee;
 }
 
 .c-input.invalid {
   border-color: #f53d3d;
 }
 
-.hero-bg { }
+.c-input:active {
+  border-color: #488aff;
+}
 
 .error {
-  display: inline-block;
   color: #f53d3d;
-  padding-top: 10px;
-  margin: 0px 0px 0px 16px;
+  display: inline-block;
+  padding: 10px 5px 0px 5px;
 }
 
 .evaluation-list {
@@ -142,6 +152,10 @@
 
 .padding-none {
   padding: 0px;
+}
+
+.padding-top-10 {
+  padding: 10px 0px 0px 0px;
 }
 
 .padding-2 {

@@ -41,7 +41,7 @@ export class SignUpPage {
         fullname: { required: 'Fullname is required' },
         email: { required: 'Email is required', email: 'Please input a valid email address' },
         password: { required: 'Password is required', minlength: 'Min length is 8 characters' },
-        phoneNumber: { required: 'Phone Number is required', pattern:'Please input a valid phone number' }
+        phoneNumber: { required: 'Phonenumber is required', pattern:'Please input a valid phone number' }
       } 
   }
 

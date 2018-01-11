@@ -5,12 +5,15 @@
     </div>
 
     <form [formGroup]="signInForm" novalidate>
-      <div>
-        <ion-input ngClass="c-input invalid" formControlName="email" type="text" placeholder="Email"></ion-input>
-      </div>      
-      <div>
-        <ion-input ngClass="c-input" formControlName="password" type="password" placehloder="password"></ion-input>
+      <div class="padding-top-10">
+        <div class="c-form-control">
+          <ion-input ngClass="c-input" formControlName="email" type="text" placeholder="Email"></ion-input>
+        </div>      
+        <div class="c-form-control">
+          <ion-input ngClass="c-input" formControlName="password" type="password" placeholder="Password"></ion-input>
+        </div>
       </div>
+
       <div class="btn-box">
         <button
           mode="ios"
@@ -18,7 +21,7 @@
           [disabled]="signInForm.invalid" 
           ion-button full (click)="authenticateUser()">
           Continue<span>&nbsp;&nbsp;</span>
-          <ion-spinner *ngIf="isAuthenticating"></ion-spinner>
+          <ion-spinner color="text-color" *ngIf="isAuthenticating"></ion-spinner>
         </button>
       </div>
     </form>
@@ -30,8 +33,11 @@
     </div>
     
     <div class="text-box">
-      <span>Don't have an account?</span>
-      <span ion-text color="link-color" (click)="toSignUpPage()">SignUp</span>
+      <span ion-text color="c-text-color">Don't have an account?</span>
+    </div>
+
+    <div class="text-box">
+      <span ion-text color="link-color" (click)="toSignUpPage()">Sign up</span>
     </div>
   </div>
 </ion-content>
