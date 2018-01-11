@@ -32,7 +32,7 @@ export class PdfProvider {
 
   download(): Promise<any> {
     if (this.isRunningOnMobileDevice()) {
-      return this.platform.ready().then(() => {
+      this.platform.ready().then(() => {
         this.pdfObject.getBuffer(buffer => {
           this.makeToast('Making PDF');
           let blob = new Blob([buffer], { type: 'application/pdf' });

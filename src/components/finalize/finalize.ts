@@ -74,7 +74,10 @@ export class FinalizeComponent {
     const modal = this.createModal();
     this.pdf.download()
             .then(() => { modal.dismiss() })
-            .catch(error => { this.createToast(error) })    
+            .catch(error => { 
+              this.createToast(error)
+              modal.dismiss(); 
+            })    
   }
 
 }

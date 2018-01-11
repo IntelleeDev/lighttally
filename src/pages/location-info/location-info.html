@@ -210,7 +210,7 @@
               mode="ios" 
               color="loc-button" 
               class="c-button no-bg" 
-             
+              [disabled]="locationForm.invalid"
               ion-button full (click)="submit()"
               >
               next
