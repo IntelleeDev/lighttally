@@ -5,61 +5,65 @@
         <img class="fluid" src="../../assets/imgs/light_tally.png"/>
       </div>
       
-      <div class="c-form-control">
-        <ion-input 
-          ngClass="c-input" 
-          formControlName="fullname" 
-          type="text" placeholder="Fullname">
-        </ion-input>
-        <span class="error" *ngIf="errorBag.fullname">
-            {{ errorBag.fullname }}
-        </span>
-      </div>
-     
-      <div class="c-form-control">
-        <ion-input 
-          ngClass="c-input" 
-          formControlName="email" 
-          type="text" placeholder="Email">
-        </ion-input>
-        <span class="error" *ngIf="errorBag.email">
-            {{ errorBag.email }}
-        </span>
-      </div>
-
-      <div class="c-form-control">
-        <ion-input 
-          ngClass="c-input" 
-          formControlName="phoneNumber" 
-          type="tel" placeholder="Phone number">
-        </ion-input>
-        <span class="error" *ngIf="errorBag.phoneNumber">
-            {{ errorBag.phoneNumber }}
-        </span>
-      </div>
-          
-      <div class="c-form-control">
-        <ion-input 
-          ngClass="c-input" 
-          formControlName="password" 
-          type="password" placeholder="password">
-        </ion-input>
-        <span class="error" *ngIf="errorBag.password">
-            {{ errorBag.password }}
-        </span>
-      </div>      
+      <div class="padding-top-10">
+        <div class="c-form-control">
+          <ion-input
+            [class.invalid]="errorBag.fullname"
+            [class.valid]="!errorBag.fullname" 
+            ngClass="c-input" 
+            formControlName="fullname" 
+            type="text" placeholder="Fullname">
+          </ion-input>
+          <span class="error" *ngIf="fullname.errors.required">
+              Fullname is required
+          </span>
+        </div>
       
-      <div ngClass="text-box">
-        <button
-          mode="ios" 
-          type="submit"
-          class="c-button padding-15" 
-          [disabled]="signUpForm.invalid" 
-           ion-button full (click)="registerUser()">
-          Continue
-          <span>&nbsp;&nbsp;</span>
-          <ion-spinner color="text-color" *ngIf="isWaiting"></ion-spinner>
-        </button>
+        <div class="c-form-control">
+          <ion-input 
+            ngClass="c-input" 
+            formControlName="email" 
+            type="text" placeholder="Email">
+          </ion-input>
+          <span class="error" *ngIf="errorBag.email">
+              {{ errorBag.email }}
+          </span>
+        </div>
+
+        <div class="c-form-control">
+          <ion-input 
+            ngClass="c-input" 
+            formControlName="phoneNumber" 
+            type="tel" placeholder="Phone number">
+          </ion-input>
+          <span class="error" *ngIf="errorBag.phoneNumber">
+              {{ errorBag.phoneNumber }}
+          </span>
+        </div>
+            
+        <div class="c-form-control">
+          <ion-input 
+            ngClass="c-input" 
+            formControlName="password" 
+            type="password" placeholder="Password">
+          </ion-input>
+          <span class="error" *ngIf="errorBag.password">
+              {{ errorBag.password }}
+          </span>
+        </div>      
+        
+        <div ngClass="text-box">
+          <button
+            mode="ios" 
+            type="submit"
+            class="c-button padding-15" 
+            [disabled]="signUpForm.invalid" 
+            ion-button full (click)="registerUser()">
+            Continue
+            <span>&nbsp;&nbsp;</span>
+            <ion-spinner color="text-color" *ngIf="isWaiting"></ion-spinner>
+          </button>
+        </div>
       </div>
     </form>
     <div class="text-box">

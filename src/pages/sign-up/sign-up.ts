@@ -120,4 +120,6 @@ export class SignUpPage {
     this.isWaiting = false;
   }
 
+  get fullname() { return this.signUpForm.get('fullname'); }
+
 }
