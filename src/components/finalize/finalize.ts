@@ -1,20 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { 
-  Slides, 
   Platform, 
   NavController,
   ToastController, 
   Modal, ModalController } from 'ionic-angular';
 
 import { Location } from '../../model/location';
-import { File } from '@ionic-native/file';
-import { FileOpener } from "@ionic-native/file-opener";
 
 import { PdfProvider } from '../../providers/pdf/pdf';
 import { CacheProvider } from '../../providers/cache/cache';
 
-import { RoomPage } from '../../pages/room/room';
-import { DashboardPage } from '../../pages/dashboard/dashboard';
 import { LoadingDialogComponent } from '../loading-dialog/loading-dialog';
 
 @Component({
@@ -25,14 +20,10 @@ export class FinalizeComponent {
   @Input() public toSlide;
   @Input() public resetAllForms;
 
-  private pdfObject;
-
   constructor(
-    private file: File,
     private pdf: PdfProvider,
     private platform: Platform,
     private cache: CacheProvider,
-    private fileOpener: FileOpener,
     private navCtrl: NavController,
     private toastCtrl: ToastController,
     private modalCtrl: ModalController) { }
@@ -46,7 +37,6 @@ export class FinalizeComponent {
     this.createPdf();
     this.downloadPdf();
     // this.navCtrl.popToRoot();
-    // this.navCtrl.setRoot(DashboardPage);
   }
 
   private createModal(): Modal {

@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, NavController, IonicPage, NavParams } from 'ionic-angular';
 
-import { SignInPage } from '../sign-in/sign-in';
 import { DashboardPage } from '../dashboard/dashboard';
 import { MyProfilePage } from '../my-profile/my-profile';
 import { LocationInfoPage } from '../location-info/location-info';

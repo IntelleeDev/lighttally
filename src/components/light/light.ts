@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { ViewController } from 'ionic-angular';
 
 import { WATTAGE_METRICS } from '../../data/constants';

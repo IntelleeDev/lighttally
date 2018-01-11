@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 
 import { Bulb } from '../../model/bulb';
-import { BulbDialogComponent } from '../bulb-dialog/bulb-dialog';
 import { BulbCategoryComponent } from '../bulb-category/bulb-category';
 
 @Component({

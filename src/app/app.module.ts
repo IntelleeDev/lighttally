@@ -35,7 +35,6 @@ import { firebaseConfig } from '../config/firebaseConfig';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { LocationInfoPageModule } from '../pages/location-info/location-info.module';
 
 import { AuthProvider } from '../providers/auth/auth';
 import { CacheProvider } from '../providers/cache/cache';
