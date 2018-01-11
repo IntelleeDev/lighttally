@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Rx';
-import { map } from 'rxjs/operators';
 
 import { DataSource } from '../../data/data-source';
 import { AngularFirestore } from 'angularfire2/firestore';
 
 @Injectable()
 export class FirestoreDataSourceProvider<T> implements DataSource<T> {
-
   constructor(public fireStore: AngularFirestore) { }
   
   find(collectionName, id: string): Observable<T> {

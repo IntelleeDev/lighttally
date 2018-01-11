@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Rx';
 import { User } from '../../model/user';
-import { catchError, map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { UserRepository } from '../../repository/user-repository';
 import { PreferenceProvider } from '../../providers/preference/preference';
 
