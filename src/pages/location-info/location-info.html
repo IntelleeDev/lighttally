@@ -41,7 +41,13 @@
 
       <!-- Address -->
       <div class="c-item-box">
-        <span ion-text color="text-color">Address</span>
+        <span 
+          ion-text 
+          color="text-color"
+          ngClass="fs-rem-16 padding-top-5 input-label display-ib"
+          >
+          Address
+        </span>
         <ion-input 
           type="text"
           ngClass="trans" 
@@ -57,7 +63,12 @@
 
       <!-- Energy Company -->
       <div class="c-item-box">
-        <span ion-text color="text-color">Energy Company</span>
+        <span 
+          ion-text color="text-color"
+          ngClass="fs-rem-16 padding-top-5 input-label display-ib"
+          >
+          Energy Company
+        </span>
         <ion-item ngClass="blank" no-lines>
           <ion-select 
             ngClass="trans" 
@@ -76,7 +87,12 @@
       
       <!-- Account Number -->
       <div class="c-item-box">
-        <span ion-text color="text-color">Account Number</span>
+        <span 
+          ion-text color="text-color"
+          ngClass="fs-rem-16 padding-top-5 input-label display-ib"
+          >
+          Account Number
+        </span>
         <ion-input 
           type="number"
           ngClass="trans" 
@@ -92,7 +108,12 @@
 
       <!-- KWH Filed -->
       <div class="c-item-box">
-        <span ion-text color="text-color">KWH Filed</span>
+        <span 
+          ion-text color="text-color"
+          ngClass="fs-rem-16 padding-top-5 input-label display-ib"
+          >
+          KWH Filed
+        </span>
         <ion-list radio-group formControlName="kwhFiled">
           <ion-grid no-padding>
             <ion-row>
@@ -121,7 +142,12 @@
 
       <!-- Square Footage -->
       <div class="c-item-box">
-        <span ion-text color="text-color">Square Footage</span>
+        <span 
+          ion-text color="text-color"
+          ngClass="fs-rem-16 padding-top-5 input-label display-ib"
+          >
+          Square Footage
+        </span>
         <ion-input 
           type="number"
           ngClass="trans" 
@@ -137,14 +163,26 @@
 
       <!-- Total Working Hours  -->
       <div class="c-item-box">
-        <span ion-text color="text-color">Working Hours</span>
-        <div ngClass="trans" (click)="presentPopover()">Select working hours</div>
+        <span 
+          ion-text color="text-color"
+          ngClass="fs-rem-16 padding-top-5 input-label display-ib"
+          >
+          Working Hours
+        </span>
+        <div ngClass="trans" (click)="presentPopover()">
+          <span ion-text color="input-text-color">Select working hours</span>
+        </div>
       </div>  
 
       <!-- Contact Person -->
       <div formGroupName="contactPerson">
         <div class="c-item-box">
-          <span ion-text color="text-color">Contact Person</span>
+          <span 
+            ion-text color="text-color"
+            ngClass="fs-rem-16 padding-top-5 input-label display-ib"
+            >
+            Contact Person
+          </span>
           <ion-input 
             type="text"
             ngClass="trans" 
@@ -159,7 +197,12 @@
         </div>
 
         <div class="c-item-box">
-          <span ion-text color="text-color">Email</span>
+          <span 
+            ion-text color="text-color"
+            ngClass="fs-rem-16 padding-top-5 input-label display-ib"
+            >
+            Email
+          </span>
           <ion-input 
             type="email"
             ngClass="trans" 
@@ -177,7 +220,12 @@
         </div>
 
         <div class="c-item-box">
-          <span ion-text color="text-color">Phone Number</span>
+          <span 
+            ion-text color="text-color"
+            ngClass="fs-rem-16 padding-top-5 input-label display-ib"
+            >
+            Phone Number
+          </span>
           <ion-input 
             type="tel"
             ngClass="trans" 
@@ -215,7 +263,7 @@
               mode="ios" 
               color="loc-button" 
               class="c-button no-bg" 
-              [disabled]="locationForm.invalid"
+              
               ion-button full (click)="submit()"
               >
               next

@@ -44,19 +44,19 @@ export class LocationInfoPage {
     const location = data[0];
     const contact  = data[1];
 
-    this.locRepository
-        .storeWithContact(location, contact)
-        .then((locationId) => {
-          this.resetForm();
-          loader.dismiss();
-          this.toRoomPage({ locationId });          
-        })
-        .catch(error => loader.dismiss());
+    // this.locRepository
+    //     .storeWithContact(location, contact)
+    //     .then((locationId) => {
+    //       this.resetForm();
+    //       loader.dismiss();
+    //       this.toRoomPage({ locationId });          
+    //     })
+    //     .catch(error => loader.dismiss());
     
-    // setTimeout(() => {
-    //   loader.dismiss();
-    //   this.toRoomPage({});
-    // }, 3000);
+    setTimeout(() => {
+      loader.dismiss();
+      this.toRoomPage({});
+    }, 3000);
   }
 
   presentPopover() {
