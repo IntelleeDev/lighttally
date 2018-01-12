@@ -68,7 +68,7 @@
 .heading {
   padding: -4px 5px;
   color: #fff;
-  font-size: 12px;
+  font-size: 1.6rem;
   margin-top: -10px;
   text-align: center;
   border-bottom: 0px solid transparent;
@@ -83,11 +83,16 @@
 }
 
 .trans {
-  padding: 7px;
+  font-size: 1.6rem;
+  padding: 12px;
   border-radius: 4px;
   background: #5a828a;
   border: 0px solid transparent !important;
   color: rgba(255, 255, 255, 0.897);
+}
+
+.fs-rem-16 {
+  font-size: 1.6rem;
 }
 
 .trans.padding-none {
@@ -126,7 +131,7 @@
   color: #757575;
   padding-left: 4px;
   border-radius: 3px;
-  border: 1px solid #eeeeee;
+  border: 2px solid #eeeeee;
 }
 
 .c-input.invalid {
@@ -156,6 +161,14 @@
 
 .padding-none {
   padding: 0px;
+}
+
+.display-ib {
+  display: inline-block;
+}
+
+.input-label {
+  padding: 2px 0px 10px 0px;
 }
 
 .padding-top-10 {

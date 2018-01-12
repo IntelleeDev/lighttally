@@ -17,6 +17,7 @@
       <div class="btn-box">
         <button
           mode="ios"
+          [disabled]="signInForm.invalid"
           class="c-button padding-15" 
           [disabled]="signInForm.invalid" 
           ion-button full (click)="authenticateUser()">

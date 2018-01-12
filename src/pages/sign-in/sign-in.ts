@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { SignUpPage } from '../sign-up/sign-up';
@@ -31,21 +31,22 @@ export class SignInPage {
   authenticateUser() {
     this.showSpinner();
 
-    this.authProvider
-        .authenticateUser(this.getData())
-        .subscribe(authenticated => {
-          if (authenticated) {
-            this.hideSpinner();
-            this.signInForm.reset();
-            this.toHomePage();          
-          } else {
-            this.hideSpinner();
-            this.errorMessage = 'Invalid username or password';
-          }
-        });
-    // this.signInForm.reset()
-    // this.hideSpinner();
-    // this.toHomePage();
+    // this.authProvider
+    //     .authenticateUser(this.getData())
+    //     .subscribe(authenticated => {
+    //       if (authenticated) {
+    //         this.hideSpinner();
+    //         this.signInForm.reset();
+    //         this.toHomePage();
+    //         this.errorMessage = "";          
+    //       } else {
+    //         this.hideSpinner();
+    //         this.errorMessage = 'Invalid username or password';
+    //       }
+    //     });
+    this.signInForm.reset();
+    this.hideSpinner();
+    this.toHomePage();
   }
 
   toHomePage(): void {
@@ -58,8 +59,8 @@ export class SignInPage {
 
   private createForm() {
     this.signInForm = this.formBuilder.group({
-      email: '',
-      password: ''
+      email: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
 
@@ -83,5 +84,4 @@ export class SignInPage {
     this.isAuthenticating = false;
   }
 
-  
 }
