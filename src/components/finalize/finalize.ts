@@ -42,7 +42,8 @@ export class FinalizeComponent {
   }
 
   finishEvaluation() {
-    
+    const modal = this.createModal();
+
     const firestore = this.angularFirestore.firestore;
     const batch = firestore.batch();
 
@@ -83,6 +84,7 @@ export class FinalizeComponent {
          .then(() => {
             this.createToast('Evaluation successful');
             setTimeout(() => {
+              modal.dismiss();
               this.navCtrl.popToRoot();
             }, 2000); 
           })
