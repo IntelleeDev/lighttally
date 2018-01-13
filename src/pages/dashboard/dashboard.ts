@@ -24,13 +24,13 @@ export class DashboardPage {
       name: 'Lucy Lu',
       location: 'Lagos',
       last_evaluation: '3',
-      avatar_url: '../assets/imgs/bone.jpg'
+      avatar_url: 'assets/imgs/bone.jpg'
     },
     {
       name: 'Lucy Lu',
       location: 'Lagos',
       last_evaluation: '3',
-      avatar_url: '../assets/imgs/bone.jpg'
+      avatar_url: 'assets/imgs/bone.jpg'
     }];
 
     this.authProvider
