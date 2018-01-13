@@ -61,7 +61,7 @@ export class FinalizeComponent {
     evaluations.forEach(value => {
       const room: Room = value.room;
       const roomId = this.angularFirestore.createId();
-      const roomRef = firestore.collection('room').doc(roomId);
+      const roomRef = firestore.collection('rooms').doc(roomId);
       batch.set(roomRef, { id: roomId, ...room, evaluationId: evalId });
 
       const fixtures: Array<Fixture> = value.fixtures;
