@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { Slides, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild, ViewChildren, AfterViewInit, QueryList } from '@angular/core';
+import { Slides, IonicPage, NavController, NavParams, SegmentButton } from 'ionic-angular';
 
 import { Room } from '../../model/room';
 import { Fixture } from '../../model/fixture';
@@ -16,7 +16,10 @@ import { CacheProvider } from '../../providers/cache/cache';
   selector: 'page-room',
   templateUrl: 'room.html',
 })
-export class RoomPage {
+export class RoomPage implements AfterViewInit {
+  
+  @ViewChildren(SegmentButton) segmentButtons: QueryList<SegmentButton>;
+
   @ViewChild (Slides) slides: Slides;
   @ViewChild (GeneralInfoComponent) genInfoComponent: GeneralInfoComponent;
   @ViewChild (ReplacementComponent) replacementComponent: ReplacementComponent;
@@ -34,11 +37,27 @@ export class RoomPage {
     public navCtrl: NavController) { 
       // Use this id to create a relationship with the evaluation
       const locationId = this.navParams.get('locationId');
-    }
+      this.highlightActiveSegment();
+  }
+
+  ngAfterViewInit(): void {
+    this.highlightActiveSegment();
+  }
+
+  highlightActiveSegment() {
+    this.segmentButtons.forEach(button => {
+      if (parseInt(button.value) == this.slides.getActiveIndex()) {
+        button.isActive = true;
+      } else {
+        button.isActive = false;
+      }
+    })
+  }
 
   public goToSlide(index): void {
     this.showFinalizePage = false;
     this.slides.slideTo(index, 500);
+    this.highlightActiveSegment();
   }
 
   public slideNext() {
@@ -47,6 +66,7 @@ export class RoomPage {
       return;
     }
     this.slides.slideNext(300);
+    this.highlightActiveSegment();
   }
 
   public slidePrev() {
@@ -55,6 +75,7 @@ export class RoomPage {
       return;
     }
     this.slides.slidePrev();
+    this.highlightActiveSegment();
   }
 
   public addNewExistingLight() {
