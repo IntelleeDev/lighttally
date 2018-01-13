@@ -21,12 +21,8 @@ export class SignUpPage {
     public navCtrl: NavController,
     private formBuilder: FormBuilder,
     private toastCtrl: ToastController,
-    private regProvider: RegistrationProvider
-  ) {
+    private regProvider: RegistrationProvider) {
       this.createForm();
-      this.signUpForm
-          .valueChanges
-          .subscribe(this.onValueChange.bind(this)); 
   }
 
   registerUser() {

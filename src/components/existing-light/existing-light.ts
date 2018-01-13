@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
+import { Bulb } from '../../model/bulb';
 import { Fixture } from '../../model/fixture';
 
 import { BALLAST_TYPES } from '../../data/constants';
@@ -71,7 +72,7 @@ constructor(
 
     const fixture: Fixture = {
       image: this.fixtureImage ? this.fixtureImage: '',
-      existingBulb: bulbFixture,
+      existingBulb: bulbFixture ? bulbFixture: {} as Bulb,
       wrongBulb: formModel.wrongBulb,
       balastType: formModel.balastType,
       numberOfBulbs: formModel.numberOfBulbs,

@@ -1,6 +1,7 @@
 import { Component, ViewChild, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
+import { Bulb } from '../../model/bulb';
 import { Replacement } from '../../model/replacement';
 import { BulbSelectionComponent } from '../bulb-selection/bulb-selection';
 
@@ -31,7 +32,7 @@ export class ReplacementComponent {
     const replacementBulb = this.bulbSelection.getSelectedBulb();
 
     const replacement: Replacement = {
-      replacementBulb, 
+      replacementBulb: replacementBulb ? replacementBulb : {} as Bulb, 
       specialNotes: formModel.specialNotes
     }
     return replacement;
