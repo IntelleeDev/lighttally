@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { ToastController } from 'ionic-angular';
+import { Platform, ToastController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { Bulb } from '../../model/bulb';
@@ -44,14 +44,14 @@ constructor(
       // imageData is either a base64 encoded string or a file URI
       // If it's base64:
       this.fixtureImage = 'data:image/jpeg;base64,' + imageData;
-     }, (err) => {
-        this.presentToast();
+     }, (error) => {
+        this.presentToast(error);
      });
   } 
 
-  private presentToast() {
+  private presentToast(message: string) {
     const toast = this.toastCtrl.create({
-      message: 'Camera error',
+      message,
       duration: 3000
     });
     toast.present();
