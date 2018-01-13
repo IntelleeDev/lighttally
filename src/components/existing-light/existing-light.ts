@@ -33,20 +33,24 @@ export class ExistingLightComponent {
 
 constructor(
   private camera: Camera,
+  private platform:Platform,
   private formBuilder: FormBuilder,
-  private toastCtrl: ToastController
-  ) {
+  private toastCtrl: ToastController) {
     this.createForm();
   }
 
   takeSnapShot() {
-    this.camera.getPicture(this.options).then((imageData) => {
-      // imageData is either a base64 encoded string or a file URI
-      // If it's base64:
-      this.fixtureImage = 'data:image/jpeg;base64,' + imageData;
-     }, (error) => {
-        this.presentToast(error);
-     });
+    if (this.platform.is('cordova')) {
+      this.platform.ready().then(() => {
+        this.camera.getPicture(this.options).then((imageData) => {
+          // imageData is either a base64 encoded string or a file URI
+          // If it's base64:
+          this.fixtureImage = 'data:image/jpeg;base64,' + imageData;
+         }, (error) => {
+            this.presentToast(error);
+         });
+      });
+    }
   } 
 
   private presentToast(message: string) {
