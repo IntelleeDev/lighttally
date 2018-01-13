@@ -6,7 +6,12 @@
 
       <!-- Wattage -->
       <div class="c-item-box">
-        <span ion-text color="text-color">Wattage</span>
+        <span 
+          ion-text color="text-color"
+          ngClass="fs-rem-16 padding-top-5 input-label display-ib"
+          >
+          Wattage
+        </span>
         <ion-item ngClass="blank" no-lines>
           <ion-select ngClass="trans" [(ngModel)]="wattage" full placeholder="Select wattage">
             <ion-option *ngFor="let metric of metrics">{{ metric }}</ion-option>
@@ -16,7 +21,12 @@
 
       <!-- Kalvins -->
       <div class="c-item-box">
-        <span ion-text color="text-color">Kalvin</span>
+        <span 
+          ion-text color="text-color"
+          ngClass="fs-rem-16 padding-top-5 input-label display-ib"
+          >
+          Kalvin
+        </span>
         <ion-input 
           type="number" 
           ngClass="trans" 
@@ -27,7 +37,12 @@
 
       <!-- Retrofit -->
       <div class="c-item-box">
-        <span ion-text color="text-color">Retrofited</span>
+        <span 
+          ion-text color="text-color"
+          ngClass="fs-rem-16 padding-top-5 input-label display-ib"
+          >
+          Retrofited
+        </span>
         <ion-list radio-group [(ngModel)]="retroFit">
           <ion-grid no-padding>
             <ion-row>
@@ -48,11 +63,15 @@
         </ion-list>
       </div>
 
+    </div>
+    <br/>
+    <div>
       <button 
         mode="ios" 
         color="loc-button"
         (click)="dismissPopover()"  
-        class="c-button no-bg" ion-button full>done</button>
+        class="c-button no-bg" ion-button full
+        >done
+      </button>
     </div>
-    <br/>
   </ion-content>

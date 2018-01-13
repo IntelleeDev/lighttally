@@ -75,7 +75,7 @@ constructor(
       existingBulb: bulbFixture ? bulbFixture: {} as Bulb,
       wrongBulb: formModel.wrongBulb,
       balastType: formModel.balastType,
-      numberOfBulbs: formModel.numberOfBulbs,
+      numberOfBulbs: formModel.numOfBulbs,
       numberOfFixtures: formModel.numOfFixtures
     }
     return fixture;
