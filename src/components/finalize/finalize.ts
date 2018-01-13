@@ -79,10 +79,20 @@ export class FinalizeComponent {
 
     });
 
+    batch.commit()
+         .then(() => {
+            this.createToast('Evaluation successful');
+            setTimeout(() => {
+              this.navCtrl.popToRoot();
+            }, 2000); 
+          })
+         .catch(error => {
+           this.createToast(error);
+         });
 
-    console.log(this.cache.getItem('location'))
-    console.log(this.cache.getItem('evaluation'));
-    // this.navCtrl.popToRoot();
+    // console.log(this.cache.getItem('location'))
+    // console.log(this.cache.getItem('evaluation'));
+    // // this.navCtrl.popToRoot();
   }
 
   private createModal(): Modal {

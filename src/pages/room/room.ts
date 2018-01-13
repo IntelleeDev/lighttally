@@ -37,10 +37,10 @@ export class RoomPage implements AfterViewInit {
     public navCtrl: NavController) { 
       // Use this id to create a relationship with the evaluation
       const locationId = this.navParams.get('locationId');
-      this.highlightActiveSegment();
   }
 
   ngAfterViewInit(): void {
+    this.segmentButtons.first.isActive = true;
     this.highlightActiveSegment();
   }
 
