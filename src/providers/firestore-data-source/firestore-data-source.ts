@@ -6,7 +6,9 @@ import { AngularFirestore } from 'angularfire2/firestore';
 
 @Injectable()
 export class FirestoreDataSourceProvider<T> implements DataSource<T> {
-  constructor(public fireStore: AngularFirestore) { }
+  constructor(public fireStore: AngularFirestore) {
+    this.fireStore.firestore
+  }
   
   find(collectionName, id: string): Observable<T> {
     return this.fireStore
@@ -33,4 +35,5 @@ export class FirestoreDataSourceProvider<T> implements DataSource<T> {
               .then(() => id)
               .catch(error => error);
   }
+
 }

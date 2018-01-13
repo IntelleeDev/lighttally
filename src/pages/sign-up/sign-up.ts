@@ -13,9 +13,6 @@ import { RegistrationProvider } from '../../providers/registration/registration'
 })
 export class SignUpPage {
 
-  errorBag: any;
-  validationErrors: any;
-
   isWaiting = false;
   signUpForm: FormGroup;  
 
@@ -29,20 +26,7 @@ export class SignUpPage {
       this.createForm();
       this.signUpForm
           .valueChanges
-          .subscribe(this.onValueChange.bind(this));
-
-      this.errorBag = {
-        email: '',
-        fullname: '',
-        password: '',
-        phoneNumber: '',
-      }
-      this.validationErrors = {
-        fullname: { required: 'Fullname is required' },
-        email: { required: 'Email is required', email: 'Please input a valid email address' },
-        password: { required: 'Password is required', minlength: 'Min length is 8 characters' },
-        phoneNumber: { required: 'Phonenumber is required', pattern:'Please input a valid phone number' }
-      } 
+          .subscribe(this.onValueChange.bind(this)); 
   }
 
   registerUser() {
@@ -63,23 +47,6 @@ export class SignUpPage {
 
   backToSignInPage() {
     this.navCtrl.popTo(SignInPage);
-  }
-
-  private onValueChange(value: any) {
-    if (!this.signUpForm) {
-      return;
-    }
-    const form = this.signUpForm;
-    for (const field in this.errorBag) {
-      this.errorBag[field] = '';
-      let control = form.get(field);
-      if (control && control.invalid && (control.dirty || control.untouched)) {
-        const messages = this.validationErrors[field];
-        for (const key in control.errors) {
-          this.errorBag[field] = messages[key];
-        }
-      }
-    }
   }
 
   private getData(): User {

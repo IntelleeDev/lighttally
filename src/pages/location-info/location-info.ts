@@ -122,7 +122,7 @@ export class LocationInfoPage {
 
   private presentLoader() {
     const loader = this.modalCtrl.create(LoadingDialogComponent, {
-      message: ''
+      message: 'Please wait'
     });
     loader.present();
     return loader;

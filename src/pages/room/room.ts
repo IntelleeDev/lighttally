@@ -31,7 +31,10 @@ export class RoomPage {
   constructor(
     public navParams: NavParams,
     private cache: CacheProvider,
-    public navCtrl: NavController) { }
+    public navCtrl: NavController) { 
+      // Use this id to create a relationship with the evaluation
+      const locationId = this.navParams.get('locationId');
+    }
 
   public goToSlide(index): void {
     this.showFinalizePage = false;
