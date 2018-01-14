@@ -53,7 +53,7 @@ export class FinalizeComponent {
                     .onDidDismiss(() => modal.dismiss());
               })
               .catch(error => {
-                this.createToast(error)
+                this.createToast(error + 'from file write')
                     .onDidDismiss(() => modal.dismiss());
               })
         })

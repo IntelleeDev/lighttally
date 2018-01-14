@@ -53,7 +53,7 @@ constructor(
   } 
 
   presentActionSheet() {
-    this.actionSheetCtrl.create({
+    const actionSheet = this.actionSheetCtrl.create({
       title: 'Select image source',
       buttons: [
         {
@@ -74,8 +74,9 @@ constructor(
         }
       ]
     });
+    actionSheet.present();
   }
-
+  
   private presentToast(message: string) {
     const toast = this.toastCtrl.create({
       message,
