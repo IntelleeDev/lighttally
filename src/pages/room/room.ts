@@ -5,19 +5,19 @@ import { Room } from '../../model/room';
 import { Fixture } from '../../model/fixture';
 import { Replacement } from '../../model/replacement';
 
+import { CacheProvider } from '../../providers/cache/cache';
+
 import { ReplacementComponent } from '../../components/replacement/replacement';
 import { GeneralInfoComponent } from '../../components/general-info/general-info';
 import { ExistingLightComponent } from '../../components/existing-light/existing-light';
 
-import { CacheProvider } from '../../providers/cache/cache';
 
 @IonicPage()
 @Component({
   selector: 'page-room',
   templateUrl: 'room.html',
 })
-export class RoomPage implements AfterViewInit {
-  
+export class RoomPage implements AfterViewInit { 
   @ViewChildren(SegmentButton) segmentButtons: QueryList<SegmentButton>;
 
   @ViewChild (Slides) slides: Slides;
@@ -41,7 +41,7 @@ export class RoomPage implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.segmentButtons.first.isActive = true;
-    this.highlightActiveSegment();
+    
   }
 
   highlightActiveSegment() {
@@ -100,9 +100,7 @@ export class RoomPage implements AfterViewInit {
       fixtures: this.fixtures,
       replacements: this.replacements
     });
-
     this.cache.addItem('evaluation', this.evaluationData);
-    console.log(this.cache.getItem('evaluation'));
   }
 
   public resetForms() {

@@ -18,7 +18,7 @@
     </ion-segment>
 
     <!-- View Pager Slides -->
-    <ion-slides>
+    <ion-slides (ionSlideDidChange)="highlightActiveSegment()">
       <ion-slide>
         <general-info></general-info>
 

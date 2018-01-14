@@ -10,6 +10,7 @@ import { LoadingDialogComponent } from '../../components/loading-dialog/loading-
 import { Contact } from '../../model/contact';
 import { Location } from '../../model/location';
 import { ENERGY_COMPANIES } from '../../data/constants';
+
 import { ContactRepository } from '../../repository/contact-repository';
 import { LocationRepository } from '../../repository/location-repository';
 
@@ -40,23 +41,23 @@ export class LocationInfoPage {
   submit() {
     const loader = this.presentLoader();
     
-    const data = this.getData();
-    const location = data[0];
-    const contact  = data[1];
+    // const data = this.getData();
+    // const location = data[0];
+    // const contact  = data[1];
 
-    this.locRepository
-        .storeWithContact(location, contact)
-        .then((locationId) => {
-          this.resetForm();
-          loader.dismiss();
-          this.toRoomPage({ locationId });          
-        })
-        .catch(error => loader.dismiss());
+    // this.locRepository
+    //     .storeWithContact(location, contact)
+    //     .then((locationId) => {
+    //       this.resetForm();
+    //       loader.dismiss();
+    //       this.toRoomPage({ locationId });          
+    //     })
+    //     .catch(error => loader.dismiss());
     
-    // setTimeout(() => {
-    //   loader.dismiss();
-    //   this.toRoomPage({});
-    // }, 3000);
+    setTimeout(() => {
+      loader.dismiss();
+      this.toRoomPage({});
+    }, 1000);
   }
 
   presentPopover() {
@@ -93,7 +94,7 @@ export class LocationInfoPage {
     };
 
     // Save data to cache
-    this.cache.addItem('location', { ...location, contact });
+    this.cache.addItem('location', { ...{location}, contact });
     this.cache.addItem('evaluation', []);
 
     return [location, contact];

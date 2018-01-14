@@ -1,11 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { 
-  Platform, 
-  NavController,
-  ToastController, 
-  Modal, ModalController } from 'ionic-angular';
-
-import { AngularFirestore } from 'angularfire2/firestore';
+import { Modal, NavController, ToastController, ModalController } from 'ionic-angular';
 
 import { Room } from '../../model/room';
 import { Fixture } from '../../model/fixture';
@@ -23,7 +17,8 @@ import { LoadingDialogComponent } from '../loading-dialog/loading-dialog';
 
 @Component({
   selector: 'finalize',
-  templateUrl: 'finalize.html'
+  templateUrl: 'finalize.html',
+  providers: [ FirestoreBatchProcessor ]
 })
 export class FinalizeComponent {
   @Input() public toSlide;
@@ -31,12 +26,10 @@ export class FinalizeComponent {
 
   constructor(
     private pdf: PdfProvider,
-    private platform: Platform,
     private cache: CacheProvider,
     private navCtrl: NavController,
     private toastCtrl: ToastController,
     private modalCtrl: ModalController,
-    private angularFirestore: AngularFirestore,
     private batchProcessor: FirestoreBatchProcessor) { }
     
 
@@ -51,9 +44,10 @@ export class FinalizeComponent {
       this.navCtrl.popTo(DashboardPage);
     });
 
+    const location = this.cache.getItem('location');
     const evaluations = this.cache.getItem('evaluation');
     this.batchProcessor
-        .process(evaluations)
+        .process<any>({ location: location.location, contact: location.contact, evaluations })
         .then(() => {
           this.createToast('Evaluation successful');
           
