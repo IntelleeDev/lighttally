@@ -1,12 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Modal, NavController, ToastController, ModalController } from 'ionic-angular';
 
-import { Room } from '../../model/room';
-import { Fixture } from '../../model/fixture';
-import { Location } from '../../model/location';
-import { Evaluation } from '../../model/evaluation';
-import { Replacement } from '../../model/replacement';
-
 import { PdfProvider } from '../../providers/pdf/pdf';
 import { CacheProvider } from '../../providers/cache/cache';
 import { FirestoreBatchProcessor } from '../../data/processor/firestore-batch-processor';
@@ -44,10 +38,11 @@ export class FinalizeComponent {
       this.navCtrl.popTo(DashboardPage);
     });
 
+    const user = this.cache.getItem('user');  // The evaluator
     const location = this.cache.getItem('location');
     const evaluations = this.cache.getItem('evaluation');
     this.batchProcessor
-        .process<any>({ location: location.location, contact: location.contact, evaluations })
+        .process<any>({ user, location: location.location, contact: location.contact, evaluations })
         .then(() => {
           this.createToast('Evaluation successful');
           

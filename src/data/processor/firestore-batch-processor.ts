@@ -26,7 +26,7 @@ export class FirestoreBatchProcessor implements BatchProcessor {
     // Contact Data
     const contId = this.firestore.createId();
     const contRef = firestore.collection('contacts').doc(contId);
-    batch.set(contRef, { id: contId, ...content.contact });
+    batch.set(contRef, { id: contId, locationId: locId, ...content.contact });
 
     // Evaluation Data
     const evalId = this.firestore.createId();
@@ -34,7 +34,7 @@ export class FirestoreBatchProcessor implements BatchProcessor {
     const evaluation: Evaluation = {
       timestamp: new Date(),
       locationId: locId,
-      userId: '',
+      userId: content.user.id,
       id: evalId
     };
     batch.set(evalRef, evaluation);

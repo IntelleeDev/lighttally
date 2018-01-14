@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AuthProvider } from '../providers/auth/auth';
+import { CacheProvider } from '../providers/cache/cache';
 
 import { HomePage } from '../pages/home/home';
 import { SignInPage } from '../pages/sign-in/sign-in';
@@ -22,7 +23,8 @@ export class MyApp {
     public platform: Platform, 
     public statusBar: StatusBar, 
     public splashScreen: SplashScreen,
-    private authProvider: AuthProvider) {
+    private authProvider: AuthProvider,
+    private cacheProvider: CacheProvider) {
 
     this.initializeApp();    
   }
@@ -35,6 +37,7 @@ export class MyApp {
           .getAuthenticatedUser()
           .then(user => {
             if (user != null) {
+              this.cacheProvider.addItem('user', user);
               this.nav.push(HomePage, {});
             }
           })

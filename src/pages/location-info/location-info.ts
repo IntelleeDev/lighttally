@@ -41,7 +41,7 @@ export class LocationInfoPage {
   submit() {
     const loader = this.presentLoader();
     
-    // const data = this.getData();
+    const data = this.getData();
     // const location = data[0];
     // const contact  = data[1];
 
@@ -56,6 +56,7 @@ export class LocationInfoPage {
     
     setTimeout(() => {
       loader.dismiss();
+      this.resetForm();
       this.toRoomPage({});
     }, 1000);
   }
