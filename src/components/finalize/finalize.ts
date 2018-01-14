@@ -34,10 +34,7 @@ export class FinalizeComponent {
 
   finishEvaluation() {
     const modal = this.createModal();
-    modal.onDidDismiss(() => {
-      this.navCtrl.popAll();
-    });
-
+    
     const user = this.cache.getItem('user');  // The evaluator
     const location = this.cache.getItem('location');
     const evaluations = this.cache.getItem('evaluation');
@@ -57,7 +54,7 @@ export class FinalizeComponent {
                     .onDidDismiss(() => modal.dismiss());
               })
         })
-        .catch(error => this.createToast('error'));
+        .catch(error => this.createToast(error));
   }
 
   private createModal(): Modal {

@@ -36,11 +36,11 @@ export class PdfProvider {
         this.pdfObject.getBuffer(buffer => {
           this.makeToast('Making PDF');
           let blob = new Blob([buffer], { type: 'application/pdf' });
-          return this.file.writeFile(this.file.dataDirectory, 'eval.pdf', blob, { replace: true });
-              // .then(fileEntry => {
-              //   this.fileOpener.open(this.file.dataDirectory + 'eval.pdf', 'application/pdf');
-              // })
-              // .catch(error => this.makeToast(error));
+          return this.file.writeFile(this.file.dataDirectory, 'eval.pdf', blob, { replace: true })
+              .then(fileEntry => {
+                this.fileOpener.open(this.file.dataDirectory + 'eval.pdf', 'application/pdf');
+              })
+              .catch(error => this.makeToast(error));
         })
       });
     } else {
