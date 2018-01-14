@@ -47,7 +47,7 @@ constructor(
           // If it's base64:
           this.fixtureImage = 'data:image/jpeg;base64,' + imageData;
          }, (error) => {
-            this.presentToast(error + ' hello');
+            this.presentToast(error);
          });
       });
     }
