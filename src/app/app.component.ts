@@ -32,17 +32,7 @@ export class MyApp {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-
-      this.authProvider
-          .getAuthenticatedUser()
-          .then(user => {
-            if (user != null) {
-              this.cacheProvider.addItem('user', user);
-              this.nav.push(HomePage, {});
-              this.splashScreen.hide();
-            }
-          })
-          .catch(error => { console.log(error) })
+      this.splashScreen.hide();
     });
   }
 }
