@@ -35,7 +35,7 @@ export class FinalizeComponent {
   finishEvaluation() {
     const modal = this.createModal();
     modal.onDidDismiss(() => {
-      this.navCtrl.popTo(DashboardPage);
+      this.navCtrl.popAll();
     });
 
     const user = this.cache.getItem('user');  // The evaluator
@@ -44,12 +44,10 @@ export class FinalizeComponent {
     this.batchProcessor
         .process<any>({ user, location: location.location, contact: location.contact, evaluations })
         .then(() => {
-          this.createToast('Evaluation successful');
+          this.createToast('Saved evaluation successfully');
           
           this.createPdf();
-          this.createToast('Making PDF');
-
-          this.downloadPdf()
+          this.savePdf()
               .then(() => {
                 this.createToast('Finished generating files')
                     .onDidDismiss(() => modal.dismiss());
@@ -84,8 +82,8 @@ export class FinalizeComponent {
     this.pdf.create({ location: location.location });    
   }
 
-  private downloadPdf(): Promise<any> {
-    return this.pdf.download();
+  private savePdf(): Promise<any> {
+    return this.pdf.save();
   }
 
 }
