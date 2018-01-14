@@ -9,12 +9,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class MyProfilePage {
 
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams) {
-  }
+    public navParams: NavParams,
+    public navCtrl: NavController) { }
 
-  ionViewDidLoad() {
-    
-  }
 
 }

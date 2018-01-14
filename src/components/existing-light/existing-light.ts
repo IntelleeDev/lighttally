@@ -32,7 +32,7 @@ export class ExistingLightComponent {
   }
 
 constructor(
-  private camera: Camera,
+  public camera: Camera,
   private platform:Platform,
   private formBuilder: FormBuilder,
   private toastCtrl: ToastController) {
@@ -47,7 +47,7 @@ constructor(
           // If it's base64:
           this.fixtureImage = 'data:image/jpeg;base64,' + imageData;
          }, (error) => {
-            this.presentToast(error + ' hellow');
+            this.presentToast(error + ' hello');
          });
       });
     }
