@@ -80,8 +80,8 @@ export class FinalizeComponent {
   }
 
   private createPdf() {
-    const location: Location = this.cache.getItem('location');
-    this.pdf.create({ location: location });    
+    const location = this.cache.getItem('location');
+    this.pdf.create({ location: location.location });    
   }
 
   private downloadPdf(): Promise<any> {
