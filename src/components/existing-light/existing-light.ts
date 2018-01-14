@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Platform, ToastController } from 'ionic-angular';
+import { Platform, ActionSheetController, ToastController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { Bulb } from '../../model/bulb';
@@ -25,24 +25,23 @@ export class ExistingLightComponent {
   balastTypes: Array<string> = BALLAST_TYPES;
 
   readonly options: CameraOptions = {
-    quality: 100,
-    destinationType: this.camera.DestinationType.DATA_URL,
-    encodingType: this.camera.EncodingType.JPEG,
-    mediaType: this.camera.MediaType.PICTURE
+    quality: 70,
+    destinationType: this.camera.DestinationType.DATA_URL
   }
 
 constructor(
   public camera: Camera,
   private platform:Platform,
   private formBuilder: FormBuilder,
-  private toastCtrl: ToastController) {
+  private toastCtrl: ToastController,
+  private actionSheetCtrl: ActionSheetController) {
     this.createForm();
-  }
+}
 
-  takeSnapShot() {
+  private takeSnapShot(sourceType: any) {
     if (this.platform.is('cordova')) {
       this.platform.ready().then(() => {
-        this.camera.getPicture(this.options).then((imageData) => {
+        this.camera.getPicture({ ...this.options, sourceType }).then((imageData) => {
           // imageData is either a base64 encoded string or a file URI
           // If it's base64:
           this.fixtureImage = 'data:image/jpeg;base64,' + imageData;
@@ -52,6 +51,30 @@ constructor(
       });
     }
   } 
+
+  presentActionSheet() {
+    this.actionSheetCtrl.create({
+      title: 'Select image source',
+      buttons: [
+        {
+          text: 'Load from Library',
+          handler: () => { 
+            this.takeSnapShot(this.camera.PictureSourceType.PHOTOLIBRARY)
+          }
+        },
+        { 
+          text: 'Use Camera',
+          handler: () => {
+            this.takeSnapShot(this.camera.PictureSourceType.CAMERA);
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        }
+      ]
+    });
+  }
 
   private presentToast(message: string) {
     const toast = this.toastCtrl.create({
