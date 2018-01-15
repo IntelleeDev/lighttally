@@ -8,11 +8,20 @@ export class BasicDocumentPrinter implements PrettyPrinter {
     const content = [];
     const docData = data as any;
 
+    // Page Header
+
+
     content.push({ text: `Evaluation for ${docData.location.businessName}`})
     content.push({ text: 'Location Data'});
     content.push({ text: ''})
 
-    return { content } as any ;
+    const styles = {
+      header: {
+        bold: true,
+        fontSize: 22,
+      }
+    }
+    return { content, styles } as any ;
   }
 
 }
