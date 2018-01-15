@@ -7,6 +7,8 @@ import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
+import { BasicDocumentPrinter } from './doc-printer/basic-document-printer';
+
 @Injectable()
 export class PdfProvider {
   private pdfObject;
@@ -15,10 +17,11 @@ export class PdfProvider {
     private file: File,
     private platform: Platform,
     private fileOpener: FileOpener,
-    private toastCtrl: ToastController) { }
+    private toastCtrl: ToastController,
+    private docPrinter: BasicDocumentPrinter) { }
 
   create(data: any) {
-    const docDef   = this.makeDocDefinition(data);
+    const docDef   = this.docPrinter.print<any>(data);
     this.pdfObject = pdfMake.createPdf(docDef);
   }
 
