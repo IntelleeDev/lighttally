@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Platform, ActionSheetController, ToastController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Platform, ActionSheetController, ToastController } from 'ionic-angular';
 
 import { Bulb } from '../../model/bulb';
 import { Fixture } from '../../model/fixture';
