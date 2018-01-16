@@ -47,7 +47,10 @@ export class FinalizeComponent {
           this.savePdf()
               .then(() => {
                 this.createToast('Finished generating files')
-                    .onDidDismiss(() => modal.dismiss());
+                    .onDidDismiss(() => {
+                      modal.onDidDismiss(() => this.navCtrl.popAll())
+                      modal.dismiss();
+                    });
               })
               .catch(error => {
                 this.createToast(error + 'from file write')

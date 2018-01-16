@@ -35,13 +35,13 @@ export class PdfProvider {
 
   save(): Promise<any> {
     if (this.isRunningOnMobileDevice()) {
-      this.platform.ready().then(() => {
+      return this.platform.ready().then(() => {
         this.pdfObject.getBuffer(buffer => {
-          // this.makeToast('Making PDF');
+          this.makeToast('Making PDF');
           let blob = new Blob([buffer], { type: 'application/pdf' });
           return this.file.writeFile(this.file.dataDirectory, 'eval.pdf', blob, { replace: true })
               .then(fileEntry => {
-                // this.fileOpener.open(this.file.dataDirectory + 'eval.pdf', 'application/pdf');
+                this.fileOpener.open(this.file.dataDirectory + 'eval.pdf', 'application/pdf');
               })
               .catch(error => this.makeToast(error));
         })
