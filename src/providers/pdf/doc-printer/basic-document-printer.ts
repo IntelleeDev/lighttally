@@ -9,8 +9,20 @@ export class BasicDocumentPrinter implements PrettyPrinter {
     const docData = data as any;
 
     // Page Header
+    content.push({ text: 'Light Tally', style: 'header' });
 
-
+    content.push({ text: 'Location Details', bold: true });
+    content.push({
+      table: {
+        width: [ 'auto', 'auto', 'auto', 'auto', 'auto', 'auto', 'auto' ],
+        body: [
+          [
+            { text: 'Location', style: 'tableHeader', alignment: 'center', colSpan: 6 },
+           {}, {}, {}, {}, {}, {}
+          ]
+        ]
+      }
+    });
     content.push({ text: `Evaluation for ${docData.location.businessName}`})
     content.push({ text: 'Location Data'});
     content.push({ text: ''})
@@ -19,6 +31,12 @@ export class BasicDocumentPrinter implements PrettyPrinter {
       header: {
         bold: true,
         fontSize: 22,
+        align: ''
+      },
+      tableHeader: {
+        bold: true,
+        fontSize: 14,
+        color: 'black'
       }
     }
     return { content, styles } as any ;
