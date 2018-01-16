@@ -34,7 +34,6 @@ export class FirestoreBatchProcessor implements BatchProcessor {
     const evaluation: Evaluation = {
       timestamp: new Date(),
       locationId: locId,
-      userId: content.user.id,
       id: evalId
     };
     batch.set(evalRef, evaluation);
