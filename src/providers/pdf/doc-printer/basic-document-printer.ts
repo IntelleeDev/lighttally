@@ -31,7 +31,7 @@ export class BasicDocumentPrinter implements PrettyPrinter {
       header: {
         bold: true,
         fontSize: 22,
-        align: ''
+        alignment: 'center'
       },
       tableHeader: {
         bold: true,

@@ -58,6 +58,7 @@ export class FinalizeComponent {
     //           })
     //     })
     //     .catch(error => this.createToast(error));
+    this.createPdf();
     this.savePdf()
     .then(() => {
       this.createToast('Finished generating files')
