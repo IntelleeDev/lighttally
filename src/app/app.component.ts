@@ -39,6 +39,7 @@ export class MyApp {
         .getAuthenticatedUser()
         .then(user => {
           if (user != null) {
+            this.cacheProvider.addItem('user', user);
             this.nav.push(HomePage);
           }
         })
