@@ -8,6 +8,8 @@ export class BasicDocumentPrinter implements PrettyPrinter {
     const content = [];
     const docData = data as any;
 
+    console.log(docData);
+
     // Page Header
     content.push({ text: 'Light Tally', style: 'header' });
 
@@ -15,7 +17,7 @@ export class BasicDocumentPrinter implements PrettyPrinter {
     content.push({
       table: {
         headerRows: 2,
-        width: [ 'auto', 50, '*', '*', '*', '*', '*' ],
+        width: [ 'auto', '*', '*', '*', '*', '*', '*' ],
         body: [
           [
             { text: 'Location', style: 'tableHeader', alignment: 'center', colSpan: 7 },
@@ -49,9 +51,9 @@ export class BasicDocumentPrinter implements PrettyPrinter {
             { text: 'Phonenumber', style: 'tableHeader', alignment: 'center' },
           ],
           [
-            `${docData.contact.name}`,
-            `${docData.contact.email}`,
-            `${docData.contact.phoneNumber}`,
+            `${docData.location.contact.name}`,
+            `${docData.location.contact.email}`,
+            `${docData.location.contact.phoneNumber}`,
           ]
         ]
       }
