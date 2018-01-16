@@ -38,26 +38,38 @@ export class FinalizeComponent {
     const user = this.cache.getItem('user');  // The evaluator
     const location = this.cache.getItem('location');
     const evaluations = this.cache.getItem('evaluation');
-    this.batchProcessor
-        .process<any>({ user, location: location.location, contact: location.contact, evaluations })
-        .then(() => {
-          this.createToast('Saved evaluation successfully');
+    // this.batchProcessor
+    //     .process<any>({ user, location: location.location, contact: location.contact, evaluations })
+    //     .then(() => {
+    //       this.createToast('Saved evaluation successfully');
           
-          this.createPdf();
-          this.savePdf()
-              .then(() => {
-                this.createToast('Finished generating files')
-                    .onDidDismiss(() => {
-                      modal.onDidDismiss(() => this.navCtrl.popAll())
-                      modal.dismiss();
-                    });
-              })
-              .catch(error => {
-                this.createToast(error + 'from file write')
-                    .onDidDismiss(() => modal.dismiss());
-              })
-        })
-        .catch(error => this.createToast(error));
+    //       this.createPdf();
+    //       this.savePdf()
+    //           .then(() => {
+    //             this.createToast('Finished generating files')
+    //                 .onDidDismiss(() => {
+    //                   modal.onDidDismiss(() => this.navCtrl.popAll())
+    //                   modal.dismiss();
+    //                 });
+    //           })
+    //           .catch(error => {
+    //             this.createToast(error + 'from file write')
+    //                 .onDidDismiss(() => modal.dismiss());
+    //           })
+    //     })
+    //     .catch(error => this.createToast(error));
+    this.savePdf()
+    .then(() => {
+      this.createToast('Finished generating files')
+          .onDidDismiss(() => {
+            modal.onDidDismiss(() => this.navCtrl.popAll())
+            modal.dismiss();
+          });
+    })
+    .catch(error => {
+      this.createToast(error + 'from file write')
+          .onDidDismiss(() => modal.dismiss());
+    })
   }
 
   private createModal(): Modal {
