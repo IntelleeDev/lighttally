@@ -92,7 +92,7 @@ export class FinalizeComponent {
 
   private createPdf() {
     const location = this.cache.getItem('location');
-    this.pdf.create({ location: location.location });    
+    this.pdf.create({ location: location.location, contact: location.contact });    
   }
 
   private savePdf(): Promise<any> {

@@ -50,11 +50,7 @@ export class BasicDocumentPrinter implements PrettyPrinter {
             { text: 'Email', style: 'tableHeader', alignment: 'center' },
             { text: 'Phonenumber', style: 'tableHeader', alignment: 'center' },
           ],
-          [
-            `${docData.location.contact.name}`,
-            `${docData.location.contact.email}`,
-            `${docData.location.contact.phoneNumber}`,
-          ]
+          
         ]
       }
     });
