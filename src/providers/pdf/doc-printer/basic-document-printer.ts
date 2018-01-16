@@ -65,6 +65,35 @@ export class BasicDocumentPrinter implements PrettyPrinter {
       }
     });
 
+    // Evaluation Details
+    const firstRoom = docData.evaluations[0];
+    content.push({ text: 'Evaluation Details', bold: true, color: 'black', margin: [0, 10, 0, 5] });
+    content.push({
+      table: {
+        headerRows: 1,
+        width: [ 200, '*', 'auto', '*', '*', '*', 'auto' ],
+        body: [
+          [
+            { text: 'Room', style: 'tableHeader', colSpan: 7 },
+           {}, {}, {}, {}, {}, {}
+          ],
+          [
+            { text: 'Name', colSpan: 2}, {},
+            { text: `${firstRoom.name}`, colSpan:5 }, {}, {}, {}, {}       
+          ],
+          [
+            { text: 'Fixture', style: 'tableHeader', colSpan: 7 },
+           {}, {}, {}, {}, {}, {}
+          ],
+          [
+            { text: 'Replacement', style: 'tableHeader', colSpan: 7 },
+           {}, {}, {}, {}, {}, {}
+          ]
+        ]
+      }
+    });
+
+
     const styles = {
       header: {
         bold: true,
