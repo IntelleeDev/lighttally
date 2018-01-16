@@ -38,6 +38,20 @@ export class BasicDocumentPrinter implements PrettyPrinter {
             `${docData.location.khwFiled}`,
             `${docData.location.squareFootage}`,
             `${docData.location.workingHours}`,
+          ],
+          [
+            { text: 'Contact', style: 'tableHeader', alignment: 'center', colSpan: 7 },
+            {}, {}, {}, {}, {}, {}
+          ],
+          [
+            { text: 'Name', style: 'tableHeader', alignment: 'center' },
+            { text: 'Email', style: 'tableHeader', alignment: 'center' },
+            { text: 'Phonenumber', style: 'tableHeader', alignment: 'center' },
+          ],
+          [
+            `${docData.contact.name}`,
+            `${docData.contact.email}`,
+            `${docData.contact.phoneNumber}`,
           ]
         ]
       }
