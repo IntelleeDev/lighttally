@@ -13,7 +13,8 @@ export class BasicDocumentPrinter implements PrettyPrinter {
     // Page Header
     content.push({ text: 'Light Tally', style: 'header' });
 
-    content.push({ text: 'Location Details', bold: true });
+    // Location and Contact Data
+    content.push({ text: 'Location Details', bold: true, color: 'black', margin: [0, 5, 0, 5] });
     content.push({
       table: {
         headerRows: 2,
@@ -41,15 +42,24 @@ export class BasicDocumentPrinter implements PrettyPrinter {
             `${docData.location.squareFootage}`,
             `${docData.location.workingHours}`,
           ],
+
           [
             { text: 'Contact', style: 'tableHeader', alignment: 'center', colSpan: 7 },
             {}, {}, {}, {}, {}, {}
           ],
           [
-            { text: 'Name', style: 'tableHeader', alignment: 'center' },
-            { text: 'Email', style: 'tableHeader', alignment: 'center' },
-            { text: 'Phonenumber', style: 'tableHeader', alignment: 'center' },
+            { text: 'Name', style: 'tableHeader', alignment: 'center', colSpan: 2 },
+            {},
+            { text: 'Email', style: 'tableHeader', alignment: 'center', colSpan: 3 },
+            {}, {},
+            { text: 'Phonenumber', style: 'tableHeader', alignment: 'center', colSpan: 2 },
+            {}
           ],
+          [
+            { text: `${docData.contact.name}`, colSpan:2 }, {},
+            { text: `${docData.contact.email}`, colSpan: 3}, {},{},
+            { text: `${docData.contact.phoneNumber}`, colSpan: 2 }, {}
+          ]
           
         ]
       }
@@ -65,9 +75,6 @@ export class BasicDocumentPrinter implements PrettyPrinter {
         bold: true,
         fontSize: 13,
         color: 'black'
-      },
-      tableContent: {
-        fontSize: 13
       }
     }
     return { content, styles } as any ;
