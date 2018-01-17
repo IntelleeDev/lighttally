@@ -62,19 +62,6 @@ export class FinalizeComponent {
               })
         })
         .catch(error => this.createToast(error));
-    // this.createPdf();
-    // this.savePdf()
-    // .then(() => {
-    //   this.createToast('Finished generating files')
-    //       .onDidDismiss(() => {
-    //         modal.onDidDismiss(() => this.navCtrl.popToRoot())
-    //         modal.dismiss();
-    //       });
-    // })
-    // .catch(error => {
-    //   this.createToast(error + 'from file write')
-    //       .onDidDismiss(() => modal.dismiss());
-    // })
   }
 
   private createModal(): Modal {
