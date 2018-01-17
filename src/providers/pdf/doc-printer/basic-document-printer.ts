@@ -71,63 +71,10 @@ export class BasicDocumentPrinter implements PrettyPrinter {
     content.push({
       table: {
         headerRows: 1,
-        widths: [ '200', '*', '*', '*', '*', '*', '*' ],
-        body: [
-          [
-            { text: 'Room', style: 'tableHeader', colSpan: 7 },
-            {}, {}, {}, {}, {}, {}
-          ],
-          [
-            { text: 'Name', colSpan: 2 }, {},
-            { text: `${firstRoom.room.name}`, colSpan:5 }, {}, {}, {}, {}       
-          ],
-          [
-            { text: 'Lift', colSpan: 2 }, {},
-            { text: `${firstRoom.room.lift}`, colSpan: 5 }, {}, {}, {}, {}       
-          ],
-          [
-            { text: 'Height to Fixtures', colSpan: 2 }, {},
-            { text: `${firstRoom.room.heightToFixtures}`, colSpan:5 }, {}, {}, {}, {}       
-          ],
-          [
-            { text: 'Light Occupied Hours', colSpan: 2 }, {},
-            { text: `${firstRoom.room.lightOccupiedHours}`, colSpan:5 }, {}, {}, {}, {}       
-          ],
-
-          [
-            { text: 'Fixture', style: 'tableHeader',  colSpan: 7 },
-           {}, {}, {}, {}, {}, {}
-          ],
-          [
-            { text: 'Number of Fixtures', colSpan: 2 }, {},
-            { text: `${firstRoom.fixtures[0].numberOfFixtures}`, colSpan:5 }, {}, {}, {}, {}       
-          ],
-          [
-            { text: 'Balast Type', colSpan: 2 }, {},
-            { text: `${firstRoom.fixtures[0].balastType}`, colSpan:5 }, {}, {}, {}, {}       
-          ],
-          [
-            { text: 'Number of Bulbs', colSpan: 2 }, {},
-            { text: `${firstRoom.fixtures[0].numberOfBulbs}`, colSpan:5 }, {}, {}, {}, {}       
-          ],
-          [
-            { text: 'Existing Bulb', style: 'tableHeader', alignment: 'center', colSpan: 7 },
-            {}, {}, {}, {}, {}, {}
-          ],
-          
-          [
-            { text: 'Wrong Bulb', colSpan: 2 }, {},
-            { text: `${firstRoom.fixtures[0].wrongBulb}`, colSpan:5 }, {}, {}, {}, {}       
-          ],
-
-          [
-            { text: 'Replacement', style: 'tableHeader', colSpan: 7 },
-           {}, {}, {}, {}, {}, {}
-          ]
-        ]
+        widths: [ 100, '*', '*', '*', '*', '*', '*' ],
+        body:  this.buildRoomTable(docData.evaluations)
       }
     });
-
 
     const styles = {
       header: {
@@ -144,4 +91,29 @@ export class BasicDocumentPrinter implements PrettyPrinter {
     return { content, styles } as any ;
   }
 
+  private buildRoomTable(roomData: Array<any>): any {
+    let row = [];
+    return roomData.map(room => {
+      row.push(this.buildTableHeader('Room'));
+      row.push(this.buildAttribute('Name', room.name));
+      row.push(this.buildAttribute('Lift', room.lift));
+      row.push(this.buildAttribute('Height to Fixtures', room.heightToFixtures));
+      row.push(this.buildAttribute('Light Occupied Hours', room.lightOccupiedHours));
+      return row;
+    });
+  }
+
+  private buildTableHeader(title: string): any {
+    return [
+      { text: title, style: 'tableHeader', colSpan: 7 },
+      {},{},{},{},{},{}
+    ]
+  } 
+
+  private buildAttribute(title: string, value: any): any {
+    return [
+      { text: title, colSpan: 2 }, {},
+      { text: value, colSpan: 5 }, {}, {}, {}, {}
+    ]
+  }
 }

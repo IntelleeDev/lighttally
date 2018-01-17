@@ -130,3 +130,47 @@
   };
   firebase.initializeApp(config);
 </script>
+
+
+
+[
+            { text: 'Fixture', style: 'tableHeader',  colSpan: 7 },
+           {}, {}, {}, {}, {}, {}
+          ],
+          [
+            { text: 'Number of Fixtures', colSpan: 2 }, {},
+            { text: `${firstRoom.fixtures[0].numberOfFixtures}`, colSpan:5 }, {}, {}, {}, {}       
+          ],
+          [
+            { text: 'Balast Type', colSpan: 2 }, {},
+            { text: `${firstRoom.fixtures[0].balastType}`, colSpan:5 }, {}, {}, {}, {}       
+          ],
+          [
+            { text: 'Number of Bulbs', colSpan: 2 }, {},
+            { text: `${firstRoom.fixtures[0].numberOfBulbs}`, colSpan:5 }, {}, {}, {}, {}       
+          ],
+          [
+            { text: 'Existing Bulb', bold: true, fontSize: 12,  colSpan: 7 },
+            {}, {}, {}, {}, {}, {}
+          ],
+          [
+            { text: 'Name', colSpan: 2 }, {},
+            { text: `${firstRoom.fixtures[0].numberOfFixtures}`, colSpan:5 }, {}, {}, {}, {}
+          ],
+          [
+            { text: 'Type', colSpan: 2 }, {},
+            { text: `${firstRoom.fixtures[0].numberOfFixtures}`, colSpan:5 }, {}, {}, {}, {}
+          ],
+          [
+            { text: 'Wattage', colSpan: 2 }, {},
+            { text: `${firstRoom.fixtures[0].numberOfFixtures}`, colSpan:5 }, {}, {}, {}, {}
+          ],
+          [
+            { text: 'Wrong Bulb', colSpan: 2 }, {},
+            { text: `${firstRoom.fixtures[0].wrongBulb}`, colSpan:5 }, {}, {}, {}, {}       
+          ],
+
+          [
+            { text: 'Replacement', style: 'tableHeader', colSpan: 7 },
+           {}, {}, {}, {}, {}, {}
+          ]
