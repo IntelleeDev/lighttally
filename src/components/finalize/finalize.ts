@@ -47,14 +47,14 @@ export class FinalizeComponent {
           
           this.createPdf();
           this.savePdf()
-              .then(() => {
+              .then((file) => {
                 this.createToast('Finished generating files')
                     .onDidDismiss(() => {
+                      this.navCtrl.popToRoot();
                       modal.onDidDismiss(() => { 
-                        this.email.send({})
-                            .then(() => {
-                              this.navCtrl.popToRoot();
-                            })
+                        this.email.send({
+                          attachments: [ file ]
+                        })
                       })
                       modal.dismiss();
                     });

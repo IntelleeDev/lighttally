@@ -42,6 +42,7 @@ export class PdfProvider {
           return this.file.writeFile(this.file.dataDirectory, 'eval.pdf', blob, { replace: true })
               .then(fileEntry => {
                 this.fileOpener.open(this.file.dataDirectory + 'eval.pdf', 'application/pdf');
+                return `${this.file.dataDirectory}eval.pdf`;
               })
               .catch(error => this.makeToast(error));
         })
