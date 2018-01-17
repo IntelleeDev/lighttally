@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Modal, NavController, ToastController, ModalController } from 'ionic-angular';
 
 import { PdfProvider } from '../../providers/pdf/pdf';
+import { EmailProvider } from '../../providers/email/email';
 import { CacheProvider } from '../../providers/cache/cache';
 import { FirestoreBatchProcessor } from '../../data/processor/firestore-batch-processor';
 
@@ -12,7 +13,7 @@ import { LoadingDialogComponent } from '../loading-dialog/loading-dialog';
 @Component({
   selector: 'finalize',
   templateUrl: 'finalize.html',
-  providers: [ FirestoreBatchProcessor ]
+  providers: [ FirestoreBatchProcessor, EmailProvider ]
 })
 export class FinalizeComponent {
   @Input() public toSlide;
@@ -20,6 +21,7 @@ export class FinalizeComponent {
 
   constructor(
     private pdf: PdfProvider,
+    private email: EmailProvider,
     private cache: CacheProvider,
     private navCtrl: NavController,
     private toastCtrl: ToastController,
@@ -48,7 +50,7 @@ export class FinalizeComponent {
     //           .then(() => {
     //             this.createToast('Finished generating files')
     //                 .onDidDismiss(() => {
-    //                   modal.onDidDismiss(() => this.navCtrl.popAll())
+    //                   modal.onDidDismiss(() => this.navCtrl.popToRoot())
     //                   modal.dismiss();
     //                 });
     //           })

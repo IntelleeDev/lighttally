@@ -31,22 +31,22 @@ export class SignInPage {
   authenticateUser() {
     this.showSpinner();
 
-    // this.authProvider
-    //     .authenticateUser(this.getData())
-    //     .subscribe(authenticated => {
-    //       if (authenticated) {
-    //         this.hideSpinner();
-    //         this.signInForm.reset();
-    //         this.toHomePage();
-    //         this.errorMessage = "";          
-    //       } else {
-    //         this.hideSpinner();
-    //         this.errorMessage = 'Invalid username or password';
-    //       }
-    //     });
-    this.signInForm.reset();
-    this.hideSpinner();
-    this.toHomePage();
+    this.authProvider
+        .authenticateUser(this.getData())
+        .subscribe(authenticated => {
+          if (authenticated) {
+            this.hideSpinner();
+            this.signInForm.reset();
+            this.toHomePage();
+            this.errorMessage = "";          
+          } else {
+            this.hideSpinner();
+            this.errorMessage = 'Invalid username or password';
+          }
+        });
+    // this.signInForm.reset();
+    // this.hideSpinner();
+    // this.toHomePage();
   }
 
   toHomePage(): void {

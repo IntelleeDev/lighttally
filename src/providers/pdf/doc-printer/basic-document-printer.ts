@@ -100,11 +100,9 @@ export class BasicDocumentPrinter implements PrettyPrinter {
       row.push(this.buildAttribute('Height to Fixtures', room.room.heightToFixtures));
       row.push(this.buildAttribute('Light Occupied Hours', room.room.lightOccupiedHours));
       
-      row.push(this.buildTwoColumnSubHeaders('Fixture', 'Replacement'));
-      
-      row.push(
-        this.buildThreeColSubAttribute('Name', '').concat(this.buildFourColSubAttribute('Name', ''))
-      );
+      row.push(this.buildTableHeader('Fixtures'));
+
+      row.push(this.buildTableHeader('Replacement'));
       
       row.push(this.addTableBreak()); 
       
@@ -146,7 +144,7 @@ export class BasicDocumentPrinter implements PrettyPrinter {
   private buildThreeColSubAttribute(title: string, value: any): any {
     return [
       { text: title, colSpan: 2 }, {},
-      { text: value },
+      { text: value }
     ];
   }
 
