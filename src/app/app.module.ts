@@ -14,10 +14,10 @@ import { MyProfilePage } from '../pages/my-profile/my-profile';
 import { LocationInfoPage } from '../pages/location-info/location-info';
 
 import { File } from '@ionic-native/file';
-import { FileOpener } from '@ionic-native/file-opener';
-
 import { Camera } from '@ionic-native/camera';
 import { StatusBar } from '@ionic-native/status-bar';
+import { FileOpener } from '@ionic-native/file-opener';
+import { EmailComposer } from '@ionic-native/email-composer';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LightComponent } from '../components/light/light';
@@ -103,13 +103,14 @@ import { BasicDocumentPrinter } from '../providers/pdf/doc-printer/basic-documen
     Camera,
     StatusBar,
     SplashScreen,
+    EmailComposer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     UserRepository,
     RegistrationProvider,
     FirestoreDataSourceProvider,
-    CacheProvider,
     PdfProvider,
+    CacheProvider,
     EmailProvider,
     PreferenceProvider,
     BasicDocumentPrinter
