@@ -93,14 +93,14 @@ export class BasicDocumentPrinter implements PrettyPrinter {
 
   private buildRoomTable(roomData: Array<any>): any {
     let row = [];
-    return roomData.map(room => {
+    roomData.forEach(room => {
       row.push(this.buildTableHeader('Room'));
       row.push(this.buildAttribute('Name', room.name));
       row.push(this.buildAttribute('Lift', room.lift));
       row.push(this.buildAttribute('Height to Fixtures', room.heightToFixtures));
       row.push(this.buildAttribute('Light Occupied Hours', room.lightOccupiedHours));
-      return row;
     });
+    return row;
   }
 
   private buildTableHeader(title: string): any {
