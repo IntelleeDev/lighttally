@@ -37,10 +37,10 @@ export class GeneralInfoComponent {
     const formModel = this.genInfoForm.value;
 
     const room: Room = {
-      name: formModel.roomName,
-      lift: formModel.hasLift,
-      lightOccupiedHours: "",
-      heightToFixtures: formModel.heightToFixtures
+      name: formModel.roomName ? formModel.roomName : '',
+      lift: formModel.hasLift ? formModel.hasLift : '',
+      lightOccupiedHours: '',
+      heightToFixtures: formModel.heightToFixtures ? formModel.heightToFixtures : ''
     }
     return room;
   }

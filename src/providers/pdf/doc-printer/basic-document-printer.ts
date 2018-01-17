@@ -95,25 +95,71 @@ export class BasicDocumentPrinter implements PrettyPrinter {
     let row = [];
     roomData.forEach(room => {
       row.push(this.buildTableHeader('Room'));
-      row.push(this.buildAttribute('Name', room.name));
-      row.push(this.buildAttribute('Lift', room.lift));
-      row.push(this.buildAttribute('Height to Fixtures', room.heightToFixtures));
-      row.push(this.buildAttribute('Light Occupied Hours', room.lightOccupiedHours));
+      row.push(this.buildAttribute('Name', room.room.name));
+      row.push(this.buildAttribute('Lift', room.room.lift));
+      row.push(this.buildAttribute('Height to Fixtures', room.room.heightToFixtures));
+      row.push(this.buildAttribute('Light Occupied Hours', room.room.lightOccupiedHours));
+      
+      row.push(this.buildTwoColumnSubHeaders('Fixture', 'Replacement'));
+      
+      row.push(
+        this.buildThreeColSubAttribute('Name', '').concat(this.buildFourColSubAttribute('Name', ''))
+      );
+      
+      row.push(this.addTableBreak()); 
+      
     });
     return row;
+  }
+
+  private buildFixtures(fixtureData: Array<any>): Array<any> {
+    return fixtureData.map(fixture => {
+      this.buildAttribute('Number of Fixtures', fixture.numberOfFixtures);
+      this.buildAttribute('Balast Type', fixture.balastType);
+      this.buildAttribute('Existing Bulb', 'Bulb');
+      this.buildAttribute('Balast Type', fixture.balastType);
+      this.buildAttribute('Wrong Bulb', fixture.wrongBulb);
+    });
   }
 
   private buildTableHeader(title: string): any {
     return [
       { text: title, style: 'tableHeader', colSpan: 7 },
       {},{},{},{},{},{}
-    ]
+    ];
   } 
+
+  private buildTwoColumnSubHeaders(colOneTitle: string, colTwoTitle: string): any {
+    return [
+      { text: colOneTitle, bold: true, alignment: 'center', colSpan: 3 }, {}, {},
+      { text: colTwoTitle, bold: true, alignment: 'center', colSpan: 4 }, {}, {}, {}
+    ]
+  }
 
   private buildAttribute(title: string, value: any): any {
     return [
       { text: title, colSpan: 2 }, {},
       { text: value, colSpan: 5 }, {}, {}, {}, {}
-    ]
+    ];
+  }
+
+  private buildThreeColSubAttribute(title: string, value: any): any {
+    return [
+      { text: title, colSpan: 2 }, {},
+      { text: value },
+    ];
+  }
+
+  private buildFourColSubAttribute(title: string, value: any): any {
+    return [
+      { text: title, colSpan: 2 }, {},
+      { title: value, colSpan: 2 }, {}
+    ];
+  }
+
+  private addTableBreak(): any {
+    return [
+      { text: ' ', colSpan: 7 }, {}, {}, {}, {}, {}, {}
+    ];
   }
 }
