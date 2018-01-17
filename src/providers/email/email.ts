@@ -9,7 +9,7 @@ export class EmailProvider {
     private platform: Platform,
     private email: EmailComposer) { }
 
-  send(options: any = {}) {
+  send(options: any = {}): Promise<any> {
     this.platform.ready().then(() => {
       this.email.isAvailable().then((available: boolean) => {
         if (available) {
@@ -18,7 +18,8 @@ export class EmailProvider {
       })
     });
 
-    this.email.open(options);
+    // Open email app
+    return this.email.open(options);
   }
 
 }
