@@ -18,7 +18,7 @@ export class BasicDocumentPrinter implements PrettyPrinter {
     content.push({
       table: {
         headerRows: 2,
-        width: [ 'auto', '*', '*', '*', '*', '*', '*' ],
+        widths: [ 'auto', 'auto', 'auto', '*', '*', '*', '*' ],
         body: [
           [
             { text: 'Location', style: 'tableHeader', alignment: 'center', colSpan: 7 },
@@ -71,7 +71,7 @@ export class BasicDocumentPrinter implements PrettyPrinter {
     content.push({
       table: {
         headerRows: 1,
-        width: [ 'auto', '*', '*', '*', '*', '*', '*' ],
+        widths: [ '200', '*', '*', '*', '*', '*', '*' ],
         body: [
           [
             { text: 'Room', style: 'tableHeader', colSpan: 7 },
@@ -79,19 +79,19 @@ export class BasicDocumentPrinter implements PrettyPrinter {
           ],
           [
             { text: 'Name', colSpan: 2 }, {},
-            { text: `${firstRoom.name}`, colSpan:5 }, {}, {}, {}, {}       
+            { text: `${firstRoom.room.name}`, colSpan:5 }, {}, {}, {}, {}       
           ],
           [
             { text: 'Lift', colSpan: 2 }, {},
-            { text: `${firstRoom.lift}`, colSpan: 5 }, {}, {}, {}, {}       
+            { text: `${firstRoom.room.lift}`, colSpan: 5 }, {}, {}, {}, {}       
           ],
           [
             { text: 'Height to Fixtures', colSpan: 2 }, {},
-            { text: `${firstRoom.heightToFixtures}`, colSpan:5 }, {}, {}, {}, {}       
+            { text: `${firstRoom.room.heightToFixtures}`, colSpan:5 }, {}, {}, {}, {}       
           ],
           [
             { text: 'Light Occupied Hours', colSpan: 2 }, {},
-            { text: `${firstRoom.lightOccupiedHours}`, colSpan:5 }, {}, {}, {}, {}       
+            { text: `${firstRoom.room.lightOccupiedHours}`, colSpan:5 }, {}, {}, {}, {}       
           ],
 
           [
@@ -111,12 +111,17 @@ export class BasicDocumentPrinter implements PrettyPrinter {
             { text: `${firstRoom.fixtures[0].numberOfBulbs}`, colSpan:5 }, {}, {}, {}, {}       
           ],
           [
+            { text: 'Existing Bulb', style: 'tableHeader', alignment: 'center', colSpan: 7 },
+            {}, {}, {}, {}, {}, {}
+          ],
+          
+          [
             { text: 'Wrong Bulb', colSpan: 2 }, {},
             { text: `${firstRoom.fixtures[0].wrongBulb}`, colSpan:5 }, {}, {}, {}, {}       
           ],
 
           [
-            { text: 'Replacement', style: 'tableHeader', alignment: 'center', colSpan: 7 },
+            { text: 'Replacement', style: 'tableHeader', colSpan: 7 },
            {}, {}, {}, {}, {}, {}
           ]
         ]

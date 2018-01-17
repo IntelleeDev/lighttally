@@ -63,7 +63,7 @@ export class FinalizeComponent {
     .then(() => {
       this.createToast('Finished generating files')
           .onDidDismiss(() => {
-            modal.onDidDismiss(() => this.navCtrl.popAll())
+            modal.onDidDismiss(() => this.navCtrl.popToRoot())
             modal.dismiss();
           });
     })
