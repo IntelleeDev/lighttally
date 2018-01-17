@@ -51,6 +51,7 @@ export class FinalizeComponent {
                 this.createToast('Finished generating files')
                     .onDidDismiss(() => {
                       this.navCtrl.popToRoot();
+                      this.createToast(file);
                       modal.onDidDismiss(() => { 
                         this.email.send({
                           attachments: [ file ]
