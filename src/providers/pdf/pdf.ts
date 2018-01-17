@@ -25,14 +25,6 @@ export class PdfProvider {
     this.pdfObject = pdfMake.createPdf(docDef);
   }
 
-  private makeDocDefinition(data): any {
-    const content = []; 
-    content.push({ text: `Evaluation for ${data.location.businessName}`})
-    content.push({ text: 'Location Data'});
-    content.push({ text: ''})
-    return { content };
-  }
-
   save(): Promise<any> {
     if (this.isRunningOnMobileDevice()) {
       return this.platform.ready().then(() => {
@@ -42,7 +34,6 @@ export class PdfProvider {
           return this.file.writeFile(this.file.dataDirectory, 'eval.pdf', blob, { replace: true })
               .then(fileEntry => {
                 this.fileOpener.open(this.file.dataDirectory + 'eval.pdf', 'application/pdf');
-                return `${this.file.dataDirectory}eval.pdf`;
               })
               .catch(error => this.makeToast(error));
         })

@@ -37,7 +37,7 @@ export class FinalizeComponent {
   finishEvaluation() {
     const modal = this.createModal();
     
-    const user = this.cache.getItem('user');  // The evaluator
+    const user = this.cache.getItem('user');
     const location = this.cache.getItem('location');
     const evaluations = this.cache.getItem('evaluation');
     this.batchProcessor
@@ -97,7 +97,7 @@ export class FinalizeComponent {
   private createPdf() {
     const location = this.cache.getItem('location');
     const evaluations = this.cache.getItem('evaluation');
-    console.log(evaluations);
+    
     this.pdf.create({ 
       evaluations,
       contact: location.contact, 
